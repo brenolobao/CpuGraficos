@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Gráficos de CPUs AMD</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    canvas {
+      margin-bottom: 20px;
+    }
+
+    .chart-container {
+      width: 100%;
+      max-width: 900px;
+      margin: auto;
+    }
+
+    .stats-text {
+      font-size: 0.95em;
+      color: #333;
+      margin-bottom: 40px;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Desempenho de CPUs AMD (2017-2025)</h1>
+
+  <label for="coreFilter">Filtrar por número de threads:</label>
+  <select id="coreFilter"></select>
+
+  <div class="chart-container">
+
+    <canvas id="singleCoreSorted"></canvas>
+    <div class="stats-text" id="singleSortedStats"></div>
+
+    <canvas id="multiCoreSorted"></canvas>
+    <div class="stats-text" id="multiSortedStats"></div>
+
+    <canvas id="singleCoreByYear"></canvas>
+    <div class="stats-text" id="singleStats"></div>
+
+    <canvas id="multiCoreByYear"></canvas>
+    <div class="stats-text" id="multiStats"></div>
+
+    <canvas id="multiCoreAvgByLitho"></canvas>
+    <canvas id="mediaPorLinha"></canvas>
+    <canvas id="crescimentoPorLinha"></canvas>
+  </div>
+
+  <script>
+    let data;
+    let charts = [];
+
+    async function fetchData() {
+      const response = await fetch('cpusAmd-2017-2025-am4.json');
+      const json = await response.json();
+      data = json.processadores.filter(cpu => cpu.desempenho && cpu.desempenho.single_core != null && cpu.desempenho.multi_core != null);
+      populateCoreFilter();
+    }
+
+    function populateCoreFilter() {
+      const select = document.getElementById('coreFilter');
+      const threadCounts = [...new Set(data.map(cpu => cpu.threads))].sort((a, b) => a - b);
+      threadCounts.forEach(threads => {
+        const opt = document.createElement('option');
+        opt.value = threads;
+        opt.textContent = `${threads} threads`;
+        select.appendChild(opt);
+      });
+      select.addEventListener('change', () => updateCharts(+select.value));
+      updateCharts(+select.value);
+    }
+
+    function updateCharts(threadCount) {
+      charts.forEach(chart => chart.destroy());
+      charts = [];
+
+      const filtered = data.filter(cpu => cpu.threads === threadCount);
+      const byYear = [...filtered].filter(cpu => cpu.data_lancamento)
+        .sort((a, b) => new Date(a.data_lancamento.split('/').reverse().join('-')) - new Date(b.data_lancamento.split('/').reverse().join('-')));
+      const bySingle = [...filtered].sort((a, b) => a.desempenho.single_core - b.desempenho.single_core);
+      const byMulti = [...filtered].sort((a, b) => a.desempenho.multi_core - b.desempenho.multi_core);
+
+      charts.push(createChart('singleCoreByYear', 'Single Core por Ano', 'single_core', byYear));
+
+      charts.push(createChart('multiCoreByYear', 'Multi Core por Ano', 'multi_core', byYear));
+
+      charts.push(createChart('singleCoreSorted', 'Single Core (Crescente)', 'single_core', bySingle));
+      document.getElementById('singleSortedStats').textContent = calcStats(bySingle, 'single_core');
+
+      charts.push(createChart('multiCoreSorted', 'Multi Core (Crescente)', 'multi_core', byMulti));
+      document.getElementById('multiSortedStats').textContent = calcStats(byMulti, 'multi_core');
+
+      charts.push(createAvgChart('multiCoreAvgByLitho', 'Média Multi Core por Litografia', filtered));
+      charts.push(createAvgByThreadChart('mediaPorLinha', 'Média de Single e Multi por Threads'));
+      charts.push(createCrescimentoPorThreadChart('crescimentoPorLinha', 'Crescimento Médio Anual por Threads'));
+    }
+
+    function createChart(id, label, key, dataset) {
+      const ctx = document.getElementById(id);
+      return new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: dataset.map(cpu => `${cpu.nome} (${cpu.data_lancamento})`),
+          datasets: [{
+            label: label,
+            data: dataset.map(cpu => cpu.desempenho[key]),
+            backgroundColor: 'rgba(75, 192, 192, 0.7)'
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+    }
+
+    function calcStats(dataset, key) {
+      let maxDelta = 0, maxDeltaPair = ['', ''];
+      for (let i = 1; i < dataset.length; i++) {
+        const prev = dataset[i - 1].desempenho[key];
+        const curr = dataset[i].desempenho[key];
+        const percentChange = ((curr - prev) / prev) * 100;
+        if (percentChange > maxDelta) {
+          maxDelta = percentChange;
+          maxDeltaPair = [dataset[i - 1].nome, dataset[i].nome];
+        }
+      }
+      const allValues = dataset.map(cpu => cpu.desempenho[key]);
+      const min = Math.min(...allValues);
+      const max = Math.max(...allValues);
+      const rangeDelta = ((max - min) / min) * 100;
+
+      return `Maior aumento consecutivo: ${maxDelta.toFixed(1)}% (${maxDeltaPair[0]} → ${maxDeltaPair[1]}), Diferença entre o pior e melhor: ${rangeDelta.toFixed(1)}%`;
+    }
+
+    function createAvgChart(id, label, dataset) {
+      const grouped = {};
+      dataset.forEach(cpu => {
+        if (!cpu.litografia || !cpu.desempenho.multi_core) return;
+        if (!grouped[cpu.litografia]) grouped[cpu.litografia] = [];
+        grouped[cpu.litografia].push(cpu.desempenho.multi_core);
+      });
+
+      const labels = Object.keys(grouped);
+      const values = labels.map(lit => media(grouped[lit]));
+
+      const ctx = document.getElementById(id);
+      return new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels,
+          datasets: [{
+            label: label,
+            data: values,
+            backgroundColor: 'rgba(153, 102, 255, 0.7)'
+          }]
+        },
+        options: {
+          responsive: true,
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+    }
+
+    function createAvgByThreadChart(id, label) {
+      const threadGroups = {};
+      data.forEach(cpu => {
+        const t = cpu.threads;
+        if (!threadGroups[t]) threadGroups[t] = { single: [], multi: [] };
+        threadGroups[t].single.push(cpu.desempenho.single_core);
+        threadGroups[t].multi.push(cpu.desempenho.multi_core);
+      });
+
+      const labels = Object.keys(threadGroups).sort((a, b) => a - b);
+      const singleMeans = labels.map(t => media(threadGroups[t].single));
+      const multiMeans = labels.map(t => media(threadGroups[t].multi));
+
+      const ctx = document.getElementById(id);
+      return new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: labels.map(l => `${l} threads`),
+          datasets: [
+            {
+              label: 'Single Core',
+              data: singleMeans,
+              backgroundColor: 'rgba(255, 159, 64, 0.7)'
+            },
+            {
+              label: 'Multi Core',
+              data: multiMeans,
+              backgroundColor: 'rgba(54, 162, 235, 0.7)'
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+    }
+
+    function createCrescimentoPorThreadChart(id, label) {
+      const threadGroups = {};
+      data.forEach(cpu => {
+        const t = cpu.threads;
+        const ano = parseInt(cpu.data_lancamento.split('/')[1]);
+        if (!threadGroups[t]) threadGroups[t] = [];
+        threadGroups[t].push({ ano, single: cpu.desempenho.single_core, multi: cpu.desempenho.multi_core });
+      });
+
+      const labels = Object.keys(threadGroups).sort((a, b) => a - b);
+      const singleRates = [], multiRates = [];
+
+      labels.forEach(t => {
+        const cpus = threadGroups[t].sort((a, b) => a.ano - b.ano);
+        if (cpus.length < 2) return singleRates.push(0), multiRates.push(0);
+
+        const anos = cpus[cpus.length - 1].ano - cpus[0].ano || 1;
+        const singleStart = cpus[0].single;
+        const singleEnd = cpus[cpus.length - 1].single;
+        const multiStart = cpus[0].multi;
+        const multiEnd = cpus[cpus.length - 1].multi;
+
+        const singlePercent = ((singleEnd - singleStart) / singleStart) * 100 / anos;
+        const multiPercent = ((multiEnd - multiStart) / multiStart) * 100 / anos;
+
+        singleRates.push(singlePercent.toFixed(1));
+        multiRates.push(multiPercent.toFixed(1));
+      });
+
+      const ctx = document.getElementById(id);
+      return new Chart(ctx, {
+        type: 'line',
+        data: {
+          labels: labels.map(t => `${t} threads`),
+          datasets: [
+            {
+              label: 'Crescimento Anual Médio (%) - Single Core',
+              data: singleRates,
+              borderColor: 'orange',
+              backgroundColor: 'rgba(255,165,0,0.3)',
+              fill: true
+            },
+            {
+              label: 'Crescimento Anual Médio (%) - Multi Core',
+              data: multiRates,
+              borderColor: 'blue',
+              backgroundColor: 'rgba(0,0,255,0.2)',
+              fill: true
+            }
+          ]
+        },
+        options: {
+          responsive: true,
+          scales: { y: { beginAtZero: true } }
+        }
+      });
+    }
+
+    function media(arr) {
+      if (arr.length === 0) return 0;
+      return arr.reduce((a, b) => a + b, 0) / arr.length;
+    }
+
+    fetchData();
+  </script>
+</body>
+
+</html>
