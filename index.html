@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gráficos de Desempenho de CPUs AMD</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      padding: 0 1rem;
+      background: #f9f9f9;
+      color: #333;
+    }
+
+    h1 {
+      text-align: center;
+      margin: 2rem 0 1rem;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+      margin-bottom: 1.5rem;
+      background: #fff;
+      padding: 1rem;
+    }
+
+    .filters label {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.9rem;
+    }
+
+    select,
+    button {
+      padding: 0.4rem;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      background-color: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background-color: #0056b3;
+    }
+
+    .info {
+      text-align: center;
+      font-weight: bold;
+      margin-bottom: 1rem;
+      white-space: pre-wrap;
+    }
+
+    .chart-container {
+      margin: 0 auto 2rem;
+      width: 100%;
+      min-width: 300px;
+      max-width: 1000px;
+      background: white;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .lista-cpus {
+      list-style: none;
+      padding: 0;
+      max-width: 1000px;
+      margin: 0 auto 3rem;
+    }
+
+    .item-cpu {
+      background: white;
+      margin-bottom: 0.5rem;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+
+    .item-cpu .detalhes {
+      margin-top: 0.5rem;
+      display: none;
+    }
+
+    .item-cpu.expandido .detalhes {
+      display: block;
+    }
+
+    .botao-toggle {
+      float: right;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      padding: 0.3rem 0.6rem;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+
+
+    .card h3 {
+      margin-top: 0;
+      font-size: 1.1rem;
+    }
+
+    canvas {
+      width: 100% !important;
+      height: 400px !important;
+    }
+
+    @media (max-width: 600px) {
+      .filters {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .filters label {
+        width: 100%;
+      }
+
+      button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <h1>Gráficos de Desempenho de CPUs AMD (2017–2025)</h1>
+
+  <div class="filters">
+    <label>Linha:
+      <select id="linha">
+        <option value="">Todas</option>
+        <option value="Ryzen 3">Ryzen 3</option>
+        <option value="Ryzen 5">Ryzen 5</option>
+        <option value="Ryzen 7">Ryzen 7</option>
+        <option value="Ryzen 9">Ryzen 9</option>
+        <option value="A">Linha A</option>
+        <option value="Athlon">Athlon</option>
+      </select>
+    </label>
+
+    <label>Núcleos:
+      <select id="nucleos">
+        <option value="">Todos</option>
+        <option value="2">2</option>
+        <option value="4">4</option>
+        <option value="6">6</option>
+        <option value="8">8</option>
+        <option value="12">12</option>
+        <option value="16">16</option>
+      </select>
+    </label>
+
+    <label>Ano:
+      <select id="ano">
+        <option value="">Todos</option>
+        <option value="2017">2017</option>
+        <option value="2018">2018</option>
+        <option value="2019">2019</option>
+        <option value="2020">2020</option>
+        <option value="2021">2021</option>
+        <option value="2022">2022</option>
+        <option value="2023">2023</option>
+        <option value="2024">2024</option>
+        <option value="2025">2025</option>
+      </select>
+    </label>
+
+    <button onclick="filtrarDados()">Filtrar</button>
+  </div>
+
+  <div class="info" id="contagem"></div>
+
+  <div class="chart-container">
+    <canvas id="singleCoreChart"></canvas>
+    <div id="evolucaoSingle" class="info"></div>
+  </div>
+
+  <div class="chart-container">
+    <canvas id="multiCoreChart"></canvas>
+    <div id="evolucaoMulti" class="info"></div>
+  </div>
+
+  <ul class="lista-cpus" id="listaCpus"></ul>
+
+
+  <script>
+    let dadosProcessadores = [];
+    let singleChart, multiChart;
+
+    async function carregarDados() {
+      const response = await fetch('./cpusAmd-2017-2025-am4.json');
+      const json = await response.json();
+      dadosProcessadores = json.processadores.filter(p => p.desempenho?.single_core && p.desempenho?.multi_core);
+      document.getElementById('contagem').textContent = `Total de CPUs disponíveis: ${dadosProcessadores.length}`;
+      desenharGraficos(dadosProcessadores);
+    }
+
+    function calcularMaiorEvolucao(dados, tipo) {
+      const grupos = {};
+
+      dados.forEach(cpu => {
+        const key = cpu.nucleos;
+        if (!grupos[key]) grupos[key] = [];
+        grupos[key].push(cpu);
+      });
+
+      let maiorEvolucaoConsecutiva = 0;
+      let maiorEvolucaoTotal = 0;
+      let cpusConsecutivos = { cpu1: null, cpu2: null };
+      let cpusExtremos = { cpu1: null, cpu2: null };
+
+      for (const [nucleos, cpus] of Object.entries(grupos)) {
+        if (cpus.length < 2) continue;
+
+        cpus.sort((a, b) => a.desempenho[tipo] - b.desempenho[tipo]);
+
+        const pior = cpus[0];
+        const melhor = cpus[cpus.length - 1];
+        const evolucaoTotal = ((melhor.desempenho[tipo] - pior.desempenho[tipo]) / pior.desempenho[tipo]) * 100;
+
+        if (evolucaoTotal > maiorEvolucaoTotal) {
+          maiorEvolucaoTotal = evolucaoTotal;
+          cpusExtremos = { cpu1: pior.nome, cpu2: melhor.nome };
+        }
+
+        for (let i = 0; i < cpus.length - 1; i++) {
+          const atual = cpus[i];
+          const proximo = cpus[i + 1];
+          const evolucao = ((proximo.desempenho[tipo] - atual.desempenho[tipo]) / atual.desempenho[tipo]) * 100;
+
+          if (evolucao > maiorEvolucaoConsecutiva) {
+            maiorEvolucaoConsecutiva = evolucao;
+            cpusConsecutivos = { cpu1: atual.nome, cpu2: proximo.nome };
+          }
+        }
+      }
+
+      return {
+        consecutiva: {
+          porcentagem: maiorEvolucaoConsecutiva.toFixed(2),
+          cpu1: cpusConsecutivos.cpu1,
+          cpu2: cpusConsecutivos.cpu2
+        },
+        total: {
+          porcentagem: maiorEvolucaoTotal.toFixed(2),
+          cpu1: cpusExtremos.cpu1,
+          cpu2: cpusExtremos.cpu2
+        }
+      };
+    }
+
+    function desenharGraficos(dados) {
+      document.getElementById('contagem').textContent =
+        `Total de CPUs disponíveis: ${dadosProcessadores.length} | CPUs exibidas após filtro: ${dados.length}`;
+
+      const ordenado = [...dados].sort((a, b) => a.desempenho.single_core - b.desempenho.single_core);
+      const labels = ordenado.map(p => p.nome);
+
+      const singleData = {
+        labels,
+        datasets: [{
+          label: 'Desempenho Single Core',
+          data: ordenado.map(p => p.desempenho.single_core),
+          fill: true,
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          tension: 0.4,
+        }]
+      };
+
+      const ordenadoMulti = [...dados].sort((a, b) => a.desempenho.multi_core - b.desempenho.multi_core);
+      const labelsMulti = ordenadoMulti.map(p => p.nome);
+
+      const multiData = {
+        labels: labelsMulti,
+        datasets: [{
+          label: 'Desempenho Multi Core',
+          data: ordenadoMulti.map(p => p.desempenho.multi_core),
+          fill: true,
+          backgroundColor: 'rgba(255, 99, 132, 0.2)',
+          borderColor: 'rgba(255, 99, 132, 1)',
+          tension: 0.4,
+        }]
+      };
+
+      if (singleChart) singleChart.destroy();
+      if (multiChart) multiChart.destroy();
+
+      singleChart = new Chart(document.getElementById('singleCoreChart'), {
+        type: 'line',
+        data: singleData,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { beginAtZero: true },
+            x: { display: false }
+          }
+        }
+      });
+
+      multiChart = new Chart(document.getElementById('multiCoreChart'), {
+        type: 'line',
+        data: multiData,
+        options: {
+          responsive: true,
+          maintainAspectRatio: false,
+          scales: {
+            y: { beginAtZero: true },
+            x: { display: false }
+          }
+        }
+      });
+
+      const evolucaoSingle = calcularMaiorEvolucao(dados, 'single_core');
+      const evolucaoMulti = calcularMaiorEvolucao(dados, 'multi_core');
+
+      document.getElementById('evolucaoSingle').innerText =
+        `Maior evolução Single Core entre CPUs consecutivos: ${evolucaoSingle.consecutiva.porcentagem}% (${evolucaoSingle.consecutiva.cpu1} → ${evolucaoSingle.consecutiva.cpu2})\n` +
+        `Maior evolução Single Core total: ${evolucaoSingle.total.porcentagem}% (${evolucaoSingle.total.cpu1} → ${evolucaoSingle.total.cpu2})`;
+
+      document.getElementById('evolucaoMulti').innerText =
+        `Maior evolução Multi Core entre CPUs consecutivos: ${evolucaoMulti.consecutiva.porcentagem}% (${evolucaoMulti.consecutiva.cpu1} → ${evolucaoMulti.consecutiva.cpu2})\n` +
+        `Maior evolução Multi Core total: ${evolucaoMulti.total.porcentagem}% (${evolucaoMulti.total.cpu1} → ${evolucaoMulti.total.cpu2})`;
+
+      renderizarLista(dados);
+
+    }
+    function renderizarLista(dados) {
+      const container = document.getElementById('listaCpus');
+      container.innerHTML = '';
+
+      const ordenadoPorData = [...dados].sort((a, b) => {
+        const [m1, y1] = a.data_lancamento.split('/').map(Number);
+        const [m2, y2] = b.data_lancamento.split('/').map(Number);
+        return new Date(y1, m1 - 1) - new Date(y2, m2 - 1);
+      });
+
+      for (const cpu of ordenadoPorData) {
+        const item = document.createElement('li');
+        item.className = 'item-cpu';
+
+        item.innerHTML = `
+      <strong>${cpu.nome}</strong>
+      <button class="botao-toggle" onclick="toggleDetalhes(this)">Ver mais</button>
+      <div class="detalhes">
+        <p><strong>Fabricante:</strong> ${cpu.fabricante}</p>
+        <p><strong>Arquitetura:</strong> ${cpu.arquitetura}</p>
+        <p><strong>Data de lançamento:</strong> ${cpu.data_lancamento}</p>
+        <p><strong>Clock Base:</strong> ${cpu.clock?.base || 'N/A'}</p>
+        <p><strong>Clock Boost:</strong> ${cpu.clock?.boost || 'N/A'}</p>
+        <p><strong>Núcleos / Threads:</strong> ${cpu.nucleos} / ${cpu.threads}</p>
+        <p><strong>Soquete:</strong> ${cpu.soquete}</p>
+        <p><strong>Litografia:</strong> ${cpu.litografia}</p>
+        <p><strong>Cache:</strong> ${cpu.cache}</p>
+        <p><strong>TDP:</strong> ${cpu.tdp}</p>
+        <p><strong>Single Core:</strong> ${cpu.desempenho.single_core}</p>
+        <p><strong>Multi Core:</strong> ${cpu.desempenho.multi_core}</p>
+        <p><strong>Preço de lançamento:</strong> ${cpu.preco_lancamento !== null ? `R$ ${cpu.preco_lancamento}` : 'Não informado'}</p>
+      </div>
+    `;
+
+        container.appendChild(item);
+      }
+    }
+
+
+
+    function filtrarDados() {
+      const linha = document.getElementById('linha').value;
+      const nucleos = document.getElementById('nucleos').value;
+      const ano = document.getElementById('ano').value;
+
+      const filtrado = dadosProcessadores.filter(p => {
+        const nome = p.nome.toLowerCase();
+        const dataAno = parseInt(p.data_lancamento.split('/')[1]);
+
+        let linhaCond = true;
+        if (linha === 'A') {
+          linhaCond = nome.startsWith('a') && !nome.includes('athlon') && !nome.includes('ryzen');
+        } else if (linha === 'Athlon') {
+          linhaCond = nome.includes('athlon');
+        } else if (linha) {
+          linhaCond = nome.includes(linha.toLowerCase());
+        }
+
+        return linhaCond &&
+          (!nucleos || p.nucleos == nucleos) &&
+          (!ano || dataAno == ano);
+      });
+
+      desenharGraficos(filtrado);
+    }
+    function toggleDetalhes(botao) {
+      const item = botao.closest('.item-cpu');
+      item.classList.toggle('expandido');
+      botao.textContent = item.classList.contains('expandido') ? 'Ver menos' : 'Ver mais';
+    }
+
+
+    carregarDados();
+  </script>
+</body>
+
+</html>
