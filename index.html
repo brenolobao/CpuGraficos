@@ -8,84 +8,90 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0; /* Remove default body margin */
-            padding: 10px; /* Add some overall padding */
+            margin: 0;
+            padding: 10px;
             background-color: #f4f4f4;
             color: #333;
-            box-sizing: border-box; /* Include padding in element's total width and height */
-            min-height: 100vh; /* Ensure body takes at least full viewport height */
-            display: flex; /* Use flex to manage main container */
+            box-sizing: border-box;
+            min-height: 100vh;
+            display: flex;
             flex-direction: column;
-            align-items: center; /* Center content horizontally */
+            align-items: center;
         }
         .container {
-            width: 100%; /* Take full width on small screens */
-            max-width: 1200px; /* Limit max width on larger screens */
-            margin: 0 auto; /* Center the container */
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
             background: #fff;
-            padding: 15px; /* Slightly less padding on mobile */
+            padding: 15px;
             border-radius: 8px;
             box-shadow: 0 2px 4px rgba(0,0,0,0.1);
             box-sizing: border-box;
-            flex-grow: 1; /* Allow container to grow and fill vertical space */
+            flex-grow: 1;
         }
         h1, h2 {
             text-align: center;
             color: #0056b3;
             margin-top: 15px;
-            margin-bottom: 20px;
+            margin-bottom: 5px; /* Reduced margin to make space for count text */
         }
         h1 {
-            font-size: 1.8em; /* Adjust font size for mobile */
+            font-size: 1.8em;
         }
         h2 {
-            font-size: 1.4em; /* Adjust font size for mobile */
+            font-size: 1.4em;
+        }
+        .chart-count, .filter-count {
+            text-align: center;
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 15px; /* Spacing below the count text */
         }
         .filter-section {
             text-align: center;
-            margin-bottom: 25px; /* Slightly less margin */
-            padding: 10px; /* Adjust padding */
+            margin-bottom: 25px;
+            padding: 10px;
             background-color: #e9ecef;
             border-radius: 5px;
-            display: flex; /* Use flexbox for better alignment */
-            flex-direction: column; /* Stack items vertically on small screens */
-            gap: 10px; /* Space between items */
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
         }
         .filter-section label {
             font-weight: bold;
-            margin-right: 0; /* Remove margin right on mobile */
-            margin-bottom: 5px; /* Add margin below label */
+            margin-right: 0;
+            margin-bottom: 5px;
         }
         .filter-section select,
         .filter-section button {
-            width: 100%; /* Full width for select and buttons */
-            max-width: 300px; /* Limit width on larger screens */
-            margin: 0 auto; /* Center items */
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
             padding: 10px 12px;
             border-radius: 4px;
             border: 1px solid #ccc;
             font-size: 1em;
             cursor: pointer;
-            box-sizing: border-box; /* Include padding in element's total width and height */
+            box-sizing: border-box;
         }
         .filter-section button {
-            margin-left: 0; /* Remove left margin for stacking */
-            margin-top: 10px; /* Space between select and buttons, or buttons themselves */
+            margin-left: 0;
+            margin-top: 10px;
         }
         .chart-container {
-            margin-bottom: 30px; /* Slightly less margin */
-            padding: 15px; /* Adjust padding */
+            margin-bottom: 30px;
+            padding: 15px;
             background-color: #fff;
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             position: relative;
-            overflow-x: auto; /* Allow horizontal scrolling if chart content overflows */
+            overflow-x: auto;
         }
 
         .chart-container canvas {
-            max-height: 400px; /* Limit chart height on smaller screens for better fitting */
-            width: 100% !important; /* Important to override Chart.js inline styles */
-            height: auto !important; /* Important to override Chart.js inline styles */
+            max-height: 400px;
+            width: 100% !important;
+            height: auto !important;
         }
 
         .chart-comment {
@@ -94,13 +100,13 @@
             background-color: #e2f0cb;
             border-left: 5px solid #7cb342;
             border-radius: 4px;
-            font-size: 0.85em; /* Slightly smaller font for mobile */
+            font-size: 0.85em;
         }
         .no-data {
             text-align: center;
-            font-size: 1.1em; /* Adjust font size */
+            font-size: 1.1em;
             color: #666;
-            padding: 30px; /* Adjust padding */
+            padding: 30px;
         }
 
         /* Media Queries for larger screens (e.g., tablets and desktops) */
@@ -118,10 +124,10 @@
                 font-size: 1.7em;
             }
             .filter-section {
-                flex-direction: row; /* Row layout on larger screens */
-                justify-content: center; /* Center items horizontally */
-                align-items: center; /* Align items vertically in the middle */
-                gap: 15px; /* Space between items */
+                flex-direction: row;
+                justify-content: center;
+                align-items: center;
+                gap: 15px;
                 padding: 15px;
             }
             .filter-section label {
@@ -130,12 +136,12 @@
             }
             .filter-section select,
             .filter-section button {
-                width: auto; /* Auto width on larger screens */
-                margin: 0; /* Remove margin auto */
+                width: auto;
+                margin: 0;
             }
             .filter-section button {
                 margin-top: 0;
-                margin-left: 10px; /* Restore left margin for buttons */
+                margin-left: 10px;
             }
             .chart-comment {
                 font-size: 0.9em;
@@ -145,7 +151,7 @@
                 padding: 50px;
             }
             .chart-container canvas {
-                max-height: 500px; /* Slightly taller charts on larger screens */
+                max-height: 500px;
             }
         }
     </style>
@@ -161,6 +167,7 @@
             </select>
             <button onclick="applyFilter()">Aplicar Filtro</button>
             <button onclick="resetFilter()">Limpar Filtro</button>
+            <div id="totalCpuCount" class="filter-count"></div>
         </div>
 
         <div id="chart-area">
@@ -169,7 +176,8 @@
 
         <hr>
         <div class="chart-container">
-            <h2>Relação Desempenho/Preço de Lançamento (Todos os CPUs com Preço)</h2>
+            <h2>Relação Desempenho/Preço de Lançamento (Todos os CPUs com Dados Completos)</h2>
+            <div id="overallPerfPriceCount" class="chart-count"></div>
             <canvas id="overallPerfPriceChart"></canvas>
             <div id="overallPerfPriceComment" class="chart-comment"></div>
         </div>
@@ -187,12 +195,20 @@
                 }
                 const data = await response.json();
                 allProcessors = data.processadores;
+
+                // Calculate total CPUs with single and multi-core data
+                const totalProcessorsWithPerfData = allProcessors.filter(p =>
+                    p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null
+                );
+                document.getElementById('totalCpuCount').textContent = `Total de CPUs com dados de desempenho: ${totalProcessorsWithPerfData.length}`;
+
                 populateThreadsFilter(allProcessors);
                 document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>';
                 drawOverallPerfPriceChart(allProcessors); // Draw this chart initially
             } catch (error) {
                 console.error('Erro ao carregar os dados dos processadores:', error);
                 document.getElementById('chart-area').innerHTML = '<div class="no-data" style="color: red;">Erro ao carregar os dados. Verifique se o arquivo cpusAmd-2017-2025-am4.json está na mesma pasta.</div>';
+                document.getElementById('totalCpuCount').textContent = 'Erro ao carregar dados.';
                 document.getElementById('overallPerfPriceComment').innerHTML = '<div class="no-data" style="color: red;">Erro ao carregar dados para este gráfico.</div>';
             }
         }
@@ -218,24 +234,24 @@
                 filteredProcessors = allProcessors.filter(p => p.threads == parseInt(selectedThreads));
             } else {
                 document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>';
-                destroyCharts(); // Destroy filtered charts
+                destroyCharts();
                 return;
             }
 
             if (filteredProcessors.length === 0) {
                 document.getElementById('chart-area').innerHTML = '<div class="no-data">Nenhum processador encontrado para o filtro selecionado.</div>';
-                destroyCharts(); // Destroy filtered charts
+                destroyCharts();
                 return;
             }
 
-            destroyCharts(); // Destroy filtered charts
+            destroyCharts();
             displayCharts(filteredProcessors);
         }
 
         function resetFilter() {
             document.getElementById('threadsFilter').value = '';
             document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>';
-            destroyCharts(); // Destroy filtered charts
+            destroyCharts();
         }
 
         function destroyCharts() {
@@ -244,7 +260,6 @@
             if (litographyChart) { litographyChart.destroy(); litographyChart = null; }
             if (priceChart) { priceChart.destroy(); priceChart = null; }
             if (perfPriceChart) { perfPriceChart.destroy(); perfPriceChart = null; }
-            // Note: overallPerfPriceChart is NOT destroyed here as it's not part of the filtered view
         }
 
         function displayCharts(processors) {
@@ -253,6 +268,7 @@
                 <hr>
                 <div class="chart-container">
                     <h2>Desempenho Single-Core (Crescente)</h2>
+                    <div id="singleCoreCount" class="chart-count"></div>
                     <canvas id="singleCoreChart"></canvas>
                     <div id="singleCoreComment" class="chart-comment"></div>
                 </div>
@@ -260,6 +276,7 @@
                 <hr>
                 <div class="chart-container">
                     <h2>Desempenho Multi-Core (Crescente)</h2>
+                    <div id="multiCoreCount" class="chart-count"></div>
                     <canvas id="multiCoreChart"></canvas>
                     <div id="multiCoreComment" class="chart-comment"></div>
                 </div>
@@ -267,12 +284,14 @@
                 <hr>
                 <div class="chart-container">
                     <h2>Média de Desempenho por Litografia</h2>
+                    <div id="litographyCount" class="chart-count"></div>
                     <canvas id="litographyChart"></canvas>
                 </div>
 
                 <hr>
                 <div class="chart-container">
                     <h2>Preço de Lançamento por Ano (Crescente)</h2>
+                    <div id="priceCount" class="chart-count"></div>
                     <canvas id="priceChart"></canvas>
                     <div id="priceComment" class="chart-comment"></div>
                 </div>
@@ -280,6 +299,7 @@
                 <hr>
                 <div class="chart-container">
                     <h2>Relação Desempenho/Preço de Lançamento (Crescente)</h2>
+                    <div id="perfPriceCount" class="chart-count"></div>
                     <canvas id="perfPriceChart"></canvas>
                     <div id="perfPriceComment" class="chart-comment"></div>
                 </div>
@@ -292,10 +312,9 @@
             drawPerfPriceChart(processors);
         }
 
-        // --- Common Chart Options for Responsiveness and Labels ---
         const commonChartOptions = {
             responsive: true,
-            maintainAspectRatio: false, // THIS IS KEY FOR RESPONSIVENESS WITHOUT INFINITE GROWTH
+            maintainAspectRatio: false,
             scales: {
                 y: {
                     beginAtZero: true,
@@ -310,8 +329,8 @@
                         text: 'Processador'
                     },
                     ticks: {
-                        autoSkip: true, // Automatically skip labels if too many
-                        maxRotation: 90, // Rotate labels to fit
+                        autoSkip: true,
+                        maxRotation: 90,
                         minRotation: 0
                     }
                 }
@@ -327,11 +346,11 @@
             }
         };
 
-        // --- Individual Chart Drawing Functions ---
-
         function drawSingleCoreChart(processors) {
             const validProcessors = processors.filter(p => p.desempenho && p.desempenho.single_core !== null);
             validProcessors.sort((a, b) => a.desempenho.single_core - b.desempenho.single_core);
+
+            document.getElementById('singleCoreCount').textContent = `CPUs exibidos: ${validProcessors.length}`;
 
             const labels = validProcessors.map(p => p.nome);
             const data = validProcessors.map(p => p.desempenho.single_core);
@@ -386,6 +405,8 @@
             const validProcessors = processors.filter(p => p.desempenho && p.desempenho.multi_core !== null);
             validProcessors.sort((a, b) => a.desempenho.multi_core - b.desempenho.multi_core);
 
+            document.getElementById('multiCoreCount').textContent = `CPUs exibidos: ${validProcessors.length}`;
+
             const labels = validProcessors.map(p => p.nome);
             const data = validProcessors.map(p => p.desempenho.multi_core);
 
@@ -438,20 +459,22 @@
         function drawLitographyChart(processors) {
             const litographyData = {};
 
-            processors.forEach(p => {
-                if (p.litografia && p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null) {
-                    if (!litographyData[p.litografia]) {
-                        litographyData[p.litografia] = { singleSum: 0, multiSum: 0, count: 0 };
-                    }
-                    litographyData[p.litografia].singleSum += p.desempenho.single_core;
-                    litographyData[p.litografia].multiSum += p.desempenho.multi_core;
-                    litographyData[p.litografia].count++;
+            const validProcessorsForLitho = processors.filter(p => p.litografia && p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null);
+
+            validProcessorsForLitho.forEach(p => {
+                if (!litographyData[p.litografia]) {
+                    litographyData[p.litografia] = { singleSum: 0, multiSum: 0, count: 0 };
                 }
+                litographyData[p.litografia].singleSum += p.desempenho.single_core;
+                litographyData[p.litografia].multiSum += p.desempenho.multi_core;
+                litographyData[p.litografia].count++;
             });
 
             const labels = Object.keys(litographyData).sort((a, b) => parseFloat(a) - parseFloat(b));
             const avgSingleCore = labels.map(lit => litographyData[lit].singleSum / litographyData[lit].count);
             const avgMultiCore = labels.map(lit => litographyData[lit].multiSum / litographyData[lit].count);
+
+            document.getElementById('litographyCount').textContent = `Litografias exibidas: ${labels.length} (com base em ${validProcessorsForLitho.length} CPUs)`;
 
             const ctx = document.getElementById('litographyChart').getContext('2d');
             litographyChart = new Chart(ctx, {
@@ -518,6 +541,8 @@
                 }
                 return monthA - monthB;
             });
+
+            document.getElementById('priceCount').textContent = `CPUs exibidos: ${validProcessors.length}`;
 
             const labels = validProcessors.map(p => `${p.nome} (${p.data_lancamento})`);
             const data = validProcessors.map(p => p.preco_lancamento);
@@ -591,6 +616,8 @@
             });
 
             perfPriceRatios.sort((a, b) => a.ratio - b.ratio);
+
+            document.getElementById('perfPriceCount').textContent = `CPUs exibidos: ${perfPriceRatios.length}`;
 
             const labels = perfPriceRatios.map(p => p.name);
             const data = perfPriceRatios.map(p => p.ratio);
@@ -674,11 +701,13 @@
 
             perfPriceRatios.sort((a, b) => a.ratio - b.ratio);
 
+            document.getElementById('overallPerfPriceCount').textContent = `CPUs exibidos: ${perfPriceRatios.length}`;
+
             const labels = perfPriceRatios.map(p => p.name);
             const data = perfPriceRatios.map(p => p.ratio);
 
             const ctx = document.getElementById('overallPerfPriceChart').getContext('2d');
-            if (overallPerfPriceChart) { // Destroy if it already exists (e.g., on re-fetch)
+            if (overallPerfPriceChart) {
                 overallPerfPriceChart.destroy();
             }
             overallPerfPriceChart = new Chart(ctx, {
@@ -688,13 +717,13 @@
                     datasets: [{
                         label: 'Desempenho/Preço (Pontos/USD)',
                         data: data,
-                        backgroundColor: 'rgba(255, 159, 64, 0.6)', /* Different color for distinction */
+                        backgroundColor: 'rgba(255, 159, 64, 0.6)',
                         borderColor: 'rgba(255, 159, 64, 1)',
                         borderWidth: 1
                     }]
                 },
                 options: {
-                    ...commonChartOptions, // Use common options
+                    ...commonChartOptions,
                     scales: {
                         y: {
                             ...commonChartOptions.scales.y,
@@ -737,7 +766,6 @@
             }
         }
 
-        // Initial fetch when the page loads
         document.addEventListener('DOMContentLoaded', fetchData);
     </script>
 </body>
