@@ -1,0 +1,3070 @@
+{
+  "processadores": [
+    {
+      "nome": "A10-9700",
+      "fabricante": "AMD",
+      "arquitetura": "Bristol Ridge",
+      "data_lancamento": "07/2017",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "3.8 GHz"
+      },
+      "nucleos": 4,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "28 nm",
+      "cache": null,
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1620,
+        "multi_core": 3556
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "A10-9700E",
+      "fabricante": "AMD",
+      "arquitetura": "Bristol Ridge",
+      "data_lancamento": "07/2017",
+      "clock": {
+        "base": "3 GHz",
+        "boost": "3.5 GHz"
+      },
+      "nucleos": 4,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "28 nm",
+      "cache": null,
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 1513,
+        "multi_core": 3235
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "A12-9800",
+      "fabricante": "AMD",
+      "arquitetura": "Bristol Ridge",
+      "data_lancamento": "07/2017",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 4,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "28 nm",
+      "cache": null,
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1701,
+        "multi_core": 3684
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "A12-9800E",
+      "fabricante": "AMD",
+      "arquitetura": "Bristol Ridge",
+      "data_lancamento": "07/2017",
+      "clock": {
+        "base": "3.1 GHz",
+        "boost": "3.8 GHz"
+      },
+      "nucleos": 4,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "28 nm",
+      "cache": null,
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 1617,
+        "multi_core": 3471
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "A6-9550",
+      "fabricante": "AMD",
+      "arquitetura": "Bristol Ridge",
+      "data_lancamento": "07/2017",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 2,
+      "threads": 2,
+      "soquete": "Socket AM4",
+      "litografia": "28 nm",
+      "cache": null,
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1630,
+        "multi_core": 1879
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "A8-9600",
+      "fabricante": "AMD",
+      "arquitetura": "Bristol Ridge",
+      "data_lancamento": "07/2017",
+      "clock": {
+        "base": "3.1 GHz",
+        "boost": "3.4 GHz"
+      },
+      "nucleos": 4,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "28 nm",
+      "cache": null,
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1486,
+        "multi_core": 3298
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Athlon X4 940",
+      "fabricante": "AMD",
+      "arquitetura": "Bristol Ridge",
+      "data_lancamento": "07/2017",
+      "clock": {
+        "base": "3.2 GHz",
+        "boost": "3.6 GHz"
+      },
+      "nucleos": 4,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "28 nm",
+      "cache": null,
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1212,
+        "multi_core": 2351
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Athlon X4 950",
+      "fabricante": "AMD",
+      "arquitetura": "Bristol Ridge",
+      "data_lancamento": "07/2017",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "3.8 GHz"
+      },
+      "nucleos": 4,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "28 nm",
+      "cache": null,
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1625,
+        "multi_core": 3576
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Athlon X4 970",
+      "fabricante": "AMD",
+      "arquitetura": "Bristol Ridge",
+      "data_lancamento": "07/2017",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 4,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "28 nm",
+      "cache": null,
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1616,
+        "multi_core": 3472
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "PRO A10-9700",
+      "fabricante": "AMD",
+      "arquitetura": "Bristol Ridge",
+      "data_lancamento": "07/2017",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "3.8 GHz"
+      },
+      "nucleos": 4,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "28 nm",
+      "cache": null,
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1621,
+        "multi_core": 3574
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "PRO A12-9800E",
+      "fabricante": "AMD",
+      "arquitetura": "Bristol Ridge",
+      "data_lancamento": "07/2017",
+      "clock": {
+        "base": "3.1 GHz",
+        "boost": "3.8 GHz"
+      },
+      "nucleos": 4,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "28 nm",
+      "cache": null,
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 1496,
+        "multi_core": 3113
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 1200",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "07/2017",
+      "clock": {
+        "base": "3.1 GHz",
+        "boost": "3.4 GHz"
+      },
+      "nucleos": 4,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1925,
+        "multi_core": 6264
+      },
+      "preco_lancamento": 109
+    },
+    {
+      "nome": "Ryzen 3 1300X",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "07/2017",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": "3.7 GHz"
+      },
+      "nucleos": 4,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2123,
+        "multi_core": 6944
+      },
+      "preco_lancamento": 129
+    },
+    {
+      "nome": "Ryzen 3 PRO 1200",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "06/2017",
+      "clock": {
+        "base": "3.1 GHz",
+        "boost": "3.4 GHz"
+      },
+      "nucleos": 4,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1815,
+        "multi_core": 5808
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 PRO 1300",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "06/2017",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "3.7 GHz"
+      },
+      "nucleos": 4,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2187,
+        "multi_core": 7234
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 1400",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "04/2017",
+      "clock": {
+        "base": "3.2 GHz",
+        "boost": "3.4 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1887,
+        "multi_core": 7734
+      },
+      "preco_lancamento": 169
+    },
+    {
+      "nome": "Ryzen 5 1500X",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "04/2017",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "3.7 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2110,
+        "multi_core": 9090
+      },
+      "preco_lancamento": 189
+    },
+    {
+      "nome": "Ryzen 5 1600",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "04/2017",
+      "clock": {
+        "base": "3.2 GHz",
+        "boost": "3.6 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2065,
+        "multi_core": 12271
+      },
+      "preco_lancamento": 219
+    },
+    {
+      "nome": "Ryzen 5 1600X",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "04/2017",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "16 MB",
+      "tdp": "95 W",
+      "desempenho": {
+        "single_core": 2195,
+        "multi_core": 13035
+      },
+      "preco_lancamento": 249
+    },
+    {
+      "nome": "Ryzen 5 PRO 1500",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "06/2017",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "3.7 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2150,
+        "multi_core": 9142
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 PRO 1600",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "06/2017",
+      "clock": {
+        "base": "3.2 GHz",
+        "boost": "3.6 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1989,
+        "multi_core": 11823
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 1700",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "03/2017",
+      "clock": {
+        "base": "3 GHz",
+        "boost": "3.7 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1999,
+        "multi_core": 14796
+      },
+      "preco_lancamento": 329
+    },
+    {
+      "nome": "Ryzen 7 1700X",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "03/2017",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": "3.8 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "16 MB",
+      "tdp": "95 W",
+      "desempenho": {
+        "single_core": 2103,
+        "multi_core": 15659
+      },
+      "preco_lancamento": 399
+    },
+    {
+      "nome": "Ryzen 7 1800X",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "03/2017",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "16 MB",
+      "tdp": "95 W",
+      "desempenho": {
+        "single_core": 2198,
+        "multi_core": 16327
+      },
+      "preco_lancamento": 499
+    },
+    {
+      "nome": "Ryzen 7 PRO 1700",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "06/2017",
+      "clock": {
+        "base": "3 GHz",
+        "boost": "3.7 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2026,
+        "multi_core": 14696
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 PRO 1700X",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "06/2017",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": "3.8 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "16 MB",
+      "tdp": "95 W",
+      "desempenho": {
+        "single_core": 2142,
+        "multi_core": 15625
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Athlon 200GE",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "09/2018",
+      "clock": {
+        "base": "3.2 GHz",
+        "boost": null
+      },
+      "nucleos": 2,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 1789,
+        "multi_core": 4092
+      },
+      "preco_lancamento": 55
+    },
+    {
+      "nome": "Athlon 220GE",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "12/2018",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": null
+      },
+      "nucleos": 2,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 1959,
+        "multi_core": 4429
+      },
+      "preco_lancamento": 65
+    },
+    {
+      "nome": "Athlon 240GE",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "12/2018",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": null
+      },
+      "nucleos": 2,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 1965,
+        "multi_core": 4561
+      },
+      "preco_lancamento": 75
+    },
+    {
+      "nome": "PRO A6-8570",
+      "fabricante": "AMD",
+      "arquitetura": "Carrizo",
+      "data_lancamento": "10/2018",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "3.8 GHz"
+      },
+      "nucleos": 2,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "28 nm",
+      "cache": null,
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1641,
+        "multi_core": 1910
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "PRO A6-8570E",
+      "fabricante": "AMD",
+      "arquitetura": "Carrizo",
+      "data_lancamento": "10/2018",
+      "clock": {
+        "base": "3 GHz",
+        "boost": "3.4 GHz"
+      },
+      "nucleos": 2,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "28 nm",
+      "cache": null,
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1341,
+        "multi_core": 1652
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 2200G",
+      "fabricante": "AMD",
+      "arquitetura": "Raven Ridge",
+      "data_lancamento": "02/2018",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "3.7 GHz"
+      },
+      "nucleos": 4,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "4 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2046,
+        "multi_core": 6747
+      },
+      "preco_lancamento": 99
+    },
+    {
+      "nome": "Ryzen 3 2200GE",
+      "fabricante": "AMD",
+      "arquitetura": "Raven Ridge",
+      "data_lancamento": "04/2018",
+      "clock": {
+        "base": "3.2 GHz",
+        "boost": "3.6 GHz"
+      },
+      "nucleos": 4,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 1911,
+        "multi_core": 5875
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 2300X",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "09/2018",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 4,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "4 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2349,
+        "multi_core": 7598
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 PRO 2200G",
+      "fabricante": "AMD",
+      "arquitetura": "Raven Ridge",
+      "data_lancamento": "05/2018",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "3.7 GHz"
+      },
+      "nucleos": 4,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2028,
+        "multi_core": 6618
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 PRO 2200GE",
+      "fabricante": "AMD",
+      "arquitetura": "Raven Ridge",
+      "data_lancamento": "05/2018",
+      "clock": {
+        "base": "3.2 GHz",
+        "boost": "3.6 GHz"
+      },
+      "nucleos": 4,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2066,
+        "multi_core": 6423
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 2400G",
+      "fabricante": "AMD",
+      "arquitetura": "Raven Ridge",
+      "data_lancamento": "02/2018",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "3.9 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "4 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2144,
+        "multi_core": 8738
+      },
+      "preco_lancamento": 169
+    },
+    {
+      "nome": "Ryzen 5 2400GE",
+      "fabricante": "AMD",
+      "arquitetura": "Raven Ridge",
+      "data_lancamento": "04/2018",
+      "clock": {
+        "base": "3.2 GHz",
+        "boost": "3.8 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2064,
+        "multi_core": 7289
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 2500X",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "09/2018",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2327,
+        "multi_core": 9455
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 2600",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "04/2018",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": "3.9 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core":  2240,
+        "multi_core": 13166
+      },
+      "preco_lancamento": 199
+    },
+    {
+      "nome": "Ryzen 5 2600E",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "09/2018",
+      "clock": {
+        "base": "3.1 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1992,
+        "multi_core": 11771
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 2600X",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "04/2018",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.25 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "16 MB",
+      "tdp": "95 W",
+      "desempenho": {
+        "single_core": 2381,
+        "multi_core": 13892
+      },
+      "preco_lancamento": 229
+    },
+    {
+      "nome": "Ryzen 5 PRO 2400G",
+      "fabricante": "AMD",
+      "arquitetura": "Raven Ridge",
+      "data_lancamento": "05/2018",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "3.9 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "4 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2146,
+        "multi_core": 8563
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 PRO 2400GE",
+      "fabricante": "AMD",
+      "arquitetura": "Raven Ridge",
+      "data_lancamento": "05/2018",
+      "clock": {
+        "base": "3.2 GHz",
+        "boost": "3.8 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2124,
+        "multi_core": 7762
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 PRO 2600",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "09/2018",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": "3.9 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2273,
+        "multi_core": 13436
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 2700",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "04/2018",
+      "clock": {
+        "base": "3.2 GHz",
+        "boost": "4.1 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2176,
+        "multi_core": 15669
+      },
+      "preco_lancamento": 299
+    },
+    {
+      "nome": "Ryzen 7 2700E",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "09/2018",
+      "clock": {
+        "base": "2.8 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2410,
+        "multi_core": 14657
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 2700X",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "04/2018",
+      "clock": {
+        "base": "3.7 GHz",
+        "boost": "4.35 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "16 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": 2418,
+        "multi_core": 17486
+      },
+      "preco_lancamento": 329
+    },
+    {
+      "nome": "Ryzen 7 PRO 2700",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "09/2018",
+      "clock": {
+        "base": "3.2 GHz",
+        "boost": "4.1 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2206,
+        "multi_core": 15360
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 PRO 2700X",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "09/2018",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.1 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "16 MB",
+      "tdp": "95 W",
+      "desempenho": {
+        "single_core": 2285,
+        "multi_core": 16949
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "A6-9400",
+      "fabricante": "AMD",
+      "arquitetura": "Bristol Ridge",
+      "data_lancamento": "03/2019",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": "3.7 GHz"
+      },
+      "nucleos": 2,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "28 nm",
+      "cache": null,
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 1664,
+        "multi_core": 2717
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Athlon 3000G",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "11/2019",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": null
+      },
+      "nucleos": 2,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "14 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 1964,
+        "multi_core": 4455
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 3200G",
+      "fabricante": "AMD",
+      "arquitetura": "Picasso",
+      "data_lancamento": "07/2019",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 4,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "4 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2192,
+        "multi_core": 7047
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 3200GE",
+      "fabricante": "AMD",
+      "arquitetura": "Picasso",
+      "data_lancamento": "07/2019",
+      "clock": {
+        "base": "3.3 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 4,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2207,
+        "multi_core": 7289
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 PRO 3200GE",
+      "fabricante": "AMD",
+      "arquitetura": "Picasso",
+      "data_lancamento": "09/2019",
+      "clock": {
+        "base": "3.3 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 4,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2145,
+        "multi_core": 6864
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 1600AF",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "10/2019",
+      "clock": {
+        "base": "3.2 GHz",
+        "boost": "3.6 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2065,
+        "multi_core": 12271
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 3400G",
+      "fabricante": "AMD",
+      "arquitetura": "Picasso",
+      "data_lancamento": "07/2019",
+      "clock": {
+        "base": "3.7 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "4 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2320,
+        "multi_core": 9218
+      },
+      "preco_lancamento": 149
+    },
+    {
+      "nome": "Ryzen 5 3400GE",
+      "fabricante": "AMD",
+      "arquitetura": "Picasso",
+      "data_lancamento": "07/2019",
+      "clock": {
+        "base": "3.3 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2283,
+        "multi_core": 8848
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 3500X",
+      "fabricante": "AMD",
+      "arquitetura": "Matisse",
+      "data_lancamento": "09/2019",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.1 GHz"
+      },
+      "nucleos": 6,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2501,
+        "multi_core": 13161
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 3600",
+      "fabricante": "AMD",
+      "arquitetura": "Matisse",
+      "data_lancamento": "07/2019",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2563,
+        "multi_core": 17706
+      },
+      "preco_lancamento": 199
+    },
+    {
+      "nome": "Ryzen 5 3600X",
+      "fabricante": "AMD",
+      "arquitetura": "Matisse",
+      "data_lancamento": "07/2019",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "95 W",
+      "desempenho": {
+        "single_core": 2650,
+        "multi_core": 18164
+      },
+      "preco_lancamento": 249
+    },
+    {
+      "nome": "Ryzen 5 3600XT",
+      "fabricante": "AMD",
+      "arquitetura": "Matisse 2",
+      "data_lancamento": "07/2019",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4.5 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "95 W",
+      "desempenho": {
+        "single_core": 2753,
+        "multi_core": 18572
+      },
+      "preco_lancamento": 249
+    },
+    {
+      "nome": "Ryzen 5 PRO 3400GE",
+      "fabricante": "AMD",
+      "arquitetura": "Picasso",
+      "data_lancamento": "09/2019",
+      "clock": {
+        "base": "3.3 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2110,
+        "multi_core": 7653
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 2700X 50th Anniversary",
+      "fabricante": "AMD",
+      "arquitetura": "Zen",
+      "data_lancamento": "04/2019",
+      "clock": {
+        "base": "3.7 GHz",
+        "boost": "4.35 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "16 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": null,
+        "multi_core": null
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 3700X",
+      "fabricante": "AMD",
+      "arquitetura": "Matisse",
+      "data_lancamento": "07/2019",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2657,
+        "multi_core": 22473
+      },
+      "preco_lancamento": 329
+    },
+    {
+      "nome": "Ryzen 7 3800X",
+      "fabricante": "AMD",
+      "arquitetura": "Matisse",
+      "data_lancamento": "07/2019",
+      "clock": {
+        "base": "3.9 GHz",
+        "boost": "4.5 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": 2713,
+        "multi_core": 23057
+      },
+      "preco_lancamento": 399
+    },
+    {
+      "nome": "Ryzen 7 PRO 3700",
+      "fabricante": "AMD",
+      "arquitetura": "Matisse",
+      "data_lancamento": "09/2019",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2681,
+        "multi_core": 22830
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 9 3900",
+      "fabricante": "AMD",
+      "arquitetura": "Matisse",
+      "data_lancamento": "09/2019",
+      "clock": {
+        "base": "3.1 GHz",
+        "boost": "4.3 GHz"
+      },
+      "nucleos": 12,
+      "threads": 24,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "64 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2610,
+        "multi_core": 30654
+      },
+      "preco_lancamento": 499
+    },
+    {
+      "nome": "Ryzen 9 3900X",
+      "fabricante": "AMD",
+      "arquitetura": "Matisse",
+      "data_lancamento": "07/2019",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 12,
+      "threads": 24,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "64 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": 2704,
+        "multi_core": 32561
+      },
+      "preco_lancamento": 499
+    },
+    {
+      "nome": "Ryzen 9 3950X",
+      "fabricante": "AMD",
+      "arquitetura": "Matisse",
+      "data_lancamento": "11/2019",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "4.7 GHz"
+      },
+      "nucleos": 16,
+      "threads": 32,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "64 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": 2704,
+        "multi_core": 38613
+      },
+      "preco_lancamento": 749
+    },
+    {
+      "nome": "Athlon Gold 3150G",
+      "fabricante": "AMD",
+      "arquitetura": "Dali",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "3.9 GHz"
+      },
+      "nucleos": 4,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "4 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2212,
+        "multi_core": 6922
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Athlon Gold 3150GE",
+      "fabricante": "AMD",
+      "arquitetura": "Dali",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "3.8 GHz"
+      },
+      "nucleos": 4,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": null,
+        "multi_core": null
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Athlon Gold PRO 3150G",
+      "fabricante": "AMD",
+      "arquitetura": "Dali",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "3.9 GHz"
+      },
+      "nucleos": 4,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "4 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2088,
+        "multi_core": 5698
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Athlon Gold PRO 3150GE",
+      "fabricante": "AMD",
+      "arquitetura": "Dali",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "3.8 GHz"
+      },
+      "nucleos": 4,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2165,
+        "multi_core": 7006
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Athlon Silver 3050GE",
+      "fabricante": "AMD",
+      "arquitetura": "Dali",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": null
+      },
+      "nucleos": 2,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2016,
+        "multi_core": 4545
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Athlon Silver PRO 3125GE",
+      "fabricante": "AMD",
+      "arquitetura": "Dali",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": null
+      },
+      "nucleos": 2,
+      "threads": 4,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2074,
+        "multi_core": 4633
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 3100",
+      "fabricante": "AMD",
+      "arquitetura": "Matisse",
+      "data_lancamento": "04/2020",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "3.9 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2416,
+        "multi_core": 11562
+      },
+      "preco_lancamento": 99
+    },
+    {
+      "nome": "Ryzen 3 3300X",
+      "fabricante": "AMD",
+      "arquitetura": "Matisse",
+      "data_lancamento": "04/2020",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4.3 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2668,
+        "multi_core": 12597
+      },
+      "preco_lancamento": 120
+    },
+    {
+      "nome": "Ryzen 3 4300G",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "4 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2494,
+        "multi_core": 9860
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 4300GE",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2548,
+        "multi_core": 11257
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 PRO 4350G",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "4 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2546,
+        "multi_core": 10931
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 PRO 4350GE",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2517,
+        "multi_core": 10926
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 4600G",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.7 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2654,
+        "multi_core": 16005
+      },
+      "preco_lancamento": 154
+    },
+    {
+      "nome": "Ryzen 5 4600GE",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.3 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2629,
+        "multi_core": 15820
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 5600X",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "11/2020",
+      "clock": {
+        "base": "3.7 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3364,
+        "multi_core": 21862
+      },
+      "preco_lancamento": 299
+    },
+    {
+      "nome": "Ryzen 5 PRO 4650G",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.7 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2652,
+        "multi_core": 16123
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 PRO 4650GE",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.3 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2605,
+        "multi_core": 15374
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 3800XT",
+      "fabricante": "AMD",
+      "arquitetura": "Matisse 2",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4.7 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": 2803,
+        "multi_core": 23554
+      },
+      "preco_lancamento": 399
+    },
+    {
+      "nome": "Ryzen 7 4700G",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2733,
+        "multi_core": 20146
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 4700GE",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.1 GHz",
+        "boost": "4.3 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2682,
+        "multi_core": 19674
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 5800X",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "11/2020",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4.7 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": 3446,
+        "multi_core": 27757
+      },
+      "preco_lancamento": 449
+    },
+    {
+      "nome": "Ryzen 7 PRO 4750G",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2712,
+        "multi_core": 20324
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 PRO 4750GE",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.1 GHz",
+        "boost": "4.3 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2685,
+        "multi_core": 18427
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 9 3900XT",
+      "fabricante": "AMD",
+      "arquitetura": "Matisse 2",
+      "data_lancamento": "07/2020",
+      "clock": {
+        "base": "3.9 GHz",
+        "boost": "4.7 GHz"
+      },
+      "nucleos": 12,
+      "threads": 24,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "64 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": 2743,
+        "multi_core": 32591
+      },
+      "preco_lancamento": 499
+    },
+    {
+      "nome": "Ryzen 9 5900X",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "11/2020",
+      "clock": {
+        "base": "3.7 GHz",
+        "boost": "4.8 GHz"
+      },
+      "nucleos": 12,
+      "threads": 24,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "64 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": 3470,
+        "multi_core": 39027
+      },
+      "preco_lancamento": 549
+    },
+    {
+      "nome": "Ryzen 9 5950X",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "11/2020",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": "4.9 GHz"
+      },
+      "nucleos": 16,
+      "threads": 32,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "64 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": 3469,
+        "multi_core": 45450
+      },
+      "preco_lancamento": 799
+    },
+    {
+      "nome": "Ryzen 3 5300G",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "04/2021",
+      "clock": {
+        "base": "4 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3055,
+        "multi_core": 13044
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 5300GE",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "04/2021",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 3082,
+        "multi_core": 12856
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 PRO 5350G",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "06/2021",
+      "clock": {
+        "base": "4 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3101,
+        "multi_core": 13793
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 PRO 5350GE",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "06/2021",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 3087,
+        "multi_core": 12637
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 5600G",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "04/2021",
+      "clock": {
+        "base": "3.9 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3184,
+        "multi_core": 19776
+      },
+      "preco_lancamento": 259
+    },
+    {
+      "nome": "Ryzen 5 PRO 5650G",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "06/2021",
+      "clock": {
+        "base": "3.9 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3246,
+        "multi_core": 20657
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 PRO 5650GE",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "06/2021",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 3189,
+        "multi_core": 18258
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 5700G",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "04/2021",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3283,
+        "multi_core": 24439
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 5800",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "01/2021",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3392,
+        "multi_core": 25817
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 5800G",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "Unreleased",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4.8 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": null,
+        "multi_core": null
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 PRO 5750G",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "06/2021",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3316,
+        "multi_core": 24186
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 PRO 5750GE",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "06/2021",
+      "clock": {
+        "base": "3.2 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 3297,
+        "multi_core": 21554
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 9 5900",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "01/2021",
+      "clock": {
+        "base": "3 GHz",
+        "boost": "4.7 GHz"
+      },
+      "nucleos": 12,
+      "threads": 24,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "64 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3440,
+        "multi_core": 33993
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 4100",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "04/2022",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2530,
+        "multi_core": 11054
+      },
+      "preco_lancamento": 99
+    },
+    {
+      "nome": "Ryzen 3 PRO 4355G",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "11/2022",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "4 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2546,
+        "multi_core": 10933
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 PRO 4355GE",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "11/2022",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "4 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2572,
+        "multi_core": 10559
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 4500",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "04/2022",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.1 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2594,
+        "multi_core": 16113
+      },
+      "preco_lancamento": 129
+    },
+    {
+      "nome": "Ryzen 5 5500",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "04/2022",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3059,
+        "multi_core": 19344
+      },
+      "preco_lancamento": 159
+    },
+    {
+      "nome": "Ryzen 5 5600",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "04/2022",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3257,
+        "multi_core": 21557
+      },
+      "preco_lancamento": 199
+    },
+    {
+      "nome": "Ryzen 5 PRO 4655G",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "11/2022",
+      "clock": {
+        "base": "3.7 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2692,
+        "multi_core": 16304
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 PRO 4655GE",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "11/2022",
+      "clock": {
+        "base": "3.3 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 2662,
+        "multi_core": 14436
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 5700",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "04/2022",
+      "clock": {
+        "base": "3.7 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3293,
+        "multi_core": 24294
+      },
+      "preco_lancamento": 179
+    },
+    {
+      "nome": "Ryzen 7 5700X",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "04/2022",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3385,
+        "multi_core": 26630
+      },
+      "preco_lancamento": 299
+    },
+    {
+      "nome": "Ryzen 7 5800X3D",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "04/2022",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": "4.5 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "96 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": 3234,
+        "multi_core": 28308
+      },
+      "preco_lancamento": 449
+    },
+    {
+      "nome": "Ryzen 5 PRO 5645",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "04/2022",
+      "clock": {
+        "base": "3.7 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3441,
+        "multi_core": 21904
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 PRO 5845",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "04/2022",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3442,
+        "multi_core": 26043
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 9 PRO 5945",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "04/2022",
+      "clock": {
+        "base": "3 GHz",
+        "boost": "4.7 GHz"
+      },
+      "nucleos": 12,
+      "threads": 24,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "64 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3499,
+        "multi_core": 34549
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 5600X3D",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "07/2023",
+      "clock": {
+        "base": "3.3 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "96 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": 3186,
+        "multi_core": 21869
+      },
+      "preco_lancamento": 229
+    },
+    {
+      "nome": "Ryzen Embedded 5600E",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "04/2023",
+      "clock": {
+        "base": "3.3 GHz",
+        "boost": "3.6 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": null,
+        "multi_core": null
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen Embedded 5800E",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "04/2023",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": "3.7 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "100 W",
+      "desempenho": {
+        "single_core": null,
+        "multi_core": null
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen Embedded 5900E",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "04/2023",
+      "clock": {
+        "base": "3.35 GHz",
+        "boost": "3.7 GHz"
+      },
+      "nucleos": 12,
+      "threads": 24,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "64 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": null,
+        "multi_core": null
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen Embedded 5950E",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "04/2023",
+      "clock": {
+        "base": "3.05 GHz",
+        "boost": "3.4 GHz"
+      },
+      "nucleos": 16,
+      "threads": 32,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "64 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": null,
+        "multi_core": null
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 PRO 5355G",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "09/2024",
+      "clock": {
+        "base": "4 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": null,
+        "multi_core": null
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 PRO 5355GE",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "09/2024",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": 3089,
+        "multi_core": 12761
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 5500GT",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "01/2024",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3052,
+        "multi_core": 19245
+      },
+      "preco_lancamento": 125
+    },
+    {
+      "nome": "Ryzen 5 5600GT",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "01/2024",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3344,
+        "multi_core": 20326
+      },
+      "preco_lancamento": 140
+    },
+    {
+      "nome": "Ryzen 5 5600XT",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "10/2024",
+      "clock": {
+        "base": "3.7 GHz",
+        "boost": "4.7 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3471,
+        "multi_core": 22190
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 PRO 5655G",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "05/2024",
+      "clock": {
+        "base": "3.9 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3253,
+        "multi_core": 20548
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 PRO 5655GE",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "05/2024",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3239,
+        "multi_core": 18241
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 5700X3D",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "01/2024",
+      "clock": {
+        "base": "3 GHz",
+        "boost": "4.1 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "96 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": 2970,
+        "multi_core": 26325
+      },
+      "preco_lancamento": 249
+    },
+    {
+      "nome": "Ryzen 7 5800XT",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "07/2024",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4.8 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": 3540,
+        "multi_core": 28030
+      },
+      "preco_lancamento": 249
+    },
+    {
+      "nome": "Ryzen 7 PRO 5755G",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "09/2024",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": null,
+        "multi_core": null
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 PRO 5755GE",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "09/2024",
+      "clock": {
+        "base": "3.2 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": null,
+        "multi_core": null
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 9 5900XT",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "07/2024",
+      "clock": {
+        "base": "3.3 GHz",
+        "boost": "4.8 GHz"
+      },
+      "nucleos": 16,
+      "threads": 32,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "64 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": 3448,
+        "multi_core": 44043
+      },
+      "preco_lancamento": 349
+    },
+    {
+      "nome": "Ryzen 3 5305G",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "02/2025",
+      "clock": {
+        "base": "4 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": null,
+        "multi_core": null
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 3 5305GE",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "02/2025",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 4,
+      "threads": 8,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": null,
+        "multi_core": null
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 5605G",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "02/2025",
+      "clock": {
+        "base": "3.9 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": null,
+        "multi_core": null
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 5 5605GE",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "02/2025",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": null,
+        "multi_core": null
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 5705G",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "02/2025",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": null,
+        "multi_core": null
+      },
+      "preco_lancamento": null
+    },
+    {
+      "nome": "Ryzen 7 5705GE",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "02/2025",
+      "clock": {
+        "base": "3.8 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "35 W",
+      "desempenho": {
+        "single_core": null,
+        "multi_core": null
+      },
+      "preco_lancamento": null
+    }
+  ]
+}

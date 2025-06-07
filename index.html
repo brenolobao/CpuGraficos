@@ -1,0 +1,655 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Processadores AMD AM4</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; /* Remove default body margin */
+            padding: 10px; /* Add some overall padding */
+            background-color: #f4f4f4;
+            color: #333;
+            box-sizing: border-box; /* Include padding in element's total width and height */
+            min-height: 100vh; /* Ensure body takes at least full viewport height */
+            display: flex; /* Use flex to manage main container */
+            flex-direction: column;
+            align-items: center; /* Center content horizontally */
+        }
+        .container {
+            width: 100%; /* Take full width on small screens */
+            max-width: 1200px; /* Limit max width on larger screens */
+            margin: 0 auto; /* Center the container */
+            background: #fff;
+            padding: 15px; /* Slightly less padding on mobile */
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-sizing: border-box;
+            flex-grow: 1; /* Allow container to grow and fill vertical space */
+        }
+        h1, h2 {
+            text-align: center;
+            color: #0056b3;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+        h1 {
+            font-size: 1.8em; /* Adjust font size for mobile */
+        }
+        h2 {
+            font-size: 1.4em; /* Adjust font size for mobile */
+        }
+        .filter-section {
+            text-align: center;
+            margin-bottom: 25px; /* Slightly less margin */
+            padding: 10px; /* Adjust padding */
+            background-color: #e9ecef;
+            border-radius: 5px;
+            display: flex; /* Use flexbox for better alignment */
+            flex-direction: column; /* Stack items vertically on small screens */
+            gap: 10px; /* Space between items */
+        }
+        .filter-section label {
+            font-weight: bold;
+            margin-right: 0; /* Remove margin right on mobile */
+            margin-bottom: 5px; /* Add margin below label */
+        }
+        .filter-section select,
+        .filter-section button {
+            width: 100%; /* Full width for select and buttons */
+            max-width: 300px; /* Limit width on larger screens */
+            margin: 0 auto; /* Center items */
+            padding: 10px 12px;
+            border-radius: 4px;
+            border: 1px solid #ccc;
+            font-size: 1em;
+            cursor: pointer;
+            box-sizing: border-box; /* Include padding in element's total width and height */
+        }
+        .filter-section button {
+            margin-left: 0; /* Remove left margin for stacking */
+            margin-top: 10px; /* Space between select and buttons, or buttons themselves */
+        }
+        .chart-container {
+            margin-bottom: 30px; /* Slightly less margin */
+            padding: 15px; /* Adjust padding */
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            position: relative;
+            /* Crucial for Chart.js to scale correctly within responsive designs */
+            /* Add min-height or aspect-ratio if you want more control over chart height */
+            /* min-height: 250px; /* Example: Ensures a minimum height */
+            overflow-x: auto; /* Allow horizontal scrolling if chart content overflows */
+        }
+
+        /* Specific style for canvas to control its height, if needed.
+           Chart.js responsive: true and maintainAspectRatio: false often handle this well.
+           However, if charts are still too tall/short, you can uncomment and adjust this. */
+        .chart-container canvas {
+            max-height: 400px; /* Limit chart height on smaller screens for better fitting */
+            width: 100% !important; /* Important to override Chart.js inline styles */
+            height: auto !important; /* Important to override Chart.js inline styles */
+        }
+
+        .chart-comment {
+            margin-top: 15px;
+            padding: 10px;
+            background-color: #e2f0cb;
+            border-left: 5px solid #7cb342;
+            border-radius: 4px;
+            font-size: 0.85em; /* Slightly smaller font for mobile */
+        }
+        .no-data {
+            text-align: center;
+            font-size: 1.1em; /* Adjust font size */
+            color: #666;
+            padding: 30px; /* Adjust padding */
+        }
+
+        /* Media Queries for larger screens (e.g., tablets and desktops) */
+        @media (min-width: 768px) {
+            body {
+                padding: 20px;
+            }
+            .container {
+                padding: 20px;
+            }
+            h1 {
+                font-size: 2.5em;
+            }
+            h2 {
+                font-size: 1.7em;
+            }
+            .filter-section {
+                flex-direction: row; /* Row layout on larger screens */
+                justify-content: center; /* Center items horizontally */
+                align-items: center; /* Align items vertically in the middle */
+                gap: 15px; /* Space between items */
+                padding: 15px;
+            }
+            .filter-section label {
+                margin-bottom: 0;
+                margin-right: 10px;
+            }
+            .filter-section select,
+            .filter-section button {
+                width: auto; /* Auto width on larger screens */
+                margin: 0; /* Remove margin auto */
+            }
+            .filter-section button {
+                margin-top: 0;
+                margin-left: 10px; /* Restore left margin for buttons */
+            }
+            .chart-comment {
+                font-size: 0.9em;
+            }
+            .no-data {
+                font-size: 1.2em;
+                padding: 50px;
+            }
+            .chart-container canvas {
+                max-height: 500px; /* Slightly taller charts on larger screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Análise de Processadores AMD AM4 (2017-2025)</h1>
+
+        <div class="filter-section">
+            <label for="threadsFilter">Filtrar por número de Threads:</label>
+            <select id="threadsFilter">
+                <option value="">Selecione o número de Threads</option>
+            </select>
+            <button onclick="applyFilter()">Aplicar Filtro</button>
+            <button onclick="resetFilter()">Limpar Filtro</button>
+        </div>
+
+        <div id="chart-area">
+            <div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>
+        </div>
+    </div>
+
+    <script>
+        let allProcessors = [];
+        let singleCoreChart, multiCoreChart, litographyChart, priceChart, perfPriceChart;
+
+        async function fetchData() {
+            try {
+                const response = await fetch('cpusAmd-2017-2025-am4.json');
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                const data = await response.json();
+                allProcessors = data.processadores;
+                populateThreadsFilter(allProcessors);
+                document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>';
+            } catch (error) {
+                console.error('Erro ao carregar os dados dos processadores:', error);
+                document.getElementById('chart-area').innerHTML = '<div class="no-data" style="color: red;">Erro ao carregar os dados. Verifique se o arquivo cpusAmd-2017-2025-am4.json está na mesma pasta.</div>';
+            }
+        }
+
+        function populateThreadsFilter(processors) {
+            const threadsSet = new Set(processors.map(p => p.threads).filter(t => t !== null));
+            const sortedThreads = Array.from(threadsSet).sort((a, b) => a - b);
+            const select = document.getElementById('threadsFilter');
+            select.innerHTML = '<option value="">Selecione o número de Threads</option>';
+            sortedThreads.forEach(threads => {
+                const option = document.createElement('option');
+                option.value = threads;
+                option.textContent = threads + ' Threads';
+                select.appendChild(option);
+            });
+        }
+
+        function applyFilter() {
+            const selectedThreads = document.getElementById('threadsFilter').value;
+            let filteredProcessors = [];
+
+            if (selectedThreads) {
+                filteredProcessors = allProcessors.filter(p => p.threads == parseInt(selectedThreads));
+            } else {
+                document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>';
+                destroyCharts();
+                return;
+            }
+
+            if (filteredProcessors.length === 0) {
+                document.getElementById('chart-area').innerHTML = '<div class="no-data">Nenhum processador encontrado para o filtro selecionado.</div>';
+                destroyCharts();
+                return;
+            }
+
+            destroyCharts();
+            displayCharts(filteredProcessors);
+        }
+
+        function resetFilter() {
+            document.getElementById('threadsFilter').value = '';
+            document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>';
+            destroyCharts();
+        }
+
+        function destroyCharts() {
+            if (singleCoreChart) { singleCoreChart.destroy(); singleCoreChart = null; }
+            if (multiCoreChart) { multiCoreChart.destroy(); multiCoreChart = null; }
+            if (litographyChart) { litographyChart.destroy(); litographyChart = null; }
+            if (priceChart) { priceChart.destroy(); priceChart = null; }
+            if (perfPriceChart) { perfPriceChart.destroy(); perfPriceChart = null; }
+        }
+
+        function displayCharts(processors) {
+            const chartArea = document.getElementById('chart-area');
+            chartArea.innerHTML = `
+                <hr>
+                <div class="chart-container">
+                    <h2>Desempenho Single-Core (Crescente)</h2>
+                    <canvas id="singleCoreChart"></canvas>
+                    <div id="singleCoreComment" class="chart-comment"></div>
+                </div>
+
+                <hr>
+                <div class="chart-container">
+                    <h2>Desempenho Multi-Core (Crescente)</h2>
+                    <canvas id="multiCoreChart"></canvas>
+                    <div id="multiCoreComment" class="chart-comment"></div>
+                </div>
+
+                <hr>
+                <div class="chart-container">
+                    <h2>Média de Desempenho por Litografia</h2>
+                    <canvas id="litographyChart"></canvas>
+                </div>
+
+                <hr>
+                <div class="chart-container">
+                    <h2>Preço de Lançamento por Ano (Crescente)</h2>
+                    <canvas id="priceChart"></canvas>
+                    <div id="priceComment" class="chart-comment"></div>
+                </div>
+
+                <hr>
+                <div class="chart-container">
+                    <h2>Relação Desempenho/Preço de Lançamento (Crescente)</h2>
+                    <canvas id="perfPriceChart"></canvas>
+                    <div id="perfPriceComment" class="chart-comment"></div>
+                </div>
+            `;
+
+            drawSingleCoreChart(processors);
+            drawMultiCoreChart(processors);
+            drawLitographyChart(processors);
+            drawPriceChart(processors);
+            drawPerfPriceChart(processors);
+        }
+
+        // --- Common Chart Options for Responsiveness and Labels ---
+        const commonChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false, // THIS IS KEY FOR RESPONSIVENESS WITHOUT INFINITE GROWTH
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    title: {
+                        display: true,
+                        text: 'Pontuação'
+                    }
+                },
+                x: {
+                    title: {
+                        display: true,
+                        text: 'Processador'
+                    },
+                    ticks: {
+                        autoSkip: true, // Automatically skip labels if too many
+                        maxRotation: 90, // Rotate labels to fit
+                        minRotation: 0
+                    }
+                }
+            },
+            plugins: {
+                tooltip: {
+                    callbacks: {
+                        label: function(context) {
+                            return `${context.dataset.label}: ${context.raw}`;
+                        }
+                    }
+                }
+            }
+        };
+
+        // --- Individual Chart Drawing Functions ---
+
+        function drawSingleCoreChart(processors) {
+            const validProcessors = processors.filter(p => p.desempenho && p.desempenho.single_core !== null);
+            validProcessors.sort((a, b) => a.desempenho.single_core - b.desempenho.single_core);
+
+            const labels = validProcessors.map(p => p.nome);
+            const data = validProcessors.map(p => p.desempenho.single_core);
+
+            const ctx = document.getElementById('singleCoreChart').getContext('2d');
+            singleCoreChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Pontuação Single-Core',
+                        data: data,
+                        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: commonChartOptions // Use common options
+            });
+
+            let largestConsecutiveDiff = 0;
+            let worst = validProcessors.length > 0 ? validProcessors[0].desempenho.single_core : 0;
+            let best = validProcessors.length > 0 ? validProcessors[validProcessors.length - 1].desempenho.single_core : 0;
+
+            for (let i = 0; i < validProcessors.length - 1; i++) {
+                const current = validProcessors[i].desempenho.single_core;
+                const next = validProcessors[i + 1].desempenho.single_core;
+                if (current > 0) {
+                    const diff = ((next - current) / current) * 100;
+                    if (diff > largestConsecutiveDiff) {
+                        largestConsecutiveDiff = diff;
+                    }
+                }
+            }
+
+            let worstToBestDiff = 0;
+            if (worst > 0) {
+                worstToBestDiff = ((best - worst) / worst) * 100;
+            }
+
+            const commentDiv = document.getElementById('singleCoreComment');
+            commentDiv.innerHTML = `
+                Maior percentual de aumento entre CPUs consecutivos: <strong>${largestConsecutiveDiff.toFixed(2)}%</strong>.<br>
+                Percentual de aumento do pior para o melhor: <strong>${worstToBestDiff.toFixed(2)}%</strong>.
+            `;
+            if (validProcessors.length < 2) {
+                commentDiv.innerHTML = "Não há dados suficientes para calcular percentuais de comparação.";
+            }
+        }
+
+        function drawMultiCoreChart(processors) {
+            const validProcessors = processors.filter(p => p.desempenho && p.desempenho.multi_core !== null);
+            validProcessors.sort((a, b) => a.desempenho.multi_core - b.desempenho.multi_core);
+
+            const labels = validProcessors.map(p => p.nome);
+            const data = validProcessors.map(p => p.desempenho.multi_core);
+
+            const ctx = document.getElementById('multiCoreChart').getContext('2d');
+            multiCoreChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Pontuação Multi-Core',
+                        data: data,
+                        backgroundColor: 'rgba(153, 102, 255, 0.6)',
+                        borderColor: 'rgba(153, 102, 255, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: commonChartOptions // Use common options
+            });
+
+            let largestConsecutiveDiff = 0;
+            let worst = validProcessors.length > 0 ? validProcessors[0].desempenho.multi_core : 0;
+            let best = validProcessors.length > 0 ? validProcessors[validProcessors.length - 1].desempenho.multi_core : 0;
+
+            for (let i = 0; i < validProcessors.length - 1; i++) {
+                const current = validProcessors[i].desempenho.multi_core;
+                const next = validProcessors[i + 1].desempenho.multi_core;
+                if (current > 0) {
+                    const diff = ((next - current) / current) * 100;
+                    if (diff > largestConsecutiveDiff) {
+                        largestConsecutiveDiff = diff;
+                    }
+                }
+            }
+
+            let worstToBestDiff = 0;
+            if (worst > 0) {
+                worstToBestDiff = ((best - worst) / worst) * 100;
+            }
+
+            const commentDiv = document.getElementById('multiCoreComment');
+            commentDiv.innerHTML = `
+                Maior percentual de aumento entre CPUs consecutivos: <strong>${largestConsecutiveDiff.toFixed(2)}%</strong>.<br>
+                Percentual de aumento do pior para o melhor: <strong>${worstToBestDiff.toFixed(2)}%</strong>.
+            `;
+            if (validProcessors.length < 2) {
+                commentDiv.innerHTML = "Não há dados suficientes para calcular percentuais de comparação.";
+            }
+        }
+
+        function drawLitographyChart(processors) {
+            const litographyData = {};
+
+            processors.forEach(p => {
+                if (p.litografia && p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null) {
+                    if (!litographyData[p.litografia]) {
+                        litographyData[p.litografia] = { singleSum: 0, multiSum: 0, count: 0 };
+                    }
+                    litographyData[p.litografia].singleSum += p.desempenho.single_core;
+                    litographyData[p.litografia].multiSum += p.desempenho.multi_core;
+                    litographyData[p.litografia].count++;
+                }
+            });
+
+            const labels = Object.keys(litographyData).sort((a, b) => parseFloat(a) - parseFloat(b)); // Sort by numerical value
+            const avgSingleCore = labels.map(lit => litographyData[lit].singleSum / litographyData[lit].count);
+            const avgMultiCore = labels.map(lit => litographyData[lit].multiSum / litographyData[lit].count);
+
+            const ctx = document.getElementById('litographyChart').getContext('2d');
+            litographyChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [
+                        {
+                            label: 'Média Single-Core',
+                            data: avgSingleCore,
+                            backgroundColor: 'rgba(255, 99, 132, 0.6)',
+                            borderColor: 'rgba(255, 99, 132, 1)',
+                            borderWidth: 1
+                        },
+                        {
+                            label: 'Média Multi-Core',
+                            data: avgMultiCore,
+                            backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                            borderColor: 'rgba(54, 162, 235, 1)',
+                            borderWidth: 1
+                        }
+                    ]
+                },
+                options: {
+                    ...commonChartOptions, // Spread common options
+                    scales: {
+                        y: {
+                            ...commonChartOptions.scales.y,
+                            title: {
+                                display: true,
+                                text: 'Pontuação Média'
+                            }
+                        },
+                        x: {
+                            ...commonChartOptions.scales.x,
+                            title: {
+                                display: true,
+                                text: 'Litografia (nm)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: ${context.raw.toFixed(2)}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+        }
+
+        function drawPriceChart(processors) {
+            const validProcessors = processors.filter(p => p.preco_lancamento !== null && p.preco_lancamento !== undefined && p.preco_lancamento > 0 && p.data_lancamento);
+
+            // Sort processors by launch date (year then month)
+            validProcessors.sort((a, b) => {
+                const [monthA, yearA] = a.data_lancamento.split('/').map(Number);
+                const [monthB, yearB] = b.data_lancamento.split('/').map(Number);
+
+                if (yearA !== yearB) {
+                    return yearA - yearB;
+                }
+                return monthA - monthB;
+            });
+
+            const labels = validProcessors.map(p => `${p.nome} (${p.data_lancamento})`);
+            const data = validProcessors.map(p => p.preco_lancamento);
+
+            const ctx = document.getElementById('priceChart').getContext('2d');
+            priceChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Preço de Lançamento (USD)',
+                        data: data,
+                        backgroundColor: 'rgba(255, 206, 86, 0.6)',
+                        borderColor: 'rgba(255, 206, 86, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    ...commonChartOptions, // Spread common options
+                    scales: {
+                        y: {
+                            ...commonChartOptions.scales.y,
+                            title: {
+                                display: true,
+                                text: 'Preço (USD)'
+                            }
+                        },
+                        x: {
+                            ...commonChartOptions.scales.x,
+                            title: {
+                                display: true,
+                                text: 'Processador (Data de Lançamento)'
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    return `${context.dataset.label}: $${context.raw.toFixed(2)}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const commentDiv = document.getElementById('priceComment');
+            if (validProcessors.length === 0) {
+                 commentDiv.innerHTML = 'Não há dados de preço de lançamento disponíveis para exibir este gráfico para os filtros selecionados.';
+            } else {
+                 commentDiv.innerHTML = 'Este gráfico exibe o preço de lançamento de cada processador, ordenado cronologicamente por ano de lançamento.';
+            }
+        }
+
+        function drawPerfPriceChart(processors) {
+            const validProcessors = processors.filter(p =>
+                p.preco_lancamento !== null && p.preco_lancamento !== undefined && p.preco_lancamento > 0 &&
+                p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null
+            );
+
+            const perfPriceRatios = validProcessors.map(p => {
+                const performance = (p.desempenho.single_core + p.desempenho.multi_core) / 2;
+                return {
+                    name: p.nome,
+                    ratio: performance / p.preco_lancamento,
+                    originalPrice: p.preco_lancamento,
+                    originalSingle: p.desempenho.single_core,
+                    originalMulti: p.desempenho.multi_core
+                };
+            });
+
+            perfPriceRatios.sort((a, b) => a.ratio - b.ratio);
+
+            const labels = perfPriceRatios.map(p => p.name);
+            const data = perfPriceRatios.map(p => p.ratio);
+
+            const ctx = document.getElementById('perfPriceChart').getContext('2d');
+            perfPriceChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Desempenho/Preço (Pontos/USD)',
+                        data: data,
+                        backgroundColor: 'rgba(75, 192, 192, 0.6)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    ...commonChartOptions, // Spread common options
+                     scales: {
+                        y: {
+                            ...commonChartOptions.scales.y,
+                            title: {
+                                display: true,
+                                text: 'Relação Desempenho/Preço'
+                            }
+                        },
+                        x: {
+                            ...commonChartOptions.scales.x,
+                            title: {
+                                display: true,
+                                text: 'Processador'
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const item = perfPriceRatios[context.dataIndex];
+                                    return `Relação: ${item.ratio.toFixed(2)} | Preço: $${item.originalPrice.toFixed(2)} | SC: ${item.originalSingle} | MC: ${item.originalMulti}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const commentDiv = document.getElementById('perfPriceComment');
+            if (perfPriceRatios.length > 0) {
+                const bestPerfPrice = perfPriceRatios[perfPriceRatios.length - 1];
+                const worstPerfPrice = perfPriceRatios[0];
+                commentDiv.innerHTML = `
+                    Processador com melhor relação desempenho/preço: <strong>${bestPerfPrice.name}</strong> (Relação: ${bestPerfPrice.ratio.toFixed(2)}).<br>
+                    Processador com pior relação desempenho/preço: <strong>${worstPerfPrice.name}</strong> (Relação: ${worstPerfPrice.ratio.toFixed(2)}).
+                `;
+            } else {
+                commentDiv.innerHTML = 'Não há dados suficientes (preço de lançamento e desempenho) para calcular a relação desempenho/preço.';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', fetchData);
+    </script>
+</body>
+</html>
