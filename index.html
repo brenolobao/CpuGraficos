@@ -73,10 +73,19 @@
             font-size: 1em;
             cursor: pointer;
             box-sizing: border-box;
+            margin-top: 5px; /* Adjust margin for new button */
         }
         .filter-section button {
             margin-left: 0;
             margin-top: 10px;
+        }
+        .filter-section .download-button {
+            background-color: #28a745;
+            color: white;
+            border: none;
+        }
+        .filter-section .download-button:hover {
+            background-color: #218838;
         }
         .chart-container {
             margin-bottom: 30px;
@@ -167,6 +176,7 @@
             </select>
             <button onclick="applyFilter()">Aplicar Filtro</button>
             <button onclick="resetFilter()">Limpar Filtro</button>
+            <button onclick="downloadAllChartsAsImages()" class="download-button">Baixar Imagens dos Gráficos</button>
             <div id="totalCpuCount" class="filter-count"></div>
         </div>
 
@@ -196,7 +206,6 @@
                 const data = await response.json();
                 allProcessors = data.processadores;
 
-                // Calculate total CPUs with single and multi-core data
                 const totalProcessorsWithPerfData = allProcessors.filter(p =>
                     p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null
                 );
@@ -679,15 +688,12 @@
             }
         }
 
-        // --- NEW GLOBAL PERFORMANCE/PRICE CHART ---
         function drawOverallPerfPriceChart(processors) {
-            // Filter ALL processors for those with valid price and performance data
             const validProcessors = processors.filter(p =>
                 p.preco_lancamento !== null && p.preco_lancamento !== undefined && p.preco_lancamento > 0 &&
                 p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null
             );
 
-            // Calculate performance/price ratio for all valid processors
             const perfPriceRatios = validProcessors.map(p => {
                 const performance = (p.desempenho.single_core + p.desempenho.multi_core) / 2;
                 return {
@@ -764,6 +770,37 @@
             } else {
                 commentDiv.innerHTML = 'Não há dados suficientes (preço de lançamento e desempenho) para calcular a relação desempenho/preço para todos os processadores.';
             }
+        }
+
+        function downloadAllChartsAsImages() {
+            const selectedThreads = document.getElementById('threadsFilter').value;
+            const threadSuffix = selectedThreads ? `_${selectedThreads}_Threads` : '';
+
+            const chartsToDownload = [
+                { chart: singleCoreChart, id: 'singleCoreChart', name: 'Desempenho_SingleCore', usesFilter: true },
+                { chart: multiCoreChart, id: 'multiCoreChart', name: 'Desempenho_MultiCore', usesFilter: true },
+                { chart: litographyChart, id: 'litographyChart', name: 'Desempenho_Litografia', usesFilter: true },
+                { chart: priceChart, id: 'priceChart', name: 'Preco_Lancamento', usesFilter: true },
+                { chart: perfPriceChart, id: 'perfPriceChart', name: 'Relacao_Desempenho_Preco_Filtrado', usesFilter: true },
+                { chart: overallPerfPriceChart, id: 'overallPerfPriceChart', name: 'Relacao_Desempenho_Preco_Geral', usesFilter: false } // This one does not use the thread filter
+            ];
+
+            chartsToDownload.forEach(chartInfo => {
+                const canvas = document.getElementById(chartInfo.id);
+                if (canvas && canvas.offsetParent !== null) {
+                    const image = canvas.toDataURL('image/png');
+                    const link = document.createElement('a');
+
+                    // Determine the filename based on whether the chart uses the filter
+                    const fileName = chartInfo.usesFilter ? `${chartInfo.name}${threadSuffix}.png` : `${chartInfo.name}.png`;
+
+                    link.href = image;
+                    link.download = fileName;
+                    document.body.appendChild(link);
+                    link.click();
+                    document.body.removeChild(link);
+                }
+            });
         }
 
         document.addEventListener('DOMContentLoaded', fetchData);
