@@ -13,6 +13,10 @@ A aplicação permite **filtrar processadores por contagem de threads** e aprese
 - **Filtragem por Threads**
   - Selecione o número de threads para visualizar apenas os processadores correspondentes.
 
+- **Cartões com notas**
+  - Cartões que indicam qual a nota de 0 a 10 para desempenho bruto e custo-benefício.
+  - Os cartões contem informações como : Nome, Ano de lançamento, Preço de lançamento, Nucloes/Threads.
+
 - **Gráfico de Desempenho Single-Core**
   - Mostra a pontuação de desempenho single-core dos processadores filtrados, em ordem crescente.
   - Inclui comentários sobre:
