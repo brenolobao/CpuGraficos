@@ -196,6 +196,7 @@
     <script>
         let allProcessors = [];
         let singleCoreChart, multiCoreChart, litographyChart, priceChart, perfPriceChart, overallPerfPriceChart;
+        const GITHUB_LINK = "github.com/brenolobao"; // Seu link do GitHub
 
         async function fetchData() {
             try {
@@ -772,6 +773,29 @@
             }
         }
 
+        // Função para adicionar marca d'água
+        function addWatermarkToCanvas(canvas, text) {
+            const ctx = canvas.getContext('2d');
+            const originalWidth = canvas.width;
+            const originalHeight = canvas.height;
+
+            // Save the original state
+            ctx.save();
+
+            ctx.font = '20px Arial'; // Adjust font size as needed
+            ctx.fillStyle = 'rgba(0, 0, 0, 0.4)'; // Darker color, semi-transparent
+            ctx.textAlign = 'right';
+            ctx.textBaseline = 'bottom';
+
+            // Add some padding from the bottom and right edges
+            const padding = 20;
+            ctx.fillText(text, originalWidth - padding, originalHeight - padding);
+
+            // Restore the original state
+            ctx.restore();
+        }
+
+
         function downloadAllChartsAsImages() {
             const selectedThreads = document.getElementById('threadsFilter').value;
             const threadSuffix = selectedThreads ? `_${selectedThreads}_Threads` : '';
@@ -782,16 +806,27 @@
                 { chart: litographyChart, id: 'litographyChart', name: 'Desempenho_Litografia', usesFilter: true },
                 { chart: priceChart, id: 'priceChart', name: 'Preco_Lancamento', usesFilter: true },
                 { chart: perfPriceChart, id: 'perfPriceChart', name: 'Relacao_Desempenho_Preco_Filtrado', usesFilter: true },
-                { chart: overallPerfPriceChart, id: 'overallPerfPriceChart', name: 'Relacao_Desempenho_Preco_Geral', usesFilter: false } // This one does not use the thread filter
+                { chart: overallPerfPriceChart, id: 'overallPerfPriceChart', name: 'Relacao_Desempenho_Preco_Geral', usesFilter: false }
             ];
 
             chartsToDownload.forEach(chartInfo => {
                 const canvas = document.getElementById(chartInfo.id);
                 if (canvas && canvas.offsetParent !== null) {
-                    const image = canvas.toDataURL('image/png');
+                    // Create a temporary canvas to draw the image and watermark
+                    const tempCanvas = document.createElement('canvas');
+                    tempCanvas.width = canvas.width;
+                    tempCanvas.height = canvas.height;
+                    const tempCtx = tempCanvas.getContext('2d');
+
+                    // Draw the chart image onto the temporary canvas
+                    tempCtx.drawImage(canvas, 0, 0);
+
+                    // Add the watermark
+                    addWatermarkToCanvas(tempCanvas, GITHUB_LINK);
+
+                    const image = tempCanvas.toDataURL('image/png');
                     const link = document.createElement('a');
 
-                    // Determine the filename based on whether the chart uses the filter
                     const fileName = chartInfo.usesFilter ? `${chartInfo.name}${threadSuffix}.png` : `${chartInfo.name}.png`;
 
                     link.href = image;
