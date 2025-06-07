@@ -35,6 +35,9 @@ A aplicação permite **filtrar processadores por contagem de threads** e aprese
   - Calcula a média entre desempenho single-core e multi-core dividida pelo preço de lançamento.
   - Destaca os processadores com **melhor** e **pior custo-benefício**.
 
+- **Download dos Gráficos**
+  - Baixa imagens em png dos gráficos conforme a contagem de threads selecionada.
+
 ---
 
 ## 📊 Fontes dos Dados
