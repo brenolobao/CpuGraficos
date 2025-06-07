@@ -79,15 +79,9 @@
             border-radius: 8px;
             box-shadow: 0 1px 3px rgba(0,0,0,0.1);
             position: relative;
-            /* Crucial for Chart.js to scale correctly within responsive designs */
-            /* Add min-height or aspect-ratio if you want more control over chart height */
-            /* min-height: 250px; /* Example: Ensures a minimum height */
             overflow-x: auto; /* Allow horizontal scrolling if chart content overflows */
         }
 
-        /* Specific style for canvas to control its height, if needed.
-           Chart.js responsive: true and maintainAspectRatio: false often handle this well.
-           However, if charts are still too tall/short, you can uncomment and adjust this. */
         .chart-container canvas {
             max-height: 400px; /* Limit chart height on smaller screens for better fitting */
             width: 100% !important; /* Important to override Chart.js inline styles */
@@ -172,11 +166,18 @@
         <div id="chart-area">
             <div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>
         </div>
+
+        <hr>
+        <div class="chart-container">
+            <h2>Relação Desempenho/Preço de Lançamento (Todos os CPUs com Preço)</h2>
+            <canvas id="overallPerfPriceChart"></canvas>
+            <div id="overallPerfPriceComment" class="chart-comment"></div>
+        </div>
     </div>
 
     <script>
         let allProcessors = [];
-        let singleCoreChart, multiCoreChart, litographyChart, priceChart, perfPriceChart;
+        let singleCoreChart, multiCoreChart, litographyChart, priceChart, perfPriceChart, overallPerfPriceChart;
 
         async function fetchData() {
             try {
@@ -188,9 +189,11 @@
                 allProcessors = data.processadores;
                 populateThreadsFilter(allProcessors);
                 document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>';
+                drawOverallPerfPriceChart(allProcessors); // Draw this chart initially
             } catch (error) {
                 console.error('Erro ao carregar os dados dos processadores:', error);
                 document.getElementById('chart-area').innerHTML = '<div class="no-data" style="color: red;">Erro ao carregar os dados. Verifique se o arquivo cpusAmd-2017-2025-am4.json está na mesma pasta.</div>';
+                document.getElementById('overallPerfPriceComment').innerHTML = '<div class="no-data" style="color: red;">Erro ao carregar dados para este gráfico.</div>';
             }
         }
 
@@ -215,24 +218,24 @@
                 filteredProcessors = allProcessors.filter(p => p.threads == parseInt(selectedThreads));
             } else {
                 document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>';
-                destroyCharts();
+                destroyCharts(); // Destroy filtered charts
                 return;
             }
 
             if (filteredProcessors.length === 0) {
                 document.getElementById('chart-area').innerHTML = '<div class="no-data">Nenhum processador encontrado para o filtro selecionado.</div>';
-                destroyCharts();
+                destroyCharts(); // Destroy filtered charts
                 return;
             }
 
-            destroyCharts();
+            destroyCharts(); // Destroy filtered charts
             displayCharts(filteredProcessors);
         }
 
         function resetFilter() {
             document.getElementById('threadsFilter').value = '';
             document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>';
-            destroyCharts();
+            destroyCharts(); // Destroy filtered charts
         }
 
         function destroyCharts() {
@@ -241,6 +244,7 @@
             if (litographyChart) { litographyChart.destroy(); litographyChart = null; }
             if (priceChart) { priceChart.destroy(); priceChart = null; }
             if (perfPriceChart) { perfPriceChart.destroy(); perfPriceChart = null; }
+            // Note: overallPerfPriceChart is NOT destroyed here as it's not part of the filtered view
         }
 
         function displayCharts(processors) {
@@ -345,7 +349,7 @@
                         borderWidth: 1
                     }]
                 },
-                options: commonChartOptions // Use common options
+                options: commonChartOptions
             });
 
             let largestConsecutiveDiff = 0;
@@ -398,7 +402,7 @@
                         borderWidth: 1
                     }]
                 },
-                options: commonChartOptions // Use common options
+                options: commonChartOptions
             });
 
             let largestConsecutiveDiff = 0;
@@ -445,7 +449,7 @@
                 }
             });
 
-            const labels = Object.keys(litographyData).sort((a, b) => parseFloat(a) - parseFloat(b)); // Sort by numerical value
+            const labels = Object.keys(litographyData).sort((a, b) => parseFloat(a) - parseFloat(b));
             const avgSingleCore = labels.map(lit => litographyData[lit].singleSum / litographyData[lit].count);
             const avgMultiCore = labels.map(lit => litographyData[lit].multiSum / litographyData[lit].count);
 
@@ -472,7 +476,7 @@
                     ]
                 },
                 options: {
-                    ...commonChartOptions, // Spread common options
+                    ...commonChartOptions,
                     scales: {
                         y: {
                             ...commonChartOptions.scales.y,
@@ -505,7 +509,6 @@
         function drawPriceChart(processors) {
             const validProcessors = processors.filter(p => p.preco_lancamento !== null && p.preco_lancamento !== undefined && p.preco_lancamento > 0 && p.data_lancamento);
 
-            // Sort processors by launch date (year then month)
             validProcessors.sort((a, b) => {
                 const [monthA, yearA] = a.data_lancamento.split('/').map(Number);
                 const [monthB, yearB] = b.data_lancamento.split('/').map(Number);
@@ -533,7 +536,7 @@
                     }]
                 },
                 options: {
-                    ...commonChartOptions, // Spread common options
+                    ...commonChartOptions,
                     scales: {
                         y: {
                             ...commonChartOptions.scales.y,
@@ -606,7 +609,7 @@
                     }]
                 },
                 options: {
-                    ...commonChartOptions, // Spread common options
+                    ...commonChartOptions,
                      scales: {
                         y: {
                             ...commonChartOptions.scales.y,
@@ -649,6 +652,92 @@
             }
         }
 
+        // --- NEW GLOBAL PERFORMANCE/PRICE CHART ---
+        function drawOverallPerfPriceChart(processors) {
+            // Filter ALL processors for those with valid price and performance data
+            const validProcessors = processors.filter(p =>
+                p.preco_lancamento !== null && p.preco_lancamento !== undefined && p.preco_lancamento > 0 &&
+                p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null
+            );
+
+            // Calculate performance/price ratio for all valid processors
+            const perfPriceRatios = validProcessors.map(p => {
+                const performance = (p.desempenho.single_core + p.desempenho.multi_core) / 2;
+                return {
+                    name: p.nome,
+                    ratio: performance / p.preco_lancamento,
+                    originalPrice: p.preco_lancamento,
+                    originalSingle: p.desempenho.single_core,
+                    originalMulti: p.desempenho.multi_core
+                };
+            });
+
+            perfPriceRatios.sort((a, b) => a.ratio - b.ratio);
+
+            const labels = perfPriceRatios.map(p => p.name);
+            const data = perfPriceRatios.map(p => p.ratio);
+
+            const ctx = document.getElementById('overallPerfPriceChart').getContext('2d');
+            if (overallPerfPriceChart) { // Destroy if it already exists (e.g., on re-fetch)
+                overallPerfPriceChart.destroy();
+            }
+            overallPerfPriceChart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: labels,
+                    datasets: [{
+                        label: 'Desempenho/Preço (Pontos/USD)',
+                        data: data,
+                        backgroundColor: 'rgba(255, 159, 64, 0.6)', /* Different color for distinction */
+                        borderColor: 'rgba(255, 159, 64, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    ...commonChartOptions, // Use common options
+                    scales: {
+                        y: {
+                            ...commonChartOptions.scales.y,
+                            title: {
+                                display: true,
+                                text: 'Relação Desempenho/Preço'
+                            }
+                        },
+                        x: {
+                            ...commonChartOptions.scales.x,
+                            title: {
+                                display: true,
+                                text: 'Processador'
+                            }
+                        }
+                    },
+                    plugins: {
+                        tooltip: {
+                            callbacks: {
+                                label: function(context) {
+                                    const item = perfPriceRatios[context.dataIndex];
+                                    return `Relação: ${item.ratio.toFixed(2)} | Preço: $${item.originalPrice.toFixed(2)} | SC: ${item.originalSingle} | MC: ${item.originalMulti}`;
+                                }
+                            }
+                        }
+                    }
+                }
+            });
+
+            const commentDiv = document.getElementById('overallPerfPriceComment');
+            if (perfPriceRatios.length > 0) {
+                const bestOverallPerfPrice = perfPriceRatios[perfPriceRatios.length - 1];
+                const worstOverallPerfPrice = perfPriceRatios[0];
+                commentDiv.innerHTML = `
+                    **Melhor** relação desempenho/preço (Geral): <strong>${bestOverallPerfPrice.name}</strong> (Relação: ${bestOverallPerfPrice.ratio.toFixed(2)}).<br>
+                    **Pior** relação desempenho/preço (Geral): <strong>${worstOverallPerfPrice.name}</strong> (Relação: ${worstOverallPerfPrice.ratio.toFixed(2)}).
+                `;
+            } else {
+                commentDiv.innerHTML = 'Não há dados suficientes (preço de lançamento e desempenho) para calcular a relação desempenho/preço para todos os processadores.';
+            }
+        }
+
+        // Initial fetch when the page loads
         document.addEventListener('DOMContentLoaded', fetchData);
     </script>
 </body>
