@@ -33,7 +33,7 @@
             text-align: center;
             color: #0056b3;
             margin-top: 15px;
-            margin-bottom: 5px; /* Reduced margin to make space for count text */
+            margin-bottom: 5px;
         }
         h1 {
             font-size: 1.8em;
@@ -45,7 +45,7 @@
             text-align: center;
             font-size: 0.9em;
             color: #666;
-            margin-bottom: 15px; /* Spacing below the count text */
+            margin-bottom: 15px;
         }
         .filter-section {
             text-align: center;
@@ -73,7 +73,7 @@
             font-size: 1em;
             cursor: pointer;
             box-sizing: border-box;
-            margin-top: 5px; /* Adjust margin for new button */
+            margin-top: 5px;
         }
         .filter-section button {
             margin-left: 0;
@@ -87,6 +87,96 @@
         .filter-section .download-button:hover {
             background-color: #218838;
         }
+
+        /* Carousel Styles */
+        .cpu-carousel-container {
+            position: relative;
+            width: 100%;
+            margin: 20px auto;
+            overflow: hidden;
+            padding: 10px 0; /* Add padding for buttons to show */
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }
+        .cpu-carousel {
+            display: flex;
+            overflow-x: scroll;
+            scroll-snap-type: x mandatory;
+            -webkit-overflow-scrolling: touch;
+            scroll-behavior: smooth;
+            scrollbar-width: none; /* For Firefox */
+            -ms-overflow-style: none; /* For Internet Explorer and Edge */
+        }
+        .cpu-carousel::-webkit-scrollbar {
+            display: none; /* For Chrome, Safari, and Opera */
+        }
+        .cpu-card {
+            flex: 0 0 auto; /* Prevent cards from shrinking */
+            width: 280px; /* Fixed width for cards */
+            margin: 10px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            text-align: left;
+            scroll-snap-align: start;
+        }
+        .cpu-card h3 {
+            color: #0056b3;
+            margin-top: 0;
+            margin-bottom: 10px;
+            text-align: center;
+            font-size: 1.2em;
+        }
+        .cpu-card p {
+            margin: 5px 0;
+            font-size: 0.9em;
+        }
+        .cpu-card .notes {
+            display: flex;
+            justify-content: space-around;
+            margin-top: 15px;
+            border-top: 1px solid #eee;
+            padding-top: 10px;
+        }
+        .cpu-card .note-item {
+            text-align: center;
+            flex: 1;
+        }
+        .cpu-card .note-item strong {
+            display: block;
+            font-size: 1.1em;
+            color: #28a745;
+        }
+        .cpu-card .note-item span {
+            font-size: 0.75em;
+            color: #666;
+        }
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            z-index: 100;
+            font-size: 1.5em;
+            border-radius: 5px;
+        }
+        .carousel-button:hover {
+            background-color: rgba(0, 0, 0, 0.7);
+        }
+        .carousel-button.prev {
+            left: 5px;
+        }
+        .carousel-button.next {
+            right: 5px;
+        }
+
         .chart-container {
             margin-bottom: 30px;
             padding: 15px;
@@ -162,6 +252,12 @@
             .chart-container canvas {
                 max-height: 500px;
             }
+            .cpu-card {
+                width: 300px; /* Slightly wider cards on larger screens */
+            }
+            .carousel-button {
+                padding: 12px 18px;
+            }
         }
     </style>
 </head>
@@ -179,6 +275,15 @@
             <button onclick="downloadAllChartsAsImages()" class="download-button">Baixar Imagens dos Gráficos</button>
             <div id="totalCpuCount" class="filter-count"></div>
         </div>
+
+        <div id="cpu-carousel-container" class="cpu-carousel-container">
+            <h2>Processadores Destacados (Desempenho e Custo-Benefício)</h2>
+            <div id="cpu-carousel" class="cpu-carousel">
+                </div>
+            <button class="carousel-button prev" onclick="scrollCarousel(-1)">&#10094;</button>
+            <button class="carousel-button next" onclick="scrollCarousel(1)">&#10095;</button>
+        </div>
+
 
         <div id="chart-area">
             <div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>
@@ -215,11 +320,13 @@
                 populateThreadsFilter(allProcessors);
                 document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>';
                 drawOverallPerfPriceChart(allProcessors); // Draw this chart initially
+                displayAllCpuCards(); // Display all CPU cards in the carousel
             } catch (error) {
                 console.error('Erro ao carregar os dados dos processadores:', error);
                 document.getElementById('chart-area').innerHTML = '<div class="no-data" style="color: red;">Erro ao carregar os dados. Verifique se o arquivo cpusAmd-2017-2025-am4.json está na mesma pasta.</div>';
                 document.getElementById('totalCpuCount').textContent = 'Erro ao carregar dados.';
                 document.getElementById('overallPerfPriceComment').innerHTML = '<div class="no-data" style="color: red;">Erro ao carregar dados para este gráfico.</div>';
+                document.getElementById('cpu-carousel').innerHTML = '<div class="no-data" style="color: red;">Erro ao carregar dados para os cartões de CPU.</div>';
             }
         }
 
@@ -779,20 +886,24 @@
             const originalWidth = canvas.width;
             const originalHeight = canvas.height;
 
-            // Save the original state
-            ctx.save();
+            ctx.save(); // Save the current canvas state
 
             ctx.font = '20px Arial'; // Adjust font size as needed
             ctx.fillStyle = 'rgba(0, 0, 0, 0.4)'; // Darker color, semi-transparent
             ctx.textAlign = 'right';
             ctx.textBaseline = 'bottom';
 
-            // Add some padding from the bottom and right edges
-            const padding = 20;
-            ctx.fillText(text, originalWidth - padding, originalHeight - padding);
+            // Measure text width to ensure it fits
+            const textWidth = ctx.measureText(text).width;
+            const padding = 20; // Padding from the right and bottom edges
 
-            // Restore the original state
-            ctx.restore();
+            // Ensure text does not go out of bounds
+            let x = originalWidth - padding;
+            let y = originalHeight - padding;
+
+            ctx.fillText(text, x, y);
+
+            ctx.restore(); // Restore the canvas state
         }
 
 
@@ -837,6 +948,94 @@
                 }
             });
         }
+
+        function calculatePerformanceScore(processor, allProcessors) {
+            if (!processor.desempenho || processor.desempenho.single_core === null || processor.desempenho.multi_core === null) {
+                return 0;
+            }
+            // Use a weighted average if desired, or a simple average
+            const performance = (processor.desempenho.single_core * 0.4) + (processor.desempenho.multi_core * 0.6); // Example weighting
+
+            const allPerformances = allProcessors
+                .filter(p => p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null)
+                .map(p => (p.desempenho.single_core * 0.4) + (p.desempenho.multi_core * 0.6));
+
+            const maxPerformance = Math.max(...allPerformances);
+            return maxPerformance > 0 ? (performance / maxPerformance) * 10 : 0;
+        }
+
+        function calculateValueScore(processor, allProcessors) {
+            if (!processor.preco_lancamento || processor.preco_lancamento <= 0 || !processor.desempenho || processor.desempenho.single_core === null || processor.desempenho.multi_core === null) {
+                return 0;
+            }
+            const performance = (processor.desempenho.single_core * 0.4) + (processor.desempenho.multi_core * 0.6); // Consistent performance metric
+            const valueRatio = performance / processor.preco_lancamento;
+
+            const allValueRatios = allProcessors
+                .filter(p => p.preco_lancamento && p.preco_lancamento > 0 && p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null)
+                .map(p => (((p.desempenho.single_core * 0.4) + (p.desempenho.multi_core * 0.6)) / p.preco_lancamento));
+
+            const maxValueRatio = Math.max(...allValueRatios);
+            return maxValueRatio > 0 ? (valueRatio / maxValueRatio) * 10 : 0;
+        }
+
+        function displayAllCpuCards() {
+            const carousel = document.getElementById('cpu-carousel');
+            carousel.innerHTML = ''; // Clear previous cards
+
+            const eligibleProcessors = allProcessors.filter(p =>
+                p.preco_lancamento !== null && p.preco_lancamento !== undefined && p.preco_lancamento > 0 &&
+                p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null &&
+                p.nucleos !== null && p.threads !== null && p.data_lancamento
+            );
+
+            // Sort by performance score in descending order for better display in carousel
+            eligibleProcessors.sort((a, b) => calculatePerformanceScore(b, allProcessors) - calculatePerformanceScore(a, allProcessors));
+
+
+            if (eligibleProcessors.length === 0) {
+                carousel.innerHTML = '<div class="no-data">Nenhum processador com dados completos de desempenho e preço para exibir no carousel.</div>';
+                return;
+            }
+
+            eligibleProcessors.forEach(cpu => {
+                const performanceScore = calculatePerformanceScore(cpu, allProcessors).toFixed(1);
+                const valueScore = calculateValueScore(cpu, allProcessors).toFixed(1);
+                const year = cpu.data_lancamento ? cpu.data_lancamento.split('/')[1] : 'N/A';
+
+                const card = `
+                    <div class="cpu-card">
+                        <h3>${cpu.nome}</h3>
+                        <p><strong>Núcleos/Threads:</strong> ${cpu.nucleos}/${cpu.threads}</p>
+                        <p><strong>Ano de Lançamento:</strong> ${year}</p>
+                        <p><strong>Preço de Lançamento:</strong> $${cpu.preco_lancamento.toFixed(2)}</p>
+                        <div class="notes">
+                            <div class="note-item">
+                                <strong>${performanceScore}</strong>
+                                <span>Desempenho Bruto</span>
+                            </div>
+                            <div class="note-item">
+                                <strong>${valueScore}</strong>
+                                <span>Custo-Benefício</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                carousel.innerHTML += card;
+            });
+        }
+
+        function scrollCarousel(direction) {
+            const carousel = document.getElementById('cpu-carousel');
+            const cardWidth = document.querySelector('.cpu-card').offsetWidth; // Get width of one card
+            const scrollAmount = cardWidth + 20; // Card width + margin
+
+            carousel.scrollBy({
+                left: direction * scrollAmount,
+                behavior: 'smooth'
+            });
+        }
+
 
         document.addEventListener('DOMContentLoaded', fetchData);
     </script>
