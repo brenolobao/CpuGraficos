@@ -13,7 +13,7 @@ A aplicação permite **filtrar processadores por contagem de threads** e aprese
 - **Filtragem por Threads**
   - Selecione o número de threads para visualizar apenas os processadores correspondentes.
 
-- **Filtragem Fabricante**
+- **Filtragem por Fabricante**
   - Selecione entre Amd, Intel ou Todos.
 
 - **Cartões com notas**
