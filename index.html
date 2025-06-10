@@ -270,6 +270,10 @@
             <select id="threadsFilter">
                 <option value="">Selecione o número de Threads</option>
             </select>
+            <label for="manufacturerFilter">Filtrar por Fabricante:</label>
+            <select id="manufacturerFilter">
+                <option value="all">Todos</option>
+            </select>
             <button onclick="applyFilter()">Aplicar Filtro</button>
             <button onclick="resetFilter()">Limpar Filtro</button>
             <button onclick="downloadAllChartsAsImages()" class="download-button">Baixar Imagens dos Gráficos</button>
@@ -318,6 +322,7 @@
                 document.getElementById('totalCpuCount').textContent = `Total de CPUs com dados de desempenho: ${totalProcessorsWithPerfData.length}`;
 
                 populateThreadsFilter(allProcessors);
+                populateManufacturerFilter(allProcessors); // Populate the new manufacturer filter
                 document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>';
                 drawOverallPerfPriceChart(allProcessors); // Draw this chart initially
                 displayAllCpuCards(); // Display all CPU cards in the carousel
@@ -343,20 +348,35 @@
             });
         }
 
+        function populateManufacturerFilter(processors) {
+            const manufacturerSet = new Set(processors.map(p => p.fabricante).filter(f => f !== null));
+            const sortedManufacturers = Array.from(manufacturerSet).sort();
+            const select = document.getElementById('manufacturerFilter');
+            select.innerHTML = '<option value="all">Todos</option>'; // Default option
+            sortedManufacturers.forEach(manufacturer => {
+                const option = document.createElement('option');
+                option.value = manufacturer;
+                option.textContent = manufacturer;
+                select.appendChild(option);
+            });
+        }
+
         function applyFilter() {
             const selectedThreads = document.getElementById('threadsFilter').value;
-            let filteredProcessors = [];
+            const selectedManufacturer = document.getElementById('manufacturerFilter').value;
+
+            let filteredProcessors = allProcessors;
 
             if (selectedThreads) {
-                filteredProcessors = allProcessors.filter(p => p.threads == parseInt(selectedThreads));
-            } else {
-                document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>';
-                destroyCharts();
-                return;
+                filteredProcessors = filteredProcessors.filter(p => p.threads == parseInt(selectedThreads));
+            }
+
+            if (selectedManufacturer && selectedManufacturer !== 'all') {
+                filteredProcessors = filteredProcessors.filter(p => p.fabricante === selectedManufacturer);
             }
 
             if (filteredProcessors.length === 0) {
-                document.getElementById('chart-area').innerHTML = '<div class="no-data">Nenhum processador encontrado para o filtro selecionado.</div>';
+                document.getElementById('chart-area').innerHTML = '<div class="no-data">Nenhum processador encontrado para os filtros selecionados.</div>';
                 destroyCharts();
                 return;
             }
@@ -367,7 +387,8 @@
 
         function resetFilter() {
             document.getElementById('threadsFilter').value = '';
-            document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>';
+            document.getElementById('manufacturerFilter').value = 'all'; // Reset manufacturer filter
+            document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads e/ou Fabricante para exibir os gráficos.</div>';
             destroyCharts();
         }
 
@@ -909,7 +930,11 @@
 
         function downloadAllChartsAsImages() {
             const selectedThreads = document.getElementById('threadsFilter').value;
+            const selectedManufacturer = document.getElementById('manufacturerFilter').value;
+
             const threadSuffix = selectedThreads ? `_${selectedThreads}_Threads` : '';
+            const manufacturerSuffix = (selectedManufacturer && selectedManufacturer !== 'all') ? `_${selectedManufacturer}` : '';
+
 
             const chartsToDownload = [
                 { chart: singleCoreChart, id: 'singleCoreChart', name: 'Desempenho_SingleCore', usesFilter: true },
@@ -938,7 +963,7 @@
                     const image = tempCanvas.toDataURL('image/png');
                     const link = document.createElement('a');
 
-                    const fileName = chartInfo.usesFilter ? `${chartInfo.name}${threadSuffix}.png` : `${chartInfo.name}.png`;
+                    const fileName = chartInfo.usesFilter ? `${chartInfo.name}${threadSuffix}${manufacturerSuffix}.png` : `${chartInfo.name}.png`;
 
                     link.href = image;
                     link.download = fileName;
@@ -983,18 +1008,25 @@
             const carousel = document.getElementById('cpu-carousel');
             carousel.innerHTML = ''; // Clear previous cards
 
-            const eligibleProcessors = allProcessors.filter(p =>
+            const selectedManufacturer = document.getElementById('manufacturerFilter').value;
+
+            let eligibleProcessors = allProcessors.filter(p =>
                 p.preco_lancamento !== null && p.preco_lancamento !== undefined && p.preco_lancamento > 0 &&
                 p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null &&
-                p.nucleos !== null && p.threads !== null && p.data_lancamento
+                p.nucleos !== null && p.threads !== null && p.data_lancamento && p.fabricante
             );
+
+            if (selectedManufacturer && selectedManufacturer !== 'all') {
+                eligibleProcessors = eligibleProcessors.filter(p => p.fabricante === selectedManufacturer);
+            }
+
 
             // Sort by performance score in descending order for better display in carousel
             eligibleProcessors.sort((a, b) => calculatePerformanceScore(b, allProcessors) - calculatePerformanceScore(a, allProcessors));
 
 
             if (eligibleProcessors.length === 0) {
-                carousel.innerHTML = '<div class="no-data">Nenhum processador com dados completos de desempenho e preço para exibir no carousel.</div>';
+                carousel.innerHTML = '<div class="no-data">Nenhum processador com dados completos de desempenho e preço para exibir no carousel com os filtros selecionados.</div>';
                 return;
             }
 
@@ -1006,6 +1038,7 @@
                 const card = `
                     <div class="cpu-card">
                         <h3>${cpu.nome}</h3>
+                        <p><strong>Fabricante:</strong> ${cpu.fabricante}</p>
                         <p><strong>Núcleos/Threads:</strong> ${cpu.nucleos}/${cpu.threads}</p>
                         <p><strong>Ano de Lançamento:</strong> ${year}</p>
                         <p><strong>Preço de Lançamento:</strong> $${cpu.preco_lancamento.toFixed(2)}</p>
