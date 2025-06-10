@@ -13,6 +13,9 @@ A aplicação permite **filtrar processadores por contagem de threads** e aprese
 - **Filtragem por Threads**
   - Selecione o número de threads para visualizar apenas os processadores correspondentes.
 
+- **Filtragem Fabricante**
+  - Selecione entre Amd, Intel ou Todos.
+
 - **Cartões com notas**
   - Cartões que indicam qual a nota de 0 a 10 para desempenho bruto e custo-benefício.
   - Os cartões contem informações como : Nome, Ano de lançamento, Preço de lançamento, Nucloes/Threads.
