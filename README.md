@@ -1,6 +1,6 @@
-# Análise de Processadores AMD AM4 (2017–2025)
+# Análise de Processadores AMD e Intel (2017–2025)
 
-Este projeto é uma ferramenta interativa desenvolvida com **HTML**, **CSS** e **JavaScript** para visualizar e analisar dados de processadores **AMD AM4** lançados entre **2017 e 2025**.
+Este projeto é uma ferramenta interativa desenvolvida com **HTML**, **CSS** e **JavaScript** para visualizar e analisar dados de processadores **AMD e Intel** lançados entre **2017 e 2025**.
 
 A aplicação permite **filtrar processadores por contagem de threads** e apresenta diversos **gráficos analíticos**, incluindo desempenho, litografia, preço e custo-benefício.
 
