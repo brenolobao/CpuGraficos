@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análise de Processadores AMD AM4</title>
+    <title>Análise de Processadores</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
@@ -263,7 +263,7 @@
 </head>
 <body>
     <div class="container">
-        <h1>Análise de Processadores AMD AM4 (2017-2025)</h1>
+        <h1>Análise de Processadores AMD e Intel(2017-2025)</h1>
 
         <div class="filter-section">
             <label for="threadsFilter">Filtrar por número de Threads:</label>
@@ -276,7 +276,7 @@
             </select>
             <button onclick="applyFilter()">Aplicar Filtro</button>
             <button onclick="resetFilter()">Limpar Filtro</button>
-            <button onclick="downloadAllChartsAsImages()" class="download-button">Baixar Imagens dos Gráficos</button>
+            <button onclick="downloadAllChartsAsImages()" class="download-button">Baixar Gráficos</button>
             <div id="totalCpuCount" class="filter-count"></div>
         </div>
 
@@ -295,7 +295,7 @@
 
         <hr>
         <div class="chart-container">
-            <h2>Relação Desempenho/Preço de Lançamento (Todos os CPUs com Dados Completos)</h2>
+            <h2>Relação Desempenho/Preço de Lançamento</h2>
             <div id="overallPerfPriceCount" class="chart-count"></div>
             <canvas id="overallPerfPriceChart"></canvas>
             <div id="overallPerfPriceComment" class="chart-comment"></div>
