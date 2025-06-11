@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Análise de Processadores</title>
+    <title>Análise de Processadores AMD AM4</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         body {
@@ -18,6 +19,7 @@
             flex-direction: column;
             align-items: center;
         }
+
         .container {
             width: 100%;
             max-width: 1200px;
@@ -25,28 +27,35 @@
             background: #fff;
             padding: 15px;
             border-radius: 8px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             box-sizing: border-box;
             flex-grow: 1;
         }
-        h1, h2 {
+
+        h1,
+        h2 {
             text-align: center;
             color: #0056b3;
             margin-top: 15px;
             margin-bottom: 5px;
         }
+
         h1 {
             font-size: 1.8em;
         }
+
         h2 {
             font-size: 1.4em;
         }
-        .chart-count, .filter-count {
+
+        .chart-count,
+        .filter-count {
             text-align: center;
             font-size: 0.9em;
             color: #666;
             margin-bottom: 15px;
         }
+
         .filter-section {
             text-align: center;
             margin-bottom: 25px;
@@ -57,11 +66,13 @@
             flex-direction: column;
             gap: 10px;
         }
+
         .filter-section label {
             font-weight: bold;
             margin-right: 0;
             margin-bottom: 5px;
         }
+
         .filter-section select,
         .filter-section button {
             width: 100%;
@@ -75,15 +86,18 @@
             box-sizing: border-box;
             margin-top: 5px;
         }
+
         .filter-section button {
             margin-left: 0;
             margin-top: 10px;
         }
+
         .filter-section .download-button {
             background-color: #28a745;
             color: white;
             border: none;
         }
+
         .filter-section .download-button:hover {
             background-color: #218838;
         }
@@ -94,35 +108,42 @@
             width: 100%;
             margin: 20px auto;
             overflow: hidden;
-            padding: 10px 0; /* Add padding for buttons to show */
+            padding: 10px 0;
             background-color: #f9f9f9;
             border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
         }
+
         .cpu-carousel {
             display: flex;
             overflow-x: scroll;
             scroll-snap-type: x mandatory;
             -webkit-overflow-scrolling: touch;
             scroll-behavior: smooth;
-            scrollbar-width: none; /* For Firefox */
-            -ms-overflow-style: none; /* For Internet Explorer and Edge */
+            scrollbar-width: none;
+            /* For Firefox */
+            -ms-overflow-style: none;
+            /* For Internet Explorer and Edge */
         }
+
         .cpu-carousel::-webkit-scrollbar {
-            display: none; /* For Chrome, Safari, and Opera */
+            display: none;
+            /* For Chrome, Safari, and Opera */
         }
+
         .cpu-card {
-            flex: 0 0 auto; /* Prevent cards from shrinking */
-            width: 280px; /* Fixed width for cards */
+            flex: 0 0 auto;
+            width: 280px;
             margin: 10px;
             background-color: #fff;
             border: 1px solid #ddd;
             border-radius: 8px;
             padding: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
             text-align: left;
             scroll-snap-align: start;
         }
+
         .cpu-card h3 {
             color: #0056b3;
             margin-top: 0;
@@ -130,30 +151,39 @@
             text-align: center;
             font-size: 1.2em;
         }
+
         .cpu-card p {
             margin: 5px 0;
             font-size: 0.9em;
         }
+
         .cpu-card .notes {
             display: flex;
             justify-content: space-around;
             margin-top: 15px;
             border-top: 1px solid #eee;
             padding-top: 10px;
+            flex-wrap: wrap;
+            gap: 10px;
         }
+
         .cpu-card .note-item {
             text-align: center;
-            flex: 1;
+            flex-basis: 30%;
+            flex-grow: 1;
         }
+
         .cpu-card .note-item strong {
             display: block;
             font-size: 1.1em;
             color: #28a745;
         }
+
         .cpu-card .note-item span {
             font-size: 0.75em;
             color: #666;
         }
+
         .carousel-button {
             position: absolute;
             top: 50%;
@@ -167,14 +197,61 @@
             font-size: 1.5em;
             border-radius: 5px;
         }
+
         .carousel-button:hover {
             background-color: rgba(0, 0, 0, 0.7);
         }
+
         .carousel-button.prev {
             left: 5px;
         }
+
         .carousel-button.next {
             right: 5px;
+        }
+
+        /* New Sort Controls Styles */
+        .carousel-sort-controls {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            margin: 0 10px 10px 10px;
+            flex-wrap: wrap;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .carousel-sort-controls .sort-label {
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        .carousel-sort-controls button {
+            background-color: #f0f0f0;
+            border: 1px solid #ccc;
+            padding: 8px 12px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.2s, color 0.2s, border-color 0.2s;
+            font-size: 0.85em;
+        }
+
+        .carousel-sort-controls button:hover {
+            background-color: #e0e0e0;
+        }
+
+        .carousel-sort-controls button.active {
+            background-color: #0056b3;
+            color: white;
+            border-color: #004494;
+        }
+
+        .sort-arrow {
+            display: inline-block;
+            width: 15px;
+            font-weight: bold;
+            text-align: center;
         }
 
         .chart-container {
@@ -182,7 +259,7 @@
             padding: 15px;
             background-color: #fff;
             border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
             position: relative;
             overflow-x: auto;
         }
@@ -201,6 +278,7 @@
             border-radius: 4px;
             font-size: 0.85em;
         }
+
         .no-data {
             text-align: center;
             font-size: 1.1em;
@@ -208,20 +286,82 @@
             padding: 30px;
         }
 
-        /* Media Queries for larger screens (e.g., tablets and desktops) */
+        .price-analysis-container {
+            margin-top: 15px;
+            padding-top: 10px;
+            border-top: 1px solid #eee;
+        }
+
+        .price-analysis-container h4 {
+            margin: 0 0 8px 0;
+            text-align: center;
+            font-size: 0.9em;
+            color: #333;
+            font-weight: bold;
+        }
+
+        .price-bar-wrapper {
+            position: relative;
+            width: 100%;
+            height: 20px;
+            margin-top: 20px;
+        }
+
+        .price-bar {
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(to right, #28a745, #ffc107, #dc3545);
+            border: 1px solid #ccc;
+        }
+
+        .price-marker {
+            position: absolute;
+            top: -5px;
+            width: 2px;
+            height: 30px;
+            background-color: #000;
+            transform: translateX(-50%);
+            box-shadow: 0 0 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .price-marker-label {
+            position: absolute;
+            top: -25px;
+            transform: translateX(-50%);
+            background: #000;
+            color: #fff;
+            padding: 2px 5px;
+            border-radius: 3px;
+            font-size: 0.7em;
+            white-space: nowrap;
+        }
+
+        .price-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 5px;
+            font-size: 0.75em;
+            color: #555;
+        }
+
         @media (min-width: 768px) {
             body {
                 padding: 20px;
             }
+
             .container {
                 padding: 20px;
             }
+
             h1 {
                 font-size: 2.5em;
             }
+
             h2 {
                 font-size: 1.7em;
             }
+
             .filter-section {
                 flex-direction: row;
                 justify-content: center;
@@ -229,41 +369,50 @@
                 gap: 15px;
                 padding: 15px;
             }
+
             .filter-section label {
                 margin-bottom: 0;
                 margin-right: 10px;
             }
+
             .filter-section select,
             .filter-section button {
                 width: auto;
                 margin: 0;
             }
+
             .filter-section button {
                 margin-top: 0;
                 margin-left: 10px;
             }
+
             .chart-comment {
                 font-size: 0.9em;
             }
+
             .no-data {
                 font-size: 1.2em;
                 padding: 50px;
             }
+
             .chart-container canvas {
                 max-height: 500px;
             }
+
             .cpu-card {
-                width: 300px; /* Slightly wider cards on larger screens */
+                width: 300px;
             }
+
             .carousel-button {
                 padding: 12px 18px;
             }
         }
     </style>
 </head>
+
 <body>
     <div class="container">
-        <h1>Análise de Processadores AMD e Intel(2017-2025)</h1>
+        <h1>Análise de Processadores AMD AM4 (2017-2025)</h1>
 
         <div class="filter-section">
             <label for="threadsFilter">Filtrar por número de Threads:</label>
@@ -276,18 +425,28 @@
             </select>
             <button onclick="applyFilter()">Aplicar Filtro</button>
             <button onclick="resetFilter()">Limpar Filtro</button>
-            <button onclick="downloadAllChartsAsImages()" class="download-button">Baixar Gráficos</button>
+            <button onclick="downloadAllChartsAsImages()" class="download-button">Baixar Imagens dos Gráficos</button>
             <div id="totalCpuCount" class="filter-count"></div>
         </div>
 
         <div id="cpu-carousel-container" class="cpu-carousel-container">
-            <h2>Processadores Destacados (Desempenho e Custo-Benefício)</h2>
-            <div id="cpu-carousel" class="cpu-carousel">
-                </div>
+            <h2>Processadores Destacados</h2>
+            <div class="carousel-sort-controls">
+                <span class="sort-label">Ordenar por:</span>
+                <button id="sort-performance-btn" onclick="sortCpus('performance')">
+                    Desempenho <span class="sort-arrow"></span>
+                </button>
+                <button id="sort-value-btn" onclick="sortCpus('value')">
+                    Custo-Benefício <span class="sort-arrow"></span>
+                </button>
+                <button id="sort-general-btn" onclick="sortCpus('general')">
+                    Nota Geral <span class="sort-arrow"></span>
+                </button>
+            </div>
+            <div id="cpu-carousel" class="cpu-carousel"></div>
             <button class="carousel-button prev" onclick="scrollCarousel(-1)">&#10094;</button>
             <button class="carousel-button next" onclick="scrollCarousel(1)">&#10095;</button>
         </div>
-
 
         <div id="chart-area">
             <div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>
@@ -295,7 +454,7 @@
 
         <hr>
         <div class="chart-container">
-            <h2>Relação Desempenho/Preço de Lançamento</h2>
+            <h2>Relação Desempenho/Preço de Lançamento (Geral)</h2>
             <div id="overallPerfPriceCount" class="chart-count"></div>
             <canvas id="overallPerfPriceChart"></canvas>
             <div id="overallPerfPriceComment" class="chart-comment"></div>
@@ -305,30 +464,31 @@
     <script>
         let allProcessors = [];
         let singleCoreChart, multiCoreChart, litographyChart, priceChart, perfPriceChart, overallPerfPriceChart;
-        const GITHUB_LINK = "github.com/brenolobao"; // Seu link do GitHub
+        const GITHUB_LINK = "github.com/brenolobao";
+
+        let carouselSortState = {
+            criterion: 'performance', // Default sort
+            direction: 'desc'     // Default direction
+        };
 
         async function fetchData() {
             try {
                 const response = await fetch('cpusAmd-2017-2025-am4.json');
-                if (!response.ok) {
-                    throw new Error(`HTTP error! status: ${response.status}`);
-                }
+                if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
                 const data = await response.json();
                 allProcessors = data.processadores;
 
-                const totalProcessorsWithPerfData = allProcessors.filter(p =>
-                    p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null
-                );
+                const totalProcessorsWithPerfData = allProcessors.filter(p => p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null);
                 document.getElementById('totalCpuCount').textContent = `Total de CPUs com dados de desempenho: ${totalProcessorsWithPerfData.length}`;
 
                 populateThreadsFilter(allProcessors);
-                populateManufacturerFilter(allProcessors); // Populate the new manufacturer filter
+                populateManufacturerFilter(allProcessors);
                 document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>';
-                drawOverallPerfPriceChart(allProcessors); // Draw this chart initially
-                displayAllCpuCards(); // Display all CPU cards in the carousel
+                drawOverallPerfPriceChart(allProcessors);
+                displayAllCpuCards();
             } catch (error) {
                 console.error('Erro ao carregar os dados dos processadores:', error);
-                document.getElementById('chart-area').innerHTML = '<div class="no-data" style="color: red;">Erro ao carregar os dados. Verifique se o arquivo cpusAmd-2017-2025-am4.json está na mesma pasta.</div>';
+                document.getElementById('chart-area').innerHTML = '<div class="no-data" style="color: red;">Erro ao carregar os dados.</div>';
                 document.getElementById('totalCpuCount').textContent = 'Erro ao carregar dados.';
                 document.getElementById('overallPerfPriceComment').innerHTML = '<div class="no-data" style="color: red;">Erro ao carregar dados para este gráfico.</div>';
                 document.getElementById('cpu-carousel').innerHTML = '<div class="no-data" style="color: red;">Erro ao carregar dados para os cartões de CPU.</div>';
@@ -352,7 +512,7 @@
             const manufacturerSet = new Set(processors.map(p => p.fabricante).filter(f => f !== null));
             const sortedManufacturers = Array.from(manufacturerSet).sort();
             const select = document.getElementById('manufacturerFilter');
-            select.innerHTML = '<option value="all">Todos</option>'; // Default option
+            select.innerHTML = '<option value="all">Todos</option>';
             sortedManufacturers.forEach(manufacturer => {
                 const option = document.createElement('option');
                 option.value = manufacturer;
@@ -362,17 +522,24 @@
         }
 
         function applyFilter() {
+            // Applying a filter from the top dropdowns should also redraw the carousel cards
+            displayAllCpuCards();
+
             const selectedThreads = document.getElementById('threadsFilter').value;
             const selectedManufacturer = document.getElementById('manufacturerFilter').value;
-
             let filteredProcessors = allProcessors;
 
             if (selectedThreads) {
                 filteredProcessors = filteredProcessors.filter(p => p.threads == parseInt(selectedThreads));
             }
-
             if (selectedManufacturer && selectedManufacturer !== 'all') {
                 filteredProcessors = filteredProcessors.filter(p => p.fabricante === selectedManufacturer);
+            }
+
+            if (!selectedThreads) {
+                document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>';
+                destroyCharts();
+                return;
             }
 
             if (filteredProcessors.length === 0) {
@@ -380,16 +547,17 @@
                 destroyCharts();
                 return;
             }
-
             destroyCharts();
             displayCharts(filteredProcessors);
         }
 
+
         function resetFilter() {
             document.getElementById('threadsFilter').value = '';
-            document.getElementById('manufacturerFilter').value = 'all'; // Reset manufacturer filter
-            document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads e/ou Fabricante para exibir os gráficos.</div>';
+            document.getElementById('manufacturerFilter').value = 'all';
+            document.getElementById('chart-area').innerHTML = '<div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>';
             destroyCharts();
+            displayAllCpuCards(); // Redraw carousel with all processors
         }
 
         function destroyCharts() {
@@ -403,45 +571,45 @@
         function displayCharts(processors) {
             const chartArea = document.getElementById('chart-area');
             chartArea.innerHTML = `
-                <hr>
-                <div class="chart-container">
-                    <h2>Desempenho Single-Core (Crescente)</h2>
-                    <div id="singleCoreCount" class="chart-count"></div>
-                    <canvas id="singleCoreChart"></canvas>
-                    <div id="singleCoreComment" class="chart-comment"></div>
-                </div>
+        <hr>
+        <div class="chart-container">
+            <h2>Desempenho Single-Core (Crescente)</h2>
+            <div id="singleCoreCount" class="chart-count"></div>
+            <canvas id="singleCoreChart"></canvas>
+            <div id="singleCoreComment" class="chart-comment"></div>
+        </div>
 
-                <hr>
-                <div class="chart-container">
-                    <h2>Desempenho Multi-Core (Crescente)</h2>
-                    <div id="multiCoreCount" class="chart-count"></div>
-                    <canvas id="multiCoreChart"></canvas>
-                    <div id="multiCoreComment" class="chart-comment"></div>
-                </div>
+        <hr>
+        <div class="chart-container">
+            <h2>Desempenho Multi-Core (Crescente)</h2>
+            <div id="multiCoreCount" class="chart-count"></div>
+            <canvas id="multiCoreChart"></canvas>
+            <div id="multiCoreComment" class="chart-comment"></div>
+        </div>
 
-                <hr>
-                <div class="chart-container">
-                    <h2>Média de Desempenho por Litografia</h2>
-                    <div id="litographyCount" class="chart-count"></div>
-                    <canvas id="litographyChart"></canvas>
-                </div>
+        <hr>
+        <div class="chart-container">
+            <h2>Média de Desempenho por Litografia</h2>
+            <div id="litographyCount" class="chart-count"></div>
+            <canvas id="litographyChart"></canvas>
+        </div>
 
-                <hr>
-                <div class="chart-container">
-                    <h2>Preço de Lançamento por Ano (Crescente)</h2>
-                    <div id="priceCount" class="chart-count"></div>
-                    <canvas id="priceChart"></canvas>
-                    <div id="priceComment" class="chart-comment"></div>
-                </div>
+        <hr>
+        <div class="chart-container">
+            <h2>Preço de Lançamento por Ano (Crescente)</h2>
+            <div id="priceCount" class="chart-count"></div>
+            <canvas id="priceChart"></canvas>
+            <div id="priceComment" class="chart-comment"></div>
+        </div>
 
-                <hr>
-                <div class="chart-container">
-                    <h2>Relação Desempenho/Preço de Lançamento (Crescente)</h2>
-                    <div id="perfPriceCount" class="chart-count"></div>
-                    <canvas id="perfPriceChart"></canvas>
-                    <div id="perfPriceComment" class="chart-comment"></div>
-                </div>
-            `;
+        <hr>
+        <div class="chart-container">
+            <h2>Relação Desempenho/Preço de Lançamento (Crescente)</h2>
+            <div id="perfPriceCount" class="chart-count"></div>
+            <canvas id="perfPriceChart"></canvas>
+            <div id="perfPriceComment" class="chart-comment"></div>
+        </div>
+    `;
 
             drawSingleCoreChart(processors);
             drawMultiCoreChart(processors);
@@ -450,40 +618,144 @@
             drawPerfPriceChart(processors);
         }
 
-        const commonChartOptions = {
-            responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-                y: {
-                    beginAtZero: true,
-                    title: {
-                        display: true,
-                        text: 'Pontuação'
-                    }
-                },
-                x: {
-                    title: {
-                        display: true,
-                        text: 'Processador'
-                    },
-                    ticks: {
-                        autoSkip: true,
-                        maxRotation: 90,
-                        minRotation: 0
-                    }
-                }
-            },
-            plugins: {
-                tooltip: {
-                    callbacks: {
-                        label: function(context) {
-                            return `${context.dataset.label}: ${context.raw}`;
-                        }
-                    }
-                }
-            }
-        };
+        function calculatePerformanceScore(processor, allProcessors) {
+            if (!processor.desempenho || processor.desempenho.single_core === null || processor.desempenho.multi_core === null) return 0;
+            const performance = (processor.desempenho.single_core * 0.4) + (processor.desempenho.multi_core * 0.6);
+            const allPerformances = allProcessors
+                .filter(p => p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null)
+                .map(p => (p.desempenho.single_core * 0.4) + (p.desempenho.multi_core * 0.6));
+            const maxPerformance = Math.max(...allPerformances);
+            return maxPerformance > 0 ? (performance / maxPerformance) * 10 : 0;
+        }
 
+        function calculateValueScore(processor, allProcessors) {
+            if (!processor.preco_lancamento || processor.preco_lancamento <= 0 || !processor.desempenho || processor.desempenho.single_core === null || processor.desempenho.multi_core === null) return 0;
+            const performance = (processor.desempenho.single_core * 0.4) + (processor.desempenho.multi_core * 0.6);
+            const valueRatio = performance / processor.preco_lancamento;
+            const allValueRatios = allProcessors
+                .filter(p => p.preco_lancamento && p.preco_lancamento > 0 && p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null)
+                .map(p => (((p.desempenho.single_core * 0.4) + (p.desempenho.multi_core * 0.6)) / p.preco_lancamento));
+            const maxValueRatio = Math.max(...allValueRatios);
+            return maxValueRatio > 0 ? (valueRatio / maxValueRatio) * 10 : 0;
+        }
+
+        function sortCpus(criterion) {
+            if (carouselSortState.criterion === criterion) {
+                carouselSortState.direction = carouselSortState.direction === 'desc' ? 'asc' : 'desc';
+            } else {
+                carouselSortState.criterion = criterion;
+                carouselSortState.direction = 'desc';
+            }
+            displayAllCpuCards();
+        }
+
+        function updateSortButtonsUI() {
+            document.querySelectorAll('.carousel-sort-controls button').forEach(btn => {
+                btn.classList.remove('active');
+                btn.querySelector('.sort-arrow').textContent = '';
+            });
+            const activeBtn = document.getElementById(`sort-${carouselSortState.criterion}-btn`);
+            if (activeBtn) {
+                activeBtn.classList.add('active');
+                const arrow = carouselSortState.direction === 'desc' ? '↓' : '↑';
+                activeBtn.querySelector('.sort-arrow').textContent = arrow;
+            }
+        }
+
+        function displayAllCpuCards() {
+            const carousel = document.getElementById('cpu-carousel');
+            carousel.innerHTML = '';
+            const selectedManufacturer = document.getElementById('manufacturerFilter').value;
+
+            let eligibleProcessors = allProcessors.filter(p =>
+                p.preco_lancamento > 0 && p.desempenho && p.desempenho.single_core !== null &&
+                p.desempenho.multi_core !== null && p.nucleos !== null && p.threads !== null &&
+                p.data_lancamento && p.fabricante
+            );
+
+            if (selectedManufacturer && selectedManufacturer !== 'all') {
+                eligibleProcessors = eligibleProcessors.filter(p => p.fabricante === selectedManufacturer);
+            }
+
+            if (eligibleProcessors.length === 0) {
+                carousel.innerHTML = '<div class="no-data">Nenhum processador com dados completos para exibir no carousel com os filtros selecionados.</div>';
+                updateSortButtonsUI();
+                return;
+            }
+
+            const allValueRatios = allProcessors
+                .filter(p => p.preco_lancamento > 0 && p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null)
+                .map(p => (((p.desempenho.single_core * 0.4) + (p.desempenho.multi_core * 0.6)) / p.preco_lancamento));
+            const maxValueRatio = Math.max(...allValueRatios);
+
+            let cpusWithScores = eligibleProcessors.map(cpu => {
+                const performanceScore = calculatePerformanceScore(cpu, allProcessors);
+                const valueScore = calculateValueScore(cpu, allProcessors);
+                const generalScore = (performanceScore + valueScore) / 2;
+                return { cpu, performanceScore, valueScore, generalScore };
+            });
+
+            cpusWithScores.sort((a, b) => {
+                let valA, valB;
+                switch (carouselSortState.criterion) {
+                    case 'value': valA = a.valueScore; valB = b.valueScore; break;
+                    case 'general': valA = a.generalScore; valB = b.generalScore; break;
+                    default: valA = a.performanceScore; valB = b.performanceScore; break;
+                }
+                return carouselSortState.direction === 'asc' ? valA - valB : valB - valA;
+            });
+
+            cpusWithScores.forEach(item => {
+                const { cpu, performanceScore, valueScore, generalScore } = item;
+                const year = cpu.data_lancamento.split('/')[1];
+                const performance = (cpu.desempenho.single_core * 0.4) + (cpu.desempenho.multi_core * 0.6);
+                const bestPrice = maxValueRatio > 0 ? (performance / maxValueRatio) : 0;
+                const currentPrice = cpu.preco_lancamento;
+                const badPrice = bestPrice * 10;
+                let pricePositionPercent = (badPrice > bestPrice) ? ((currentPrice - bestPrice) / (badPrice - bestPrice)) * 100 : 0;
+                pricePositionPercent = Math.max(0, Math.min(100, pricePositionPercent));
+
+                const card = `
+                    <div class="cpu-card">
+                        <h3>${cpu.nome}</h3>
+                        <p><strong>Fabricante:</strong> ${cpu.fabricante}</p>
+                        <p><strong>Núcleos/Threads:</strong> ${cpu.nucleos}/${cpu.threads}</p>
+                        <p><strong>Ano:</strong> ${year}</p>
+                        <p><strong>Preço Lanç.:</strong> $${currentPrice.toFixed(2)}</p>
+                        <div class="notes">
+                            <div class="note-item"><strong>${performanceScore.toFixed(1)}</strong><span>Desempenho</span></div>
+                            <div class="note-item"><strong>${valueScore.toFixed(1)}</strong><span>Custo-Benefício</span></div>
+                            <div class="note-item"><strong>${generalScore.toFixed(1)}</strong><span>Nota Geral</span></div>
+                        </div>
+                        <div class="price-analysis-container">
+                            <h4>Análise de Preço (Custo-Benefício)</h4>
+                            <div class="price-bar-wrapper">
+                                <div class="price-bar"></div>
+                                <div class="price-marker" style="left: ${pricePositionPercent}%;">
+                                    <div class="price-marker-label">Atual: $${currentPrice.toFixed(2)}</div>
+                                </div>
+                            </div>
+                            <div class="price-labels">
+                                <span>Ótimo: $${bestPrice.toFixed(2)}</span>
+                                <span>Ruim: $${badPrice.toFixed(2)}</span>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                carousel.innerHTML += card;
+            });
+            updateSortButtonsUI();
+        }
+
+        function scrollCarousel(direction) {
+            const carousel = document.getElementById('cpu-carousel');
+            const card = carousel.querySelector('.cpu-card');
+            if (!card) return;
+            const scrollAmount = card.offsetWidth + 20; // Card width + margin
+            carousel.scrollBy({ left: direction * scrollAmount, behavior: 'smooth' });
+        }
+
+        const commonChartOptions = { responsive: true, maintainAspectRatio: false, scales: { y: { beginAtZero: true, title: { display: true, text: 'Pontuação' } }, x: { title: { display: true, text: 'Processador' }, ticks: { autoSkip: true, maxRotation: 90, minRotation: 0 } } }, plugins: { tooltip: { callbacks: { label: function (context) { return `${context.dataset.label}: ${context.raw}`; } } } } };
         function drawSingleCoreChart(processors) {
             const validProcessors = processors.filter(p => p.desempenho && p.desempenho.single_core !== null);
             validProcessors.sort((a, b) => a.desempenho.single_core - b.desempenho.single_core);
@@ -530,12 +802,13 @@
             }
 
             const commentDiv = document.getElementById('singleCoreComment');
-            commentDiv.innerHTML = `
-                Maior percentual de aumento entre CPUs consecutivos: <strong>${largestConsecutiveDiff.toFixed(2)}%</strong>.<br>
-                Percentual de aumento do pior para o melhor: <strong>${worstToBestDiff.toFixed(2)}%</strong>.
-            `;
             if (validProcessors.length < 2) {
                 commentDiv.innerHTML = "Não há dados suficientes para calcular percentuais de comparação.";
+            } else {
+                commentDiv.innerHTML = `
+            Maior percentual de aumento entre CPUs consecutivos: <strong>${largestConsecutiveDiff.toFixed(2)}%</strong>.<br>
+            Percentual de aumento do pior para o melhor: <strong>${worstToBestDiff.toFixed(2)}%</strong>.
+        `;
             }
         }
 
@@ -585,157 +858,17 @@
             }
 
             const commentDiv = document.getElementById('multiCoreComment');
-            commentDiv.innerHTML = `
-                Maior percentual de aumento entre CPUs consecutivos: <strong>${largestConsecutiveDiff.toFixed(2)}%</strong>.<br>
-                Percentual de aumento do pior para o melhor: <strong>${worstToBestDiff.toFixed(2)}%</strong>.
-            `;
             if (validProcessors.length < 2) {
                 commentDiv.innerHTML = "Não há dados suficientes para calcular percentuais de comparação.";
-            }
-        }
-
-        function drawLitographyChart(processors) {
-            const litographyData = {};
-
-            const validProcessorsForLitho = processors.filter(p => p.litografia && p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null);
-
-            validProcessorsForLitho.forEach(p => {
-                if (!litographyData[p.litografia]) {
-                    litographyData[p.litografia] = { singleSum: 0, multiSum: 0, count: 0 };
-                }
-                litographyData[p.litografia].singleSum += p.desempenho.single_core;
-                litographyData[p.litografia].multiSum += p.desempenho.multi_core;
-                litographyData[p.litografia].count++;
-            });
-
-            const labels = Object.keys(litographyData).sort((a, b) => parseFloat(a) - parseFloat(b));
-            const avgSingleCore = labels.map(lit => litographyData[lit].singleSum / litographyData[lit].count);
-            const avgMultiCore = labels.map(lit => litographyData[lit].multiSum / litographyData[lit].count);
-
-            document.getElementById('litographyCount').textContent = `Litografias exibidas: ${labels.length} (com base em ${validProcessorsForLitho.length} CPUs)`;
-
-            const ctx = document.getElementById('litographyChart').getContext('2d');
-            litographyChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [
-                        {
-                            label: 'Média Single-Core',
-                            data: avgSingleCore,
-                            backgroundColor: 'rgba(255, 99, 132, 0.6)',
-                            borderColor: 'rgba(255, 99, 132, 1)',
-                            borderWidth: 1
-                        },
-                        {
-                            label: 'Média Multi-Core',
-                            data: avgMultiCore,
-                            backgroundColor: 'rgba(54, 162, 235, 0.6)',
-                            borderColor: 'rgba(54, 162, 235, 1)',
-                            borderWidth: 1
-                        }
-                    ]
-                },
-                options: {
-                    ...commonChartOptions,
-                    scales: {
-                        y: {
-                            ...commonChartOptions.scales.y,
-                            title: {
-                                display: true,
-                                text: 'Pontuação Média'
-                            }
-                        },
-                        x: {
-                            ...commonChartOptions.scales.x,
-                            title: {
-                                display: true,
-                                text: 'Litografia (nm)'
-                            }
-                        }
-                    },
-                    plugins: {
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `${context.dataset.label}: ${context.raw.toFixed(2)}`;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-        }
-
-        function drawPriceChart(processors) {
-            const validProcessors = processors.filter(p => p.preco_lancamento !== null && p.preco_lancamento !== undefined && p.preco_lancamento > 0 && p.data_lancamento);
-
-            validProcessors.sort((a, b) => {
-                const [monthA, yearA] = a.data_lancamento.split('/').map(Number);
-                const [monthB, yearB] = b.data_lancamento.split('/').map(Number);
-
-                if (yearA !== yearB) {
-                    return yearA - yearB;
-                }
-                return monthA - monthB;
-            });
-
-            document.getElementById('priceCount').textContent = `CPUs exibidos: ${validProcessors.length}`;
-
-            const labels = validProcessors.map(p => `${p.nome} (${p.data_lancamento})`);
-            const data = validProcessors.map(p => p.preco_lancamento);
-
-            const ctx = document.getElementById('priceChart').getContext('2d');
-            priceChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Preço de Lançamento (USD)',
-                        data: data,
-                        backgroundColor: 'rgba(255, 206, 86, 0.6)',
-                        borderColor: 'rgba(255, 206, 86, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    ...commonChartOptions,
-                    scales: {
-                        y: {
-                            ...commonChartOptions.scales.y,
-                            title: {
-                                display: true,
-                                text: 'Preço (USD)'
-                            }
-                        },
-                        x: {
-                            ...commonChartOptions.scales.x,
-                            title: {
-                                display: true,
-                                text: 'Processador (Data de Lançamento)'
-                            }
-                        }
-                    },
-                    plugins: {
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    return `${context.dataset.label}: $${context.raw.toFixed(2)}`;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-
-            const commentDiv = document.getElementById('priceComment');
-            if (validProcessors.length === 0) {
-                 commentDiv.innerHTML = 'Não há dados de preço de lançamento disponíveis para exibir este gráfico para os filtros selecionados.';
             } else {
-                 commentDiv.innerHTML = 'Este gráfico exibe o preço de lançamento de cada processador, ordenado cronologicamente por ano de lançamento.';
+                commentDiv.innerHTML = `
+            Maior percentual de aumento entre CPUs consecutivos: <strong>${largestConsecutiveDiff.toFixed(2)}%</strong>.<br>
+            Percentual de aumento do pior para o melhor: <strong>${worstToBestDiff.toFixed(2)}%</strong>.
+        `;
             }
         }
-
+        function drawLitographyChart(processors) { const litographyData = {}; const validProcessorsForLitho = processors.filter(p => p.litografia && p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null); validProcessorsForLitho.forEach(p => { if (!litographyData[p.litografia]) { litographyData[p.litografia] = { singleSum: 0, multiSum: 0, count: 0 }; } litographyData[p.litografia].singleSum += p.desempenho.single_core; litographyData[p.litografia].multiSum += p.desempenho.multi_core; litographyData[p.litografia].count++; }); const labels = Object.keys(litographyData).sort((a, b) => parseFloat(a) - parseFloat(b)); const avgSingleCore = labels.map(lit => litographyData[lit].singleSum / litographyData[lit].count); const avgMultiCore = labels.map(lit => litographyData[lit].multiSum / litographyData[lit].count); const ctx = document.getElementById('litographyChart').getContext('2d'); litographyChart = new Chart(ctx, { type: 'bar', data: { labels: labels, datasets: [{ label: 'Média Single-Core', data: avgSingleCore, backgroundColor: 'rgba(255, 99, 132, 0.6)', }, { label: 'Média Multi-Core', data: avgMultiCore, backgroundColor: 'rgba(54, 162, 235, 0.6)', }] }, options: { ...commonChartOptions, scales: { y: { ...commonChartOptions.scales.y, title: { text: 'Pontuação Média' } }, x: { ...commonChartOptions.scales.x, title: { text: 'Litografia (nm)' } } } } }); }
+        function drawPriceChart(processors) { const validProcessors = processors.filter(p => p.preco_lancamento > 0 && p.data_lancamento); validProcessors.sort((a, b) => new Date(a.data_lancamento.split('/').reverse().join('-')) - new Date(b.data_lancamento.split('/').reverse().join('-'))); const labels = validProcessors.map(p => `${p.nome} (${p.data_lancamento})`); const data = validProcessors.map(p => p.preco_lancamento); const ctx = document.getElementById('priceChart').getContext('2d'); priceChart = new Chart(ctx, { type: 'bar', data: { labels, datasets: [{ label: 'Preço de Lançamento (USD)', data, backgroundColor: 'rgba(255, 206, 86, 0.6)' }] }, options: { ...commonChartOptions, scales: { y: { ...commonChartOptions.scales.y, title: { text: 'Preço (USD)' } }, x: { ...commonChartOptions.scales.x, title: { text: 'Processador (Data)' } } } } }); }
         function drawPerfPriceChart(processors) {
             const validProcessors = processors.filter(p =>
                 p.preco_lancamento !== null && p.preco_lancamento !== undefined && p.preco_lancamento > 0 &&
@@ -775,90 +908,6 @@
                 },
                 options: {
                     ...commonChartOptions,
-                     scales: {
-                        y: {
-                            ...commonChartOptions.scales.y,
-                            title: {
-                                display: true,
-                                text: 'Relação Desempenho/Preço'
-                            }
-                        },
-                        x: {
-                            ...commonChartOptions.scales.x,
-                            title: {
-                                display: true,
-                                text: 'Processador'
-                            }
-                        }
-                    },
-                    plugins: {
-                        tooltip: {
-                            callbacks: {
-                                label: function(context) {
-                                    const item = perfPriceRatios[context.dataIndex];
-                                    return `Relação: ${item.ratio.toFixed(2)} | Preço: $${item.originalPrice.toFixed(2)} | SC: ${item.originalSingle} | MC: ${item.originalMulti}`;
-                                }
-                            }
-                        }
-                    }
-                }
-            });
-
-            const commentDiv = document.getElementById('perfPriceComment');
-            if (perfPriceRatios.length > 0) {
-                const bestPerfPrice = perfPriceRatios[perfPriceRatios.length - 1];
-                const worstPerfPrice = perfPriceRatios[0];
-                commentDiv.innerHTML = `
-                    Processador com melhor relação desempenho/preço: <strong>${bestPerfPrice.name}</strong> (Relação: ${bestPerfPrice.ratio.toFixed(2)}).<br>
-                    Processador com pior relação desempenho/preço: <strong>${worstPerfPrice.name}</strong> (Relação: ${worstPerfPrice.ratio.toFixed(2)}).
-                `;
-            } else {
-                commentDiv.innerHTML = 'Não há dados suficientes (preço de lançamento e desempenho) para calcular a relação desempenho/preço.';
-            }
-        }
-
-        function drawOverallPerfPriceChart(processors) {
-            const validProcessors = processors.filter(p =>
-                p.preco_lancamento !== null && p.preco_lancamento !== undefined && p.preco_lancamento > 0 &&
-                p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null
-            );
-
-            const perfPriceRatios = validProcessors.map(p => {
-                const performance = (p.desempenho.single_core + p.desempenho.multi_core) / 2;
-                return {
-                    name: p.nome,
-                    ratio: performance / p.preco_lancamento,
-                    originalPrice: p.preco_lancamento,
-                    originalSingle: p.desempenho.single_core,
-                    originalMulti: p.desempenho.multi_core
-                };
-            });
-
-            perfPriceRatios.sort((a, b) => a.ratio - b.ratio);
-
-            document.getElementById('overallPerfPriceCount').textContent = `CPUs exibidos: ${perfPriceRatios.length}`;
-
-            const labels = perfPriceRatios.map(p => p.name);
-            const data = perfPriceRatios.map(p => p.ratio);
-
-            const ctx = document.getElementById('overallPerfPriceChart').getContext('2d');
-            if (overallPerfPriceChart) {
-                overallPerfPriceChart.destroy();
-            }
-            overallPerfPriceChart = new Chart(ctx, {
-                type: 'bar',
-                data: {
-                    labels: labels,
-                    datasets: [{
-                        label: 'Desempenho/Preço (Pontos/USD)',
-                        data: data,
-                        backgroundColor: 'rgba(255, 159, 64, 0.6)',
-                        borderColor: 'rgba(255, 159, 64, 1)',
-                        borderWidth: 1
-                    }]
-                },
-                options: {
-                    ...commonChartOptions,
                     scales: {
                         y: {
                             ...commonChartOptions.scales.y,
@@ -878,7 +927,7 @@
                     plugins: {
                         tooltip: {
                             callbacks: {
-                                label: function(context) {
+                                label: function (context) {
                                     const item = perfPriceRatios[context.dataIndex];
                                     return `Relação: ${item.ratio.toFixed(2)} | Preço: $${item.originalPrice.toFixed(2)} | SC: ${item.originalSingle} | MC: ${item.originalMulti}`;
                                 }
@@ -888,20 +937,48 @@
                 }
             });
 
-            const commentDiv = document.getElementById('overallPerfPriceComment');
+            const commentDiv = document.getElementById('perfPriceComment');
             if (perfPriceRatios.length > 0) {
-                const bestOverallPerfPrice = perfPriceRatios[perfPriceRatios.length - 1];
-                const worstOverallPerfPrice = perfPriceRatios[0];
+                const bestPerfPrice = perfPriceRatios[perfPriceRatios.length - 1];
+                const worstPerfPrice = perfPriceRatios[0];
                 commentDiv.innerHTML = `
-                    **Melhor** relação desempenho/preço (Geral): <strong>${bestOverallPerfPrice.name}</strong> (Relação: ${bestOverallPerfPrice.ratio.toFixed(2)}).<br>
-                    **Pior** relação desempenho/preço (Geral): <strong>${worstOverallPerfPrice.name}</strong> (Relação: ${worstOverallPerfPrice.ratio.toFixed(2)}).
-                `;
+            Processador com melhor relação desempenho/preço: <strong>${bestPerfPrice.name}</strong> (Relação: ${bestPerfPrice.ratio.toFixed(2)}).<br>
+            Processador com pior relação desempenho/preço: <strong>${worstPerfPrice.name}</strong> (Relação: ${worstPerfPrice.ratio.toFixed(2)}).
+        `;
             } else {
-                commentDiv.innerHTML = 'Não há dados suficientes (preço de lançamento e desempenho) para calcular a relação desempenho/preço para todos os processadores.';
+                commentDiv.innerHTML = 'Não há dados suficientes (preço e desempenho) para calcular a relação desempenho/preço para os filtros selecionados.';
             }
         }
-
-        // Função para adicionar marca d'água
+        function drawOverallPerfPriceChart(processors) {
+            if (overallPerfPriceChart) overallPerfPriceChart.destroy();
+            const validProcessors = processors.filter(p => p.preco_lancamento > 0 && p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null);
+            const perfPriceRatios = validProcessors.map(p => ({
+                name: p.nome, ratio: ((p.desempenho.single_core + p.desempenho.multi_core) / 2) / p.preco_lancamento
+            }));
+            perfPriceRatios.sort((a, b) => a.ratio - b.ratio);
+            document.getElementById('overallPerfPriceCount').textContent = `CPUs exibidos: ${perfPriceRatios.length}`;
+            const labels = perfPriceRatios.map(p => p.name);
+            const data = perfPriceRatios.map(p => p.ratio);
+            const ctx = document.getElementById('overallPerfPriceChart').getContext('2d');
+            overallPerfPriceChart = new Chart(ctx, {
+                type: 'bar', data: {
+                    labels, datasets: [{ label: 'Desempenho/Preço (Pontos/USD)', data, backgroundColor: 'rgba(255, 159, 64, 0.6)' }]
+                },
+                options: {
+                    ...commonChartOptions, scales: {
+                        y: {
+                            ...commonChartOptions.scales.y, title: {
+                                text: 'Relação Desempenho/Preço'
+                            }
+                        }
+                    }
+                }
+            });
+            const commentDiv = document.getElementById('overallPerfPriceComment'); if (perfPriceRatios.length > 0) {
+                const best = perfPriceRatios[perfPriceRatios.length - 1]; const worst = perfPriceRatios[0];
+                commentDiv.innerHTML = `Melhor Custo-Benefício: <strong>${best.name}</strong> (${best.ratio.toFixed(2)} pts/USD).<br>Pior Custo-Benefício: <strong>${worst.name}</strong> (${worst.ratio.toFixed(2)} pts/USD).`;
+            }
+        }
         function addWatermarkToCanvas(canvas, text) {
             const ctx = canvas.getContext('2d');
             const originalWidth = canvas.width;
@@ -926,8 +1003,6 @@
 
             ctx.restore(); // Restore the canvas state
         }
-
-
         function downloadAllChartsAsImages() {
             const selectedThreads = document.getElementById('threadsFilter').value;
             const selectedManufacturer = document.getElementById('manufacturerFilter').value;
@@ -974,103 +1049,9 @@
             });
         }
 
-        function calculatePerformanceScore(processor, allProcessors) {
-            if (!processor.desempenho || processor.desempenho.single_core === null || processor.desempenho.multi_core === null) {
-                return 0;
-            }
-            // Use a weighted average if desired, or a simple average
-            const performance = (processor.desempenho.single_core * 0.4) + (processor.desempenho.multi_core * 0.6); // Example weighting
-
-            const allPerformances = allProcessors
-                .filter(p => p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null)
-                .map(p => (p.desempenho.single_core * 0.4) + (p.desempenho.multi_core * 0.6));
-
-            const maxPerformance = Math.max(...allPerformances);
-            return maxPerformance > 0 ? (performance / maxPerformance) * 10 : 0;
-        }
-
-        function calculateValueScore(processor, allProcessors) {
-            if (!processor.preco_lancamento || processor.preco_lancamento <= 0 || !processor.desempenho || processor.desempenho.single_core === null || processor.desempenho.multi_core === null) {
-                return 0;
-            }
-            const performance = (processor.desempenho.single_core * 0.4) + (processor.desempenho.multi_core * 0.6); // Consistent performance metric
-            const valueRatio = performance / processor.preco_lancamento;
-
-            const allValueRatios = allProcessors
-                .filter(p => p.preco_lancamento && p.preco_lancamento > 0 && p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null)
-                .map(p => (((p.desempenho.single_core * 0.4) + (p.desempenho.multi_core * 0.6)) / p.preco_lancamento));
-
-            const maxValueRatio = Math.max(...allValueRatios);
-            return maxValueRatio > 0 ? (valueRatio / maxValueRatio) * 10 : 0;
-        }
-
-        function displayAllCpuCards() {
-            const carousel = document.getElementById('cpu-carousel');
-            carousel.innerHTML = ''; // Clear previous cards
-
-            const selectedManufacturer = document.getElementById('manufacturerFilter').value;
-
-            let eligibleProcessors = allProcessors.filter(p =>
-                p.preco_lancamento !== null && p.preco_lancamento !== undefined && p.preco_lancamento > 0 &&
-                p.desempenho && p.desempenho.single_core !== null && p.desempenho.multi_core !== null &&
-                p.nucleos !== null && p.threads !== null && p.data_lancamento && p.fabricante
-            );
-
-            if (selectedManufacturer && selectedManufacturer !== 'all') {
-                eligibleProcessors = eligibleProcessors.filter(p => p.fabricante === selectedManufacturer);
-            }
-
-
-            // Sort by performance score in descending order for better display in carousel
-            eligibleProcessors.sort((a, b) => calculatePerformanceScore(b, allProcessors) - calculatePerformanceScore(a, allProcessors));
-
-
-            if (eligibleProcessors.length === 0) {
-                carousel.innerHTML = '<div class="no-data">Nenhum processador com dados completos de desempenho e preço para exibir no carousel com os filtros selecionados.</div>';
-                return;
-            }
-
-            eligibleProcessors.forEach(cpu => {
-                const performanceScore = calculatePerformanceScore(cpu, allProcessors).toFixed(1);
-                const valueScore = calculateValueScore(cpu, allProcessors).toFixed(1);
-                const year = cpu.data_lancamento ? cpu.data_lancamento.split('/')[1] : 'N/A';
-
-                const card = `
-                    <div class="cpu-card">
-                        <h3>${cpu.nome}</h3>
-                        <p><strong>Fabricante:</strong> ${cpu.fabricante}</p>
-                        <p><strong>Núcleos/Threads:</strong> ${cpu.nucleos}/${cpu.threads}</p>
-                        <p><strong>Ano de Lançamento:</strong> ${year}</p>
-                        <p><strong>Preço de Lançamento:</strong> $${cpu.preco_lancamento.toFixed(2)}</p>
-                        <div class="notes">
-                            <div class="note-item">
-                                <strong>${performanceScore}</strong>
-                                <span>Desempenho Bruto</span>
-                            </div>
-                            <div class="note-item">
-                                <strong>${valueScore}</strong>
-                                <span>Custo-Benefício</span>
-                            </div>
-                        </div>
-                    </div>
-                `;
-                carousel.innerHTML += card;
-            });
-        }
-
-        function scrollCarousel(direction) {
-            const carousel = document.getElementById('cpu-carousel');
-            const cardWidth = document.querySelector('.cpu-card').offsetWidth; // Get width of one card
-            const scrollAmount = cardWidth + 20; // Card width + margin
-
-            carousel.scrollBy({
-                left: direction * scrollAmount,
-                behavior: 'smooth'
-            });
-        }
-
 
         document.addEventListener('DOMContentLoaded', fetchData);
     </script>
 </body>
+
 </html>
