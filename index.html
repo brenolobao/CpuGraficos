@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Análise de Processadores AMD e Intel</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>Análise de Processadores AMD e Intel (2017-2025)</h1>
+
+        <div class="filter-section">
+            <label for="threadsFilter">Filtrar por número de Threads:</label>
+            <select id="threadsFilter">
+                <option value="">Selecione o número de Threads</option>
+            </select>
+            <label for="manufacturerFilter">Filtrar por Fabricante:</label>
+            <select id="manufacturerFilter">
+                <option value="all">Todos</option>
+            </select>
+            <button onclick="applyFilter()">Aplicar Filtro</button>
+            <button onclick="resetFilter()">Limpar Filtro</button>
+            <button onclick="downloadAllChartsAsImages()" class="download-button">Baixar Gráficos</button>
+            <div id="totalCpuCount" class="filter-count"></div>
+        </div>
+
+        <div id="cpu-carousel-container" class="cpu-carousel-container">
+            <h2>Processadores Destacados</h2>
+            <div class="carousel-sort-controls">
+                <span class="sort-label">Ordenar por:</span>
+                <button id="sort-performance-btn" onclick="sortCpus('performance')">
+                    Desempenho <span class="sort-arrow"></span>
+                </button>
+                <button id="sort-value-btn" onclick="sortCpus('value')">
+                    Custo-Benefício <span class="sort-arrow"></span>
+                </button>
+                <button id="sort-general-btn" onclick="sortCpus('general')">
+                    Nota Geral <span class="sort-arrow"></span>
+                </button>
+            </div>
+            <div id="cpu-carousel" class="cpu-carousel"></div>
+            <button class="carousel-button prev" onclick="scrollCarousel(-1)">&#10094;</button>
+            <button class="carousel-button next" onclick="scrollCarousel(1)">&#10095;</button>
+        </div>
+
+        <div id="chart-area">
+            <div class="no-data">Selecione o número de Threads para exibir os gráficos.</div>
+        </div>
+
+        <hr>
+        <div class="chart-container">
+            <h2>Relação Desempenho/Preço de Lançamento (Geral)</h2>
+            <div id="overallPerfPriceCount" class="chart-count"></div>
+            <canvas id="overallPerfPriceChart"></canvas>
+            <div id="overallPerfPriceComment" class="chart-comment"></div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
