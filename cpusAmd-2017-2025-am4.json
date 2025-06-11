@@ -4279,8 +4279,8 @@
       "cache": "9 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 1912,
+        "multi_core": 7432
       },
       "preco_lancamento": null
     },
@@ -4342,8 +4342,8 @@
       "cache": "9 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2442,
+        "multi_core": 9531
       },
       "preco_lancamento": null
     },
@@ -4363,8 +4363,8 @@
       "cache": "9 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2540,
+        "multi_core": 8906
       },
       "preco_lancamento": null
     },
@@ -4384,8 +4384,8 @@
       "cache": "9 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2004,
+        "multi_core": 7725
       },
       "preco_lancamento": null
     },
@@ -4426,8 +4426,8 @@
       "cache": "9 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2566,
+        "multi_core": 9953
       },
       "preco_lancamento": null
     },
@@ -4447,8 +4447,8 @@
       "cache": "9 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2272,
+        "multi_core": 9259
       },
       "preco_lancamento": null
     },
@@ -4510,8 +4510,8 @@
       "cache": "9 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2430,
+        "multi_core": 9382
       },
       "preco_lancamento": null
     },
@@ -4531,8 +4531,8 @@
       "cache": "9 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2094,
+        "multi_core": 8253
       },
       "preco_lancamento": null
     },
@@ -4552,8 +4552,8 @@
       "cache": "9 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2575,
+        "multi_core": 9875
       },
       "preco_lancamento": null
     },
@@ -4573,8 +4573,8 @@
       "cache": "9 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2132,
+        "multi_core": 8096
       },
       "preco_lancamento": null
     },
@@ -4594,8 +4594,8 @@
       "cache": "9 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2716,
+        "multi_core": 10292
       },
       "preco_lancamento": null
     },
@@ -4615,8 +4615,8 @@
       "cache": "9 MB",
       "tdp": "95 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2729,
+        "multi_core": 10642
       },
       "preco_lancamento": null
     },
@@ -4636,8 +4636,8 @@
       "cache": "12 MB",
       "tdp": "95 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2822,
+        "multi_core": 14072
       },
       "preco_lancamento": null
     },
@@ -4699,8 +4699,8 @@
       "cache": "12 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2727,
+        "multi_core": 11826
       },
       "preco_lancamento": null
     },
@@ -4720,8 +4720,8 @@
       "cache": "12 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2298,
+        "multi_core": 10173
       },
       "preco_lancamento": null
     },
@@ -4741,8 +4741,8 @@
       "cache": "12 MB",
       "tdp": "95 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2866,
+        "multi_core": 14415
       },
       "preco_lancamento": null
     },
@@ -4762,8 +4762,8 @@
       "cache": "16.5 MB",
       "tdp": "165 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2563,
+        "multi_core": 18068
       },
       "preco_lancamento": null
     },
@@ -4783,8 +4783,8 @@
       "cache": "16.5 MB",
       "tdp": "165 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2457,
+        "multi_core": 20452
       },
       "preco_lancamento": null
     },
@@ -4804,8 +4804,8 @@
       "cache": "16 MB",
       "tdp": "95 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2921,
+        "multi_core": 18168
       },
       "preco_lancamento": null
     },
@@ -4825,8 +4825,8 @@
       "cache": "19.25 MB",
       "tdp": "165 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2546,
+        "multi_core": 21672
       },
       "preco_lancamento": null
     },
@@ -4846,8 +4846,8 @@
       "cache": "19.25 MB",
       "tdp": "165 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2628,
+        "multi_core": 25094
       },
       "preco_lancamento": null
     },
@@ -4867,8 +4867,8 @@
       "cache": "19.25 MB",
       "tdp": "165 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2622,
+        "multi_core": 28132
       },
       "preco_lancamento": null
     },
@@ -4888,8 +4888,8 @@
       "cache": "22 MB",
       "tdp": "165 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2584,
+        "multi_core": 29901
       },
       "preco_lancamento": null
     },
@@ -4909,8 +4909,8 @@
       "cache": "24.75 MB",
       "tdp": "165 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2551,
+        "multi_core": 31654
       },
       "preco_lancamento": null
     },
@@ -4930,8 +4930,8 @@
       "cache": "19.25 MB",
       "tdp": "255 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2970,
+        "multi_core": 30162
       },
       "preco_lancamento": null
     },
@@ -4951,8 +4951,8 @@
       "cache": "4 MB",
       "tdp": "58 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2193,
+        "multi_core": 3737
       },
       "preco_lancamento": null
     },
@@ -4972,8 +4972,8 @@
       "cache": "4 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 1818,
+        "multi_core": 3179
       },
       "preco_lancamento": null
     },
@@ -4993,8 +4993,8 @@
       "cache": "4 MB",
       "tdp": "54 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2245,
+        "multi_core": 3820
       },
       "preco_lancamento": null
     },
@@ -5014,8 +5014,8 @@
       "cache": "4 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 1951,
+        "multi_core": 3311
       },
       "preco_lancamento": null
     },
@@ -5035,8 +5035,8 @@
       "cache": "4 MB",
       "tdp": "54 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2288,
+        "multi_core": 3833
       },
       "preco_lancamento": null
     },
