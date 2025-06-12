@@ -3379,7 +3379,7 @@
         "single_core": 2205,
         "multi_core": 6088
       },
-      "preco_lancamento": null
+      "preco_lancamento": 117
     },
     {
       "nome": "Intel Core i3-8350K",
@@ -3400,7 +3400,7 @@
         "single_core": 2459,
         "multi_core": 6861
       },
-      "preco_lancamento": null
+      "preco_lancamento": 168
     },
     {
       "nome": "Intel Core i5-7400",
@@ -3589,7 +3589,7 @@
         "single_core": 2372,
         "multi_core": 9226
       },
-      "preco_lancamento": null
+      "preco_lancamento": 182
     },
     {
       "nome": "Intel Core i5-8600K",
@@ -3610,7 +3610,7 @@
         "single_core": 2575,
         "multi_core": 10134
       },
-      "preco_lancamento": null
+      "preco_lancamento": 257
     },
     {
       "nome": "Intel Core i7-7700",
@@ -3757,7 +3757,7 @@
         "single_core": 2630,
         "multi_core": 12769
       },
-      "preco_lancamento": null
+      "preco_lancamento": 303
     },
     {
       "nome": "Intel Core i7-8700K",
@@ -3778,7 +3778,7 @@
         "single_core": 2721,
         "multi_core": 13582
       },
-      "preco_lancamento": null
+      "preco_lancamento": 359
     },
     {
       "nome": "Intel Core i9-7900X",
@@ -3799,7 +3799,7 @@
         "single_core": 2553,
         "multi_core": 21040
       },
-      "preco_lancamento": null
+      "preco_lancamento": 999
     },
     {
       "nome": "Intel Core i9-7920X",
@@ -3820,7 +3820,7 @@
         "single_core": 2495,
         "multi_core": 23560
       },
-      "preco_lancamento": null
+      "preco_lancamento": 1199
     },
     {
       "nome": "Intel Core i9-7940X",
@@ -3841,7 +3841,7 @@
         "single_core": 2488,
         "multi_core": 25672
       },
-      "preco_lancamento": null
+      "preco_lancamento": 1399
     },
     {
       "nome": "Intel Core i9-7960X",
@@ -3862,7 +3862,7 @@
         "single_core": 2455,
         "multi_core": 28136
       },
-      "preco_lancamento": null
+      "preco_lancamento": 1699
     },
     {
       "nome": "Intel Core i9-7980XE",
@@ -3883,7 +3883,7 @@
         "single_core": 2456,
         "multi_core": 29829
       },
-      "preco_lancamento": null
+      "preco_lancamento": 1999
     },
     {
       "nome": "Intel Pentium G4560",
@@ -4009,7 +4009,7 @@
         "single_core": 1834,
         "multi_core": 2389
       },
-      "preco_lancamento": null
+      "preco_lancamento": 42
     },
     {
       "nome": "Celeron G4900T",
@@ -4030,7 +4030,7 @@
         "single_core": 1750,
         "multi_core": 2252
       },
-      "preco_lancamento": null
+      "preco_lancamento": 42
     },
     {
       "nome": "Celeron G4920",
@@ -4051,7 +4051,7 @@
         "single_core": 1982,
         "multi_core": 2534
       },
-      "preco_lancamento": null
+      "preco_lancamento": 52
     },
     {
       "nome": "Core i3-8020",
@@ -4114,7 +4114,7 @@
         "single_core": 1866,
         "multi_core": 5260
       },
-      "preco_lancamento": null
+      "preco_lancamento": 117
     },
     {
       "nome": "Core i3-8120",
@@ -4156,7 +4156,7 @@
         "single_core": 2267,
         "multi_core": 6340
       },
-      "preco_lancamento": null
+      "preco_lancamento": 138
     },
     {
       "nome": "Core i3-8300T",
@@ -4177,7 +4177,7 @@
         "single_core": 1951,
         "multi_core": 5576
       },
-      "preco_lancamento": null
+      "preco_lancamento": 138
     },
     {
       "nome": "Core i3-9000",
@@ -4219,7 +4219,7 @@
         "single_core": 2470,
         "multi_core": 6606
       },
-      "preco_lancamento": null
+      "preco_lancamento": 122
     },
     {
       "nome": "Core i3-9100E",
@@ -4240,7 +4240,7 @@
         "single_core": 2291,
         "multi_core": 6767
       },
-      "preco_lancamento": null
+      "preco_lancamento": 122
     },
     {
       "nome": "Core i3-9100T",
@@ -4261,7 +4261,7 @@
         "single_core": 2109,
         "multi_core": 5602
       },
-      "preco_lancamento": null
+      "preco_lancamento": 122
     },
     {
       "nome": "Core i5-8400T",
@@ -4282,7 +4282,7 @@
         "single_core": 1912,
         "multi_core": 7432
       },
-      "preco_lancamento": null
+      "preco_lancamento": 182
     },
     {
       "nome": "Core i5-8420",
@@ -4345,7 +4345,7 @@
         "single_core": 2442,
         "multi_core": 9531
       },
-      "preco_lancamento": null
+      "preco_lancamento": 192
     },
     {
       "nome": "Core i5-8500B",
@@ -4366,7 +4366,7 @@
         "single_core": 2540,
         "multi_core": 8906
       },
-      "preco_lancamento": null
+      "preco_lancamento": 192
     },
     {
       "nome": "Core i5-8500T",
@@ -4429,7 +4429,7 @@
         "single_core": 2566,
         "multi_core": 9953
       },
-      "preco_lancamento": null
+      "preco_lancamento": 213
     },
     {
       "nome": "Core i5-8600T",
@@ -4450,7 +4450,7 @@
         "single_core": 2272,
         "multi_core": 9259
       },
-      "preco_lancamento": null
+      "preco_lancamento": 213
     },
     {
       "nome": "Core i5-8650",
@@ -4576,7 +4576,7 @@
         "single_core": 2132,
         "multi_core": 8096
       },
-      "preco_lancamento": null
+      "preco_lancamento": 192
     },
     {
       "nome": "Core i5-9600",
@@ -4639,7 +4639,7 @@
         "single_core": 2822,
         "multi_core": 14072
       },
-      "preco_lancamento": null
+      "preco_lancamento": 425
     },
     {
       "nome": "Core i7-8670",
@@ -4702,7 +4702,7 @@
         "single_core": 2727,
         "multi_core": 11826
       },
-      "preco_lancamento": null
+      "preco_lancamento": 303
     },
     {
       "nome": "Core i7-8700T",
@@ -4744,7 +4744,7 @@
         "single_core": 2866,
         "multi_core": 14415
       },
-      "preco_lancamento": null
+      "preco_lancamento": 385
     },
     {
       "nome": "Core i7-9800X",
@@ -4765,7 +4765,7 @@
         "single_core": 2563,
         "multi_core": 18068
       },
-      "preco_lancamento": null
+      "preco_lancamento": 589
     },
     {
       "nome": "Core i9-9820X",
@@ -4786,7 +4786,7 @@
         "single_core": 2457,
         "multi_core": 20452
       },
-      "preco_lancamento": null
+      "preco_lancamento": 889
     },
     {
       "nome": "Core i9-9900K",
@@ -4807,7 +4807,7 @@
         "single_core": 2921,
         "multi_core": 18168
       },
-      "preco_lancamento": null
+      "preco_lancamento": 488
     },
     {
       "nome": "Core i9-9900X",
@@ -4828,7 +4828,7 @@
         "single_core": 2546,
         "multi_core": 21672
       },
-      "preco_lancamento": null
+      "preco_lancamento": 989
     },
     {
       "nome": "Core i9-9920X",
@@ -4849,7 +4849,7 @@
         "single_core": 2628,
         "multi_core": 25094
       },
-      "preco_lancamento": null
+      "preco_lancamento": 1189
     },
     {
       "nome": "Core i9-9940X",
@@ -4870,7 +4870,7 @@
         "single_core": 2622,
         "multi_core": 28132
       },
-      "preco_lancamento": null
+      "preco_lancamento": 1387
     },
     {
       "nome": "Core i9-9960X",
@@ -4891,7 +4891,7 @@
         "single_core": 2584,
         "multi_core": 29901
       },
-      "preco_lancamento": null
+      "preco_lancamento": 1684
     },
     {
       "nome": "Core i9-9980XE",
@@ -4912,7 +4912,7 @@
         "single_core": 2551,
         "multi_core": 31654
       },
-      "preco_lancamento": null
+      "preco_lancamento": 1979
     },
     {
       "nome": "Core i9-9990XE",
@@ -4933,7 +4933,7 @@
         "single_core": 2970,
         "multi_core": 30162
       },
-      "preco_lancamento": null
+      "preco_lancamento": 2800
     },
     {
       "nome": "Pentium Gold G5400",
@@ -4954,7 +4954,7 @@
         "single_core": 2193,
         "multi_core": 3737
       },
-      "preco_lancamento": null
+      "preco_lancamento": 64
     },
     {
       "nome": "Pentium Gold G5400T",
@@ -4975,7 +4975,7 @@
         "single_core": 1818,
         "multi_core": 3179
       },
-      "preco_lancamento": null
+      "preco_lancamento": 64
     },
     {
       "nome": "Pentium Gold G5500",
@@ -4996,7 +4996,7 @@
         "single_core": 2245,
         "multi_core": 3820
       },
-      "preco_lancamento": null
+      "preco_lancamento": 75
     },
     {
       "nome": "Pentium Gold G5500T",
@@ -5017,7 +5017,7 @@
         "single_core": 1951,
         "multi_core": 3311
       },
-      "preco_lancamento": null
+      "preco_lancamento": 75
     },
     {
       "nome": "Pentium Gold G5600",
@@ -5038,7 +5038,7 @@
         "single_core": 2288,
         "multi_core": 3833
       },
-      "preco_lancamento": null
+      "preco_lancamento": 86
     },
     {
       "nome": "Core i3-9100F",
