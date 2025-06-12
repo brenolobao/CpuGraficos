@@ -5056,10 +5056,10 @@
       "cache": "6 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2489,
+        "multi_core": 6717
       },
-      "preco_lancamento": null
+      "preco_lancamento": 122
     },
     {
       "nome": "Core i3-9100HL",
@@ -5077,10 +5077,10 @@
       "cache": "6 MB",
       "tdp": "25 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 892,
+        "multi_core": 2745
       },
-      "preco_lancamento": null
+      "preco_lancamento": 225
     },
     {
       "nome": "Core i3-9100TE",
@@ -5098,10 +5098,10 @@
       "cache": "6 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 1690,
+        "multi_core": 4382
       },
-      "preco_lancamento": null
+      "preco_lancamento": 122
     },
     {
       "nome": "Core i3-9300",
@@ -5119,10 +5119,10 @@
       "cache": "8 MB",
       "tdp": "62 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2535,
+        "multi_core": 7193
       },
-      "preco_lancamento": null
+      "preco_lancamento": 143
     },
     {
       "nome": "Core i3-9320",
@@ -5140,10 +5140,10 @@
       "cache": "8 MB",
       "tdp": "62 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2711,
+        "multi_core": 7358
       },
-      "preco_lancamento": null
+      "preco_lancamento": 154
     },
     {
       "nome": "Core i3-9350K",
@@ -5161,10 +5161,10 @@
       "cache": "8 MB",
       "tdp": "91 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2769,
+        "multi_core": 7662
       },
-      "preco_lancamento": null
+      "preco_lancamento": 184
     },
     {
       "nome": "Core i3-9350KF",
@@ -5182,10 +5182,10 @@
       "cache": "8 MB",
       "tdp": "91 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2686,
+        "multi_core": 7559
       },
-      "preco_lancamento": null
+      "preco_lancamento": 173
     },
     {
       "nome": "Core i5-9400F",
@@ -5203,8 +5203,8 @@
       "cache": "9 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2429,
+        "multi_core": 9455
       },
       "preco_lancamento": null
     },
@@ -5224,8 +5224,8 @@
       "cache": "9 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2572,
+        "multi_core": 9971
       },
       "preco_lancamento": null
     },
@@ -5245,8 +5245,8 @@
       "cache": "9 MB",
       "tdp": "95 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2725,
+        "multi_core": 10666
       },
       "preco_lancamento": null
     },
@@ -5266,10 +5266,10 @@
       "cache": "12 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2762,
+        "multi_core": 13246
       },
-      "preco_lancamento": null
+      "preco_lancamento": 333
     },
     {
       "nome": "Core i7-9700E",
@@ -5287,10 +5287,10 @@
       "cache": "12 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2553,
+        "multi_core": 12658
       },
-      "preco_lancamento": null
+      "preco_lancamento": 323
     },
     {
       "nome": "Core i7-9700F",
@@ -5308,10 +5308,10 @@
       "cache": "12 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2743,
+        "multi_core": 13176
       },
-      "preco_lancamento": null
+      "preco_lancamento": 333
     },
     {
       "nome": "Core i7-9700KF",
@@ -5329,10 +5329,10 @@
       "cache": "12 MB",
       "tdp": "95 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2864,
+        "multi_core": 14244
       },
-      "preco_lancamento": null
+      "preco_lancamento": 374
     },
     {
       "nome": "Core i7-9700T",
@@ -5350,10 +5350,10 @@
       "cache": "12 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2397,
+        "multi_core": 10586
       },
-      "preco_lancamento": null
+      "preco_lancamento": 323
     },
     {
       "nome": "Core i9-10900X",
@@ -5371,8 +5371,8 @@
       "cache": "19.25 MB",
       "tdp": "165 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2672,
+        "multi_core": 22430
       },
       "preco_lancamento": null
     },
@@ -5392,8 +5392,8 @@
       "cache": "19.25 MB",
       "tdp": "165 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2713,
+        "multi_core": 26044
       },
       "preco_lancamento": null
     },
@@ -5413,8 +5413,8 @@
       "cache": "19.25 MB",
       "tdp": "165 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2658,
+        "multi_core": 27807
       },
       "preco_lancamento": null
     },
@@ -5434,10 +5434,10 @@
       "cache": "24.75 MB",
       "tdp": "165 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2660,
+        "multi_core": 32440
       },
-      "preco_lancamento": null
+      "preco_lancamento": 1076
     },
     {
       "nome": "Core i9-9900",
@@ -5455,10 +5455,10 @@
       "cache": "16 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2808,
+        "multi_core": 16316
       },
-      "preco_lancamento": null
+      "preco_lancamento": 423
     },
     {
       "nome": "Core i9-9900KF",
@@ -5476,10 +5476,10 @@
       "cache": "16 MB",
       "tdp": "95 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2910,
+        "multi_core": 18105
       },
-      "preco_lancamento": null
+      "preco_lancamento": 488
     },
     {
       "nome": "Core i9-9900KS",
@@ -5497,10 +5497,10 @@
       "cache": "16 MB",
       "tdp": "127 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3034,
+        "multi_core": 19447
       },
-      "preco_lancamento": null
+      "preco_lancamento": 513
     },
     {
       "nome": "Core i9-9900T",
@@ -5518,10 +5518,10 @@
       "cache": "16 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2472,
+        "multi_core": 13219
       },
-      "preco_lancamento": null
+      "preco_lancamento": 423
     },
     {
       "nome": "Pentium Gold G5620",
@@ -5539,10 +5539,10 @@
       "cache": "4 MB",
       "tdp": "54 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2443,
+        "multi_core": 4251
       },
-      "preco_lancamento": null
+      "preco_lancamento": 93
     },
     {
       "nome": "Celeron G5900",
@@ -5560,8 +5560,8 @@
       "cache": "2 MB",
       "tdp": "58 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2115,
+        "multi_core": 2677
       },
       "preco_lancamento": null
     },
@@ -5581,8 +5581,8 @@
       "cache": "2 MB",
       "tdp": "58 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2123,
+        "multi_core": 2577
       },
       "preco_lancamento": null
     },
@@ -5602,8 +5602,8 @@
       "cache": "6 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2605,
+        "multi_core": 8595
       },
       "preco_lancamento": null
     },
@@ -5623,8 +5623,8 @@
       "cache": "8 MB",
       "tdp": "62 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2692,
+        "multi_core": 9299
       },
       "preco_lancamento": null
     },
@@ -5644,8 +5644,8 @@
       "cache": "8 MB",
       "tdp": "91 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2843,
+        "multi_core": 10003
       },
       "preco_lancamento": null
     },
@@ -5686,8 +5686,8 @@
       "cache": "12 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2563,
+        "multi_core": 12032
       },
       "preco_lancamento": null
     },
@@ -5707,8 +5707,8 @@
       "cache": "12 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2541,
+        "multi_core": 12127
       },
       "preco_lancamento": null
     },
@@ -5728,8 +5728,8 @@
       "cache": "12 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2809,
+        "multi_core": 13221
       },
       "preco_lancamento": null
     },
@@ -5749,8 +5749,8 @@
       "cache": "12 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2928,
+        "multi_core": 13666
       },
       "preco_lancamento": null
     },
@@ -5770,8 +5770,8 @@
       "cache": "12 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2918,
+        "multi_core": 14283
       },
       "preco_lancamento": null
     },
@@ -5791,8 +5791,8 @@
       "cache": "12 MB",
       "tdp": "95 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2912,
+        "multi_core": 14174
       },
       "preco_lancamento": null
     },
@@ -5812,8 +5812,8 @@
       "cache": "16 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2895,
+        "multi_core": 16196
       },
       "preco_lancamento": null
     },
@@ -5833,8 +5833,8 @@
       "cache": "16 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2875,
+        "multi_core": 16274
       },
       "preco_lancamento": null
     },
@@ -5854,8 +5854,8 @@
       "cache": "16 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3044,
+        "multi_core": 18633
       },
       "preco_lancamento": null
     },
@@ -5875,8 +5875,8 @@
       "cache": "16 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3036,
+        "multi_core": 18433
       },
       "preco_lancamento": null
     },
@@ -5917,8 +5917,8 @@
       "cache": "20 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3067,
+        "multi_core": 22089
       },
       "preco_lancamento": null
     },
@@ -5938,10 +5938,10 @@
       "cache": "20 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3011,
+        "multi_core": 19395
       },
-      "preco_lancamento": null
+      "preco_lancamento": 483
     },
     {
       "nome": "Core i9-10900E",
@@ -5959,10 +5959,10 @@
       "cache": "20 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2891,
+        "multi_core": 19469
       },
-      "preco_lancamento": null
+      "preco_lancamento": 488
     },
     {
       "nome": "Core i9-10900F",
@@ -5980,10 +5980,10 @@
       "cache": "20 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3034,
+        "multi_core": 19799
       },
-      "preco_lancamento": null
+      "preco_lancamento": 464
     },
     {
       "nome": "Core i9-10900K",
@@ -6001,10 +6001,10 @@
       "cache": "20 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3115,
+        "multi_core": 22518
       },
-      "preco_lancamento": null
+      "preco_lancamento": 547
     },
     {
       "nome": "Core i9-10900KF",
@@ -6022,10 +6022,10 @@
       "cache": "20 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3116,
+        "multi_core": 22349
       },
-      "preco_lancamento": null
+      "preco_lancamento": 509
     },
     {
       "nome": "Core i9-10900TE",
@@ -6043,10 +6043,10 @@
       "cache": "20 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2430,
+        "multi_core": 14679
       },
-      "preco_lancamento": null
+      "preco_lancamento": 488
     },
     {
       "nome": "Core i9-10990XE",
@@ -6085,8 +6085,8 @@
       "cache": "4 MB",
       "tdp": "58 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2458,
+        "multi_core": 4116
       },
       "preco_lancamento": null
     },
@@ -6106,8 +6106,8 @@
       "cache": "4 MB",
       "tdp": "58 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2501,
+        "multi_core": 4163
       },
       "preco_lancamento": null
     },
@@ -6127,8 +6127,8 @@
       "cache": "4 MB",
       "tdp": "58 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2513,
+        "multi_core": 4223
       },
       "preco_lancamento": null
     },
@@ -6148,10 +6148,10 @@
       "cache": "6 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2617,
+        "multi_core": 8332
       },
-      "preco_lancamento": null
+      "preco_lancamento": 122
     },
     {
       "nome": "Core i3-10105F",
@@ -6169,10 +6169,10 @@
       "cache": "6 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2646,
+        "multi_core": 8924
       },
-      "preco_lancamento": null
+      "preco_lancamento": 97
     },
     {
       "nome": "Core i3-10105T",
@@ -6190,10 +6190,10 @@
       "cache": "6 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2354,
+        "multi_core": 7869
       },
-      "preco_lancamento": null
+      "preco_lancamento": 134
     },
     {
       "nome": "Core i3-10305",
@@ -6211,8 +6211,8 @@
       "cache": "8 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2763,
+        "multi_core": 9313
       },
       "preco_lancamento": null
     },
@@ -6232,10 +6232,10 @@
       "cache": "8 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2457,
+        "multi_core": 8136
       },
-      "preco_lancamento": null
+      "preco_lancamento": 143
     },
     {
       "nome": "Core i3-10325",
@@ -6253,10 +6253,10 @@
       "cache": "8 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2874,
+        "multi_core": 10291
       },
-      "preco_lancamento": null
+      "preco_lancamento": 154
     },
     {
       "nome": "Core i5-11400",
@@ -6274,10 +6274,10 @@
       "cache": "12 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3010,
+        "multi_core": 16887
       },
-      "preco_lancamento": null
+      "preco_lancamento": 182
     },
     {
       "nome": "Core i5-11400F",
@@ -6295,10 +6295,10 @@
       "cache": "12 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2982,
+        "multi_core": 16914
       },
-      "preco_lancamento": null
+      "preco_lancamento": 157
     },
     {
       "nome": "Core i5-11400T",
@@ -6316,10 +6316,10 @@
       "cache": "12 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2501,
+        "multi_core": 13108
       },
-      "preco_lancamento": null
+      "preco_lancamento": 182
     },
     {
       "nome": "Core i5-11500",
@@ -6337,10 +6337,10 @@
       "cache": "12 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3131,
+        "multi_core": 17196
       },
-      "preco_lancamento": null
+      "preco_lancamento": 192
     },
     {
       "nome": "Core i5-11500T",
@@ -6358,10 +6358,10 @@
       "cache": "12 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2495,
+        "multi_core": 12450
       },
-      "preco_lancamento": null
+      "preco_lancamento": 192
     },
     {
       "nome": "Core i5-11600",
@@ -6379,10 +6379,10 @@
       "cache": "12 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3282,
+        "multi_core": 17935
       },
-      "preco_lancamento": null
+      "preco_lancamento": 213
     },
     {
       "nome": "Core i5-11600K",
@@ -6400,10 +6400,10 @@
       "cache": "12 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3346,
+        "multi_core": 19540
       },
-      "preco_lancamento": null
+      "preco_lancamento": 262
     },
     {
       "nome": "Core i5-11600KF",
@@ -6421,10 +6421,10 @@
       "cache": "12 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3330,
+        "multi_core": 19538
       },
-      "preco_lancamento": null
+      "preco_lancamento": 237
     },
     {
       "nome": "Core i5-11600T",
@@ -6442,10 +6442,10 @@
       "cache": "12 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2849,
+        "multi_core": 14396
       },
-      "preco_lancamento": null
+      "preco_lancamento": 213
     },
     {
       "nome": "Core i5-12600K",
@@ -6463,10 +6463,10 @@
       "cache": "20 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3928,
+        "multi_core": 27629
       },
-      "preco_lancamento": null
+      "preco_lancamento": 289
     },
     {
       "nome": "Core i5-12600KF",
@@ -6484,10 +6484,10 @@
       "cache": "20 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3929,
+        "multi_core": 27842
       },
-      "preco_lancamento": null
+      "preco_lancamento": 264
     },
     {
       "nome": "Core i7-11700",
@@ -6505,10 +6505,10 @@
       "cache": "16 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3267,
+        "multi_core": 20701
       },
-      "preco_lancamento": null
+      "preco_lancamento": 323
     },
     {
       "nome": "Core i7-11700F",
@@ -6526,10 +6526,10 @@
       "cache": "16 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3266,
+        "multi_core": 20755
       },
-      "preco_lancamento": null
+      "preco_lancamento": 298
     },
     {
       "nome": "Core i7-11700K",
@@ -6547,10 +6547,10 @@
       "cache": "16 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3392,
+        "multi_core": 24425
       },
-      "preco_lancamento": null
+      "preco_lancamento": 399
     },
     {
       "nome": "Core i7-11700KF",
@@ -6568,10 +6568,10 @@
       "cache": "16 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3369,
+        "multi_core": 23822
       },
-      "preco_lancamento": null
+      "preco_lancamento": 374
     },
     {
       "nome": "Core i7-11700T",
@@ -6589,10 +6589,10 @@
       "cache": "16 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2857,
+        "multi_core": 15495
       },
-      "preco_lancamento": null
+      "preco_lancamento": 323
     },
     {
       "nome": "Core i7-12700K",
@@ -6610,10 +6610,10 @@
       "cache": "25 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 4016,
+        "multi_core": 34459
       },
-      "preco_lancamento": null
+      "preco_lancamento": 409
     },
     {
       "nome": "Core i7-12700KF",
@@ -6631,10 +6631,10 @@
       "cache": "25 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3988,
+        "multi_core": 34130
       },
-      "preco_lancamento": null
+      "preco_lancamento": 384
     },
     {
       "nome": "Core i9-11900",
@@ -6652,10 +6652,10 @@
       "cache": "16 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3375,
+        "multi_core": 22468
       },
-      "preco_lancamento": null
+      "preco_lancamento": 439
     },
     {
       "nome": "Core i9-11900F",
@@ -6673,10 +6673,10 @@
       "cache": "16 MB",
       "tdp": "65 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3418,
+        "multi_core": 22186
       },
-      "preco_lancamento": null
+      "preco_lancamento": 422
     },
     {
       "nome": "Core i9-11900K",
@@ -6694,10 +6694,10 @@
       "cache": "16 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3510,
+        "multi_core": 25051
       },
-      "preco_lancamento": null
+      "preco_lancamento": 539
     },
     {
       "nome": "Core i9-11900KF",
@@ -6715,10 +6715,10 @@
       "cache": "16 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3530,
+        "multi_core": 24759
       },
-      "preco_lancamento": null
+      "preco_lancamento": 513
     },
     {
       "nome": "Core i9-11900T",
@@ -6736,10 +6736,10 @@
       "cache": "16 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 3268,
+        "multi_core": 18512
       },
-      "preco_lancamento": null
+      "preco_lancamento": 439
     },
     {
       "nome": "Core i9-12900K",
@@ -6757,10 +6757,10 @@
       "cache": "30 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 4139,
+        "multi_core": 41303
       },
-      "preco_lancamento": null
+      "preco_lancamento": 599
     },
     {
       "nome": "Core i9-12900KF",
@@ -6778,10 +6778,10 @@
       "cache": "30 MB",
       "tdp": "125 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 4148,
+        "multi_core": 41033
       },
-      "preco_lancamento": null
+      "preco_lancamento": 564
     },
     {
       "nome": "Pentium Gold G6405",
@@ -6799,10 +6799,10 @@
       "cache": "4 MB",
       "tdp": "58 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2285,
+        "multi_core": 3784
       },
-      "preco_lancamento": null
+      "preco_lancamento": 64
     },
     {
       "nome": "Pentium Gold G6405T",
@@ -6820,10 +6820,10 @@
       "cache": "4 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 1804,
+        "multi_core": 3095
       },
-      "preco_lancamento": null
+      "preco_lancamento": 64
     },
     {
       "nome": "Pentium Gold G6505",
@@ -6841,10 +6841,10 @@
       "cache": "4 MB",
       "tdp": "58 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2649,
+        "multi_core": 4371
       },
-      "preco_lancamento": null
+      "preco_lancamento": 75
     },
     {
       "nome": "Pentium Gold G6505T",
@@ -6862,10 +6862,10 @@
       "cache": "4 MB",
       "tdp": "35 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2271,
+        "multi_core": 3698
       },
-      "preco_lancamento": null
+      "preco_lancamento": 75
     },
     {
       "nome": "Pentium Gold G6605",
@@ -6883,10 +6883,10 @@
       "cache": "4 MB",
       "tdp": "58 W",
       "desempenho": {
-        "single_core": null,
-        "multi_core": null
+        "single_core": 2608,
+        "multi_core": 4488
       },
-      "preco_lancamento": null
+      "preco_lancamento": 86
     },
     {
       "nome": "Celeron G6900",
