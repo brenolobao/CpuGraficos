@@ -269,12 +269,12 @@ function displayAllCpuCards() {
                             <div class="price-bar-wrapper">
                                 <div class="price-bar"></div>
                                 <div class="price-marker" style="left: ${pricePositionPercent}%;">
-                                    <div class="price-marker-label">Atual: $${currentPrice.toFixed(2)}</div>
+                                    <div class="price-marker-label">Lançamento: $${currentPrice.toFixed(2)}</div>
                                 </div>
                             </div>
                             <div class="price-labels">
-                                <span>Ótimo: $${bestPrice.toFixed(2)}</span>
-                                <span>Ruim: $${badPrice.toFixed(2)}</span>
+                                <span>Melhor Preço: $${bestPrice.toFixed(2)}</span>
+                                <span>Pior Preço: $${badPrice.toFixed(2)}</span>
                             </div>
                         </div>
                     </div>
