@@ -39,12 +39,14 @@ body {
 }
 
 .filter-group select,
-.filter-group input[type="number"] {
+.filter-group input[type="number"],
+.filter-group input[type="text"] { /* Added text input for search */
     width: 100%;
     padding: 8px;
     border-radius: 4px;
     border: 1px solid #ddd;
     background-color: white;
+    color: #333; /* Ensure text is visible */
 }
 
 #apply-filters-btn {
@@ -55,7 +57,7 @@ body {
     border: none;
     border-radius: 4px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 1em;
     margin-top: 15px;
 }
 
@@ -63,47 +65,69 @@ body {
     background-color: #0056b3;
 }
 
-.database-link {
-    display: block;
-    text-align: center;
-    margin-top: 30px;
-    color: #007bff;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-.database-link:hover {
-    text-decoration: underline;
-}
-
-.content {
-    margin-left: 25%; /* To offset the fixed sidebar */
-    width: 75%;
+.main-content {
+    flex-grow: 1;
+    margin-left: 25%; /* Adjust to sidebar width */
     padding: 20px;
     box-sizing: border-box;
 }
 
+/* Style for the menu toggle button (hidden by default on desktop) */
 .menu-toggle-btn {
-    display: none; /* Hidden by default on desktop */
-    background-color: #007bff;
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    font-size: 18px;
-    cursor: pointer;
-    margin-bottom: 20px;
+    display: none; /* Hidden by default on larger screens */
 }
 
 .close-btn {
-    display: none; /* Hidden by default on desktop */
-    position: absolute;
-    top: 10px;
-    right: 20px;
-    color: white;
-    font-size: 30px;
-    background: none;
-    border: none;
-    cursor: pointer;
+    display: none; /* Hidden by default */
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        transform: translateX(-100%);
+        position: fixed;
+        z-index: 1000;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding-top: 60px; /* Adicionado para afastar o conteúdo do botão de menu fixo */
+    }
+
+    .menu-toggle-btn {
+        display: block; /* Shown on mobile */
+        background-color: #333;
+        color: white;
+        padding: 10px 15px;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        position: fixed; /* Keep it in place */
+        top: 10px;
+        left: 10px;
+        z-index: 999; /* Below sidebar, above content */
+    }
+
+    .close-btn {
+        display: block;
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        color: white;
+        font-size: 30px;
+        background: none;
+        border: none;
+        cursor: pointer;
+    }
+}
+
+/* Adicionado para desabilitar a rolagem do corpo quando o menu estiver aberto */
+body.no-scroll {
+    overflow: hidden;
 }
 
 .info-bar {
@@ -141,41 +165,88 @@ body {
     width: 100%;
 }
 
-.chart-comment {
-    font-size: 0.9em;
-    color: #555;
-    margin-top: 15px;
-    padding: 10px;
-    background-color: #f9f9f9;
-    border-left: 3px solid #007bff;
+/* NEW STYLES FOR THE COMMENT BOX */
+.chart-comment-box {
+    background-color: #f0f8ff; /* Light blue background */
+    border: 1px solid #cceeff; /* Light blue border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 15px; /* Internal spacing */
+    margin-top: 20px; /* Space from the chart above */
+    text-align: center; /* Center the text */
+    color: #333; /* Darker text for readability */
+    font-size: 0.95em; /* Slightly larger font than default p */
+    line-height: 1.5; /* Better line spacing */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05); /* Subtle shadow */
 }
 
-/* Mobile responsiveness */
-@media (max-width: 768px) {
-    .sidebar {
-        width: 100%;
-        transform: translateX(-100%);
-        z-index: 1000;
-    }
 
-    .sidebar.open {
-        transform: translateX(0);
-    }
+/* Comparison Feature Styles */
+.search-results {
+    border: 1px solid #ddd;
+    max-height: 150px;
+    overflow-y: auto;
+    background-color: white;
+    color: #333;
+    margin-top: 5px;
+    border-radius: 4px;
+}
 
-    .content {
-        margin-left: 0;
-        width: 100%;
-    }
+.search-results div {
+    padding: 8px;
+    cursor: pointer;
+}
 
-    .menu-toggle-btn {
-        display: block;
-    }
+.search-results div:hover {
+    background-color: #f0f0f0;
+}
 
-    .close-btn {
-        display: block;
-    }
+.selected-cpus-display {
+    border: 1px solid #ddd;
+    background-color: white;
+    color: #333;
+    padding: 8px;
+    min-height: 40px;
+    border-radius: 4px;
+    margin-top: 5px;
+    word-wrap: break-word;
+}
 
-    .chart-container {
-        height: 300px; /* Adjust height for smaller screens */
-    }
+.selected-cpus-display .selected-cpu-tag {
+    display: inline-block;
+    background-color: #007bff;
+    color: white;
+    padding: 5px 8px;
+    margin: 3px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.selected-cpus-display .selected-cpu-tag .remove-cpu {
+    margin-left: 5px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+.compare-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    margin-top: 15px;
+}
+
+.compare-button:hover:not(:disabled) {
+    background-color: #218838;
+}
+
+.compare-button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed;
+}
+input[type=text]{
+    box-sizing: border-box;
 }
