@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparativo de Processadores</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <aside class="sidebar" id="sidebar">
+            <button class="close-btn" id="close-btn">&times;</button>
+            <h2>Filtros</h2>
+            <div class="filter-group">
+                <label for="fabricante">Fabricante:</label>
+                <select id="fabricante">
+                    <option value="Todas">Todas</option>
+                    <option value="AMD">AMD</option>
+                    <option value="Intel">Intel</option>
+                </select>
+            </div>
+            <div class="filter-group">
+                <label for="linha">Linha de Processadores:</label>
+                <select id="linha" disabled>
+                    <option value="Todas">Todas</option>
+                    </select>
+            </div>
+            <div class="filter-group">
+                <label for="nucleos">Contagem de Núcleos:</label>
+                <select id="nucleos">
+                    <option value="Todas">Todas</option>
+                    </select>
+            </div>
+            <button id="apply-filters-btn">Aplicar Filtros</button>
+            <div class="filter-group">
+                <a href="database.html" class="database-link">Ver Banco de Dados Completo</a>
+            </div>
+        </aside>
+
+        <main class="content">
+            <button class="menu-toggle-btn" id="menu-toggle-btn">&#9776; Menu</button>
+            <div class="info-bar">
+                <p>Processadores com dados de desempenho (Single e Multi Core): <span id="performance-cpu-count">0</span></p>
+            </div>
+
+            <section class="chart-section">
+                <h2>Desempenho Single Core (Crescente)</h2>
+                <p class="cpu-display-count" id="single-core-cpu-count">0 processadores exibidos</p>
+                <div class="chart-container">
+                    <canvas id="singleCoreChart"></canvas>
+                </div>
+                <p class="chart-comment" id="single-core-comment"></p>
+            </section>
+
+            <section class="chart-section">
+                <h2>Desempenho Multi Core (Crescente)</h2>
+                <p class="cpu-display-count" id="multi-core-cpu-count">0 processadores exibidos</p>
+                <div class="chart-container">
+                    <canvas id="multiCoreChart"></canvas>
+                </div>
+                <p class="chart-comment" id="multi-core-comment"></p>
+            </section>
+
+            <section class="chart-section">
+                <h2>Desempenho Multi Core Médio por Litografia</h2>
+                <p class="cpu-display-count" id="litography-cpu-count">0 processadores exibidos</p>
+                <div class="chart-container">
+                    <canvas id="litographyChart"></canvas>
+                </div>
+            </section>
+
+            <section class="chart-section">
+                <h2>Preço de Lançamento por Ano</h2>
+                <p class="cpu-display-count" id="price-cpu-count">0 processadores exibidos</p>
+                <div class="chart-container">
+                    <canvas id="priceChart"></canvas>
+                </div>
+            </section>
+
+            <section class="chart-section">
+                <h2>Desempenho/Preço de Lançamento (Crescente)</h2>
+                <p class="cpu-display-count" id="perf-price-cpu-count">0 processadores exibidos</p>
+                <div class="chart-container">
+                    <canvas id="perfPriceChart"></canvas>
+                </div>
+                <p class="chart-comment" id="perf-price-comment"></p>
+            </section>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

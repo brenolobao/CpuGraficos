@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banco de Dados de Processadores</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Basic styling for the table in database.html */
+        #cpu-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 20px;
+        }
+        #cpu-table th, #cpu-table td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        #cpu-table th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <main class="content" style="margin-left: 0; width: 100%;">
+            <h1>Banco de Dados de Processadores</h1>
+            <p><a href="index.html">Voltar para a página inicial</a></p>
+
+            <table id="cpu-table">
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Fabricante</th>
+                        <th>Arquitetura</th>
+                        <th>Lançamento</th>
+                        <th>Base Clock</th>
+                        <th>Boost Clock</th>
+                        <th>Núcleos</th>
+                        <th>Threads</th>
+                        <th>Soquete</th>
+                        <th>Litografia</th>
+                        <th>TDP</th>
+                        <th>Single Core</th>
+                        <th>Multi Core</th>
+                        <th>Preço Lançamento</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    </tbody>
+            </table>
+        </main>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            fetch('cpusAmd-Intel-2017-2025.json')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector('#cpu-table tbody');
+                    data.processadores.forEach(cpu => {
+                        const row = tableBody.insertRow();
+                        row.insertCell().textContent = cpu.nome || 'N/A';
+                        row.insertCell().textContent = cpu.fabricante || 'N/A';
+                        row.insertCell().textContent = cpu.arquitetura || 'N/A';
+                        row.insertCell().textContent = cpu.data_lancamento || 'N/A';
+                        row.insertCell().textContent = cpu.clock ? cpu.clock.base : 'N/A';
+                        row.insertCell().textContent = cpu.clock ? cpu.clock.boost : 'N/A';
+                        row.insertCell().textContent = cpu.nucleos || 'N/A';
+                        row.insertCell().textContent = cpu.threads || 'N/A';
+                        row.insertCell().textContent = cpu.soquete || 'N/A';
+                        row.insertCell().textContent = cpu.litografia || 'N/A';
+                        row.insertCell().textContent = cpu.tdp || 'N/A';
+                        row.insertCell().textContent = cpu.desempenho ? cpu.desempenho.single_core || 'N/A' : 'N/A';
+                        row.insertCell().textContent = cpu.desempenho ? cpu.desempenho.multi_core || 'N/A' : 'N/A';
+                        row.insertCell().textContent = cpu.preco_lancamento ? `$${cpu.preco_lancamento}` : 'N/A';
+                    });
+                })
+                .catch(error => console.error('Error loading the JSON file:', error));
+        });
+    </script>
+</body>
+</html>

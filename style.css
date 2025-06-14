@@ -1,0 +1,181 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+}
+
+.sidebar {
+    width: 25%;
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    box-sizing: border-box;
+    position: fixed;
+    height: 100%;
+    overflow-y: auto;
+    transition: transform 0.3s ease-in-out;
+}
+
+.sidebar h2 {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.filter-group {
+    margin-bottom: 20px;
+}
+
+.filter-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.filter-group select,
+.filter-group input[type="number"] {
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    background-color: white;
+}
+
+#apply-filters-btn {
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 15px;
+}
+
+#apply-filters-btn:hover {
+    background-color: #0056b3;
+}
+
+.database-link {
+    display: block;
+    text-align: center;
+    margin-top: 30px;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.database-link:hover {
+    text-decoration: underline;
+}
+
+.content {
+    margin-left: 25%; /* To offset the fixed sidebar */
+    width: 75%;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.menu-toggle-btn {
+    display: none; /* Hidden by default on desktop */
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    font-size: 18px;
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+.close-btn {
+    display: none; /* Hidden by default on desktop */
+    position: absolute;
+    top: 10px;
+    right: 20px;
+    color: white;
+    font-size: 30px;
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+
+.info-bar {
+    background-color: #e2e3e5;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.chart-section {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+.chart-section h2 {
+    text-align: center;
+    color: #333;
+    margin-top: 0;
+}
+
+.cpu-display-count {
+    text-align: center;
+    font-size: 0.9em;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.chart-container {
+    position: relative;
+    height: 400px; /* Default height for charts */
+    width: 100%;
+}
+
+.chart-comment {
+    font-size: 0.9em;
+    color: #555;
+    margin-top: 15px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-left: 3px solid #007bff;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 100%;
+        transform: translateX(-100%);
+        z-index: 1000;
+    }
+
+    .sidebar.open {
+        transform: translateX(0);
+    }
+
+    .content {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .menu-toggle-btn {
+        display: block;
+    }
+
+    .close-btn {
+        display: block;
+    }
+
+    .chart-container {
+        height: 300px; /* Adjust height for smaller screens */
+    }
+}
