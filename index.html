@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comparativo de Processadores</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
     <div class="container">
@@ -32,33 +33,47 @@
                     </select>
             </div>
             <button id="apply-filters-btn">Aplicar Filtros</button>
+
+            <hr style="margin: 30px 0; border-color: #555;">
+
+            <h3>Comparar CPUs Específicas</h3>
             <div class="filter-group">
-                <a href="database.html" class="database-link">Ver Banco de Dados Completo</a>
+                <label for="cpu-search">Buscar CPU:</label>
+                <input type="text" id="cpu-search" placeholder="Digite o nome da CPU...">
+                <div id="cpu-search-results" class="search-results"></div>
             </div>
+            <div class="filter-group">
+                <label>CPUs Selecionadas:</label>
+                <div id="selected-cpus-display" class="selected-cpus-display">
+                    <span id="no-cpu-selected">Nenhum CPU selecionado.</span>
+                </div>
+            </div>
+            <button id="compare-cpus-btn" class="compare-button" disabled>Comparar Selecionados</button>
         </aside>
 
-        <main class="content">
-            <button class="menu-toggle-btn" id="menu-toggle-btn">&#9776; Menu</button>
-            <div class="info-bar">
-                <p>Processadores com dados de desempenho (Single e Multi Core): <span id="performance-cpu-count">0</span></p>
+        <main class="main-content" id="main-content">
+            <button id="menu-toggle-btn" class="menu-toggle-btn">☰ Menu</button>
+
+            <div class="info-bar" id="cpu-count">
+                0 processadores exibidos com os filtros atuais.
             </div>
 
             <section class="chart-section">
-                <h2>Desempenho Single Core (Crescente)</h2>
+                <h2>Desempenho Single Core</h2>
                 <p class="cpu-display-count" id="single-core-cpu-count">0 processadores exibidos</p>
                 <div class="chart-container">
                     <canvas id="singleCoreChart"></canvas>
                 </div>
-                <p class="chart-comment" id="single-core-comment"></p>
+                <p class="chart-comment-box" id="single-core-comment"></p>
             </section>
 
             <section class="chart-section">
-                <h2>Desempenho Multi Core (Crescente)</h2>
+                <h2>Desempenho Multi Core</h2>
                 <p class="cpu-display-count" id="multi-core-cpu-count">0 processadores exibidos</p>
                 <div class="chart-container">
                     <canvas id="multiCoreChart"></canvas>
                 </div>
-                <p class="chart-comment" id="multi-core-comment"></p>
+                <p class="chart-comment-box" id="multi-core-comment"></p>
             </section>
 
             <section class="chart-section">
@@ -67,14 +82,16 @@
                 <div class="chart-container">
                     <canvas id="litographyChart"></canvas>
                 </div>
+                <p class="chart-comment-box" id="litography-comment"></p>
             </section>
 
             <section class="chart-section">
-                <h2>Preço de Lançamento por Ano</h2>
+                <h2>Preço de Lançamento Médio por Ano</h2>
                 <p class="cpu-display-count" id="price-cpu-count">0 processadores exibidos</p>
                 <div class="chart-container">
                     <canvas id="priceChart"></canvas>
                 </div>
+                <p class="chart-comment-box" id="price-comment"></p>
             </section>
 
             <section class="chart-section">
@@ -83,12 +100,11 @@
                 <div class="chart-container">
                     <canvas id="perfPriceChart"></canvas>
                 </div>
-                <p class="chart-comment" id="perf-price-comment"></p>
+                <p class="chart-comment-box" id="perf-price-comment"></p>
             </section>
         </main>
     </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
