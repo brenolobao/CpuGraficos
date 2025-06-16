@@ -5,7 +5,14 @@ body {
     background-color: #f4f4f4;
     display: flex;
 }
-
+a{
+    padding:10px;
+    width:100%;
+    text-align:center;
+    text-decoration:none;
+    color:white;
+    background-color:lightskyblue;
+}
 .container {
     display: flex;
     width: 100%;
