@@ -1,0 +1,274 @@
+{
+  "processadores": [
+    {
+      "nome": "Ryzen 7 5700X",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "04/2022",
+      "clock": {
+        "base": "3.4 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3385,
+        "multi_core": 26630
+      },
+      "preco_atual": [
+        {
+          "ecommerce_name": "Amazon",
+          "preco": 1090,
+          "link_compra": "https://www.amazon.com.br/PROCESSADOR-AMD-5700X-100-100000926WOF-Cer%C3%A2mica/dp/B09VCHQHZ6/ref=asc_df_B09VCHQHZ6?mcid=adfe74f41af737569651019c7dccf376&tag=googleshopp00-20&linkCode=df0&hvadid=709884378235&hvpos=&hvnetw=g&hvrand=14228364811651510360&hvpone=&hvptwo=&hvqmt=&hvdev=c&hvdvcmdl=&hvlocint=&hvlocphy=9074137&hvtargid=pla-1650899904217&psc=1&language=pt_BR&gad_source=1"
+        }
+      ]
+    },
+    {
+      "nome": "Ryzen 5 5600X",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "11/2020",
+      "clock": {
+        "base": "3.7 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3364,
+        "multi_core": 21862
+      },
+      "preco_atual": [
+        {
+          "ecommerce_name": "Kabum",
+          "preco": 1000,
+          "link_compra": "https://www.kabum.com.br/produto/129451/processador-amd-ryzen-5-5600x-3-7ghz-4-6ghz-max-turbo-cache-35mb-6-nucleos-12-threads-am4-100-100000065box?utm_id=22429436063&gad_source=1&gad_campaignid=22429436063&gbraid=0AAAAADx-HyFiYM-a9t2fOmHZd337OacBa&gclid=CjwKCAjwgb_CBhBMEiwA0p3oONr4bD6tPAb0W2q9jToXBQJtBLEcsJ5f6PchRsc_T5EhM9bfwsgjtRoCsFcQAvD_BwE"
+        }
+      ]
+    },
+    {
+      "nome": "Ryzen 5 5600",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "04/2022",
+      "clock": {
+        "base": "3.5 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "32 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3257,
+        "multi_core": 21557
+      },
+      "preco_atual": [
+        {
+          "ecommerce_name": "Terabyte",
+          "preco": 808,
+          "link_compra": "https://www.terabyteshop.com.br/produto/20788/processador-amd-ryzen-5-5600-35ghz-44ghz-turbo-6-cores-12-threads-cooler-wraith-stealth-am4-100-100000927box?gad_source=1&gad_campaignid=16775150533&gbraid=0AAAAADm8AXSHLNKWqgfjjjs_OrRUsBC1G&gclid=CjwKCAjwgb_CBhBMEiwA0p3oOGo5TQdeTjrmImlfbpBXAzNdl7sBXojbxa8yfTANPUlagh9NYMQLHxoC_pEQAvD_BwE"
+        }
+      ]
+    },
+    {
+      "nome": "Ryzen 5 5600GT",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "01/2024",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3344,
+        "multi_core": 20326
+      },
+      "preco_atual": [
+        {
+          "ecommerce_name": "Kabum",
+          "preco": 830,
+          "link_compra": "https://www.kabum.com.br/produto/523518/processador-amd-ryzen-5-5600gt-4-6ghz-cache-19mb-am4-6-nucleos-12-threads-placa-de-video-com-cooler-100-100001488?srsltid=AfmBOor5QuQjjSD91rsXnwepKjCuH0Hznh4eRmJX5Zx0nMZk6t5oteBf3rg"
+        }
+      ]
+    },
+    {
+      "nome": "Core i5-13400F",
+      "fabricante": "Intel",
+      "arquitetura": "Raptor Lake-S",
+      "data_lancamento": "01/2023",
+      "clock": {
+        "base": "2.5 GHz",
+        "boost": "4.6 GHz"
+      },
+      "nucleos": 10,
+      "threads": 16,
+      "soquete": "Socket 1700",
+      "litografia": "10 nm",
+      "cache": "20 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3635,
+        "multi_core": 25078
+      },
+      "preco_atual": [
+        {
+          "ecommerce_name": "Magazine Luiza",
+          "preco": 1020,
+          "link_compra": "https://www.magazineluiza.com.br/processador-intel-core-i5-13400f-4-6ghz-max-turbo-cache-20mb-10-nucleos-16-threads-lga-1700-bx8071513400f/p/gfa83hdfcj/in/prsd/?&seller_id=kabum&utm_source=google&utm_medium=cpc&utm_term=79706&utm_campaign=google_eco_per_ven_pla_tc_apo_3p_in-csp&utm_content=&partner_id=79706&gclsrc=aw.ds&gad_source=1&gad_campaignid=22564818412&gbraid=0AAAAAD4zZmQUnqXZ_9RlEkq-aJ0BT-UDB&gclid=CjwKCAjwgb_CBhBMEiwA0p3oOGEZ69qXaT8anotx5FYLIj5p1tgySibFrRUrxR-buSpe-14gwMUnXxoCoUsQAvD_BwE"
+        }
+      ]
+    },
+    {
+      "nome": "Ryzen 7 5700X3D",
+      "fabricante": "AMD",
+      "arquitetura": "Vermeer",
+      "data_lancamento": "01/2024",
+      "clock": {
+        "base": "3 GHz",
+        "boost": "4.1 GHz"
+      },
+      "nucleos": 8,
+      "threads": 16,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "96 MB",
+      "tdp": "105 W",
+      "desempenho": {
+        "single_core": 2970,
+        "multi_core": 26325
+      },
+      "preco_atual": [
+        {
+          "ecommerce_name": "Pichau",
+          "preco": 1600,
+          "link_compra": "https://www.pichau.com.br/processador-amd-ryzen-7-5700x3d-8-core-16-threads-3-0ghz-4-1ghz-turbo-cache-100mb-am4-100-100001503wof?srsltid=AfmBOoqb0qmvlnS8MXqKI73zkCyq5wPffow05-ge8Nfv6V5V1yfnB5VEXXM"
+        }
+      ]
+    },
+    {
+      "nome": "Ryzen 5 5500",
+      "fabricante": "AMD",
+      "arquitetura": "Cezanne",
+      "data_lancamento": "04/2022",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.2 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "16 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3059,
+        "multi_core": 19344
+      },
+      "preco_atual": [
+        {
+          "ecommerce_name": "Pichau",
+          "preco": 509,
+          "link_compra": "https://www.pichau.com.br/processador-amd-ryzen-5-5500-6-core-12-threads-3-6ghz-4-2ghz-turbo-cache-19mb-am4-100-100000457box?gad_source=1&gad_campaignid=17412712029&gbraid=0AAAAADvAK9020BCtcONqbVEhsUOXL1mm4&gclid=CjwKCAjwgb_CBhBMEiwA0p3oOPLdckQPRpJo27ncpCRTrvWf_NRRZzgJhlf1R4K__HlVUaJTSWtZrxoC93oQAvD_BwE"
+        }
+      ]
+    },
+    {
+      "nome": "Core i5-12400F",
+      "fabricante": "Intel",
+      "arquitetura": "Alder Lake-S",
+      "data_lancamento": "01/2022",
+      "clock": {
+        "base": "2.5 GHz",
+        "boost": "4.4 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket 1700",
+      "litografia": "10 nm",
+      "cache": "18 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 3477,
+        "multi_core": 19482
+      },
+      "preco_atual": [
+        {
+          "ecommerce_name": "Terabyte",
+          "preco": 685,
+          "link_compra": "https://www.terabyteshop.com.br/produto/20072/processador-intel-core-i5-12400f-25ghz-44ghz-turbo-12-geracao-6-cores-12-threads-lga-1700-bx8071512400f?gad_source=1&gad_campaignid=16775129218&gbraid=0AAAAADm8AXSUTeymcLgyFbsH-ybatzLjs&gclid=CjwKCAjwgb_CBhBMEiwA0p3oOFEnhCWXd9Y8H5YfjjevzimDHFaek2ViX_zzoJsk7IpRFvuD0PRX6RoCg-QQAvD_BwE"
+        }
+      ]
+    },
+    {
+      "nome": "Ryzen 5 4500",
+      "fabricante": "AMD",
+      "arquitetura": "Renoir",
+      "data_lancamento": "04/2022",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4.1 GHz"
+      },
+      "nucleos": 6,
+      "threads": 12,
+      "soquete": "Socket AM4",
+      "litografia": "7 nm",
+      "cache": "8 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2594,
+        "multi_core": 16113
+      },
+      "preco_atual": [
+        {
+          "ecommerce_name": "Kabum",
+          "preco": 470,
+          "link_compra": "https://www.kabum.com.br/produto/333154/processador-amd-ryzen-5-4500-3-6ghz-4-1ghz-max-turbo-cache-11mb-am4-sem-video-100-100000644box?srsltid=AfmBOorcYTF3I3nBQAAiqKoLsnQTzl2whKW7ud2LFNc3uwlwwmm50Pk9uDE"
+        }
+      ]
+    },
+    {
+      "nome": "Ryzen 3 3200G",
+      "fabricante": "AMD",
+      "arquitetura": "Picasso",
+      "data_lancamento": "07/2019",
+      "clock": {
+        "base": "3.6 GHz",
+        "boost": "4 GHz"
+      },
+      "nucleos": 4,
+      "threads": null,
+      "soquete": "Socket AM4",
+      "litografia": "12 nm",
+      "cache": "4 MB",
+      "tdp": "65 W",
+      "desempenho": {
+        "single_core": 2192,
+        "multi_core": 7047
+      },
+      "preco_atual": [
+        {
+          "ecommerce_name": "Kabum",
+          "preco": 400,
+          "link_compra": "https://www.kabum.com.br/produto/102248/processador-amd-ryzen-3-3200g-3-6ghz-4ghz-max-turbo-cache-4mb-quad-core-4-threads-am4-yd3200c5fhbox?srsltid=AfmBOooow71c3o2KnuwjcDIhylDou1QLVq2kg2b-z6zSs7WQPPhqdzw6du0"
+        }
+      ]
+    }
+  ]
+}
