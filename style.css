@@ -260,9 +260,9 @@ input[type=text]{
     border: none;
     color: white;
     padding: 5px;
-    font-size:1.5em;
+    font-size: 1em;
+    margin-top: 40px;
 } 
 a{
     text-decoration: none;
-    margin-top:25px;
 }
