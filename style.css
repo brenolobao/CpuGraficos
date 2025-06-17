@@ -5,15 +5,6 @@ body {
     background-color: #f4f4f4;
     display: flex;
 }
-a{
-    padding:10px;
-    width:100%;
-    text-align:center;
-    text-decoration:none;
-    color:white;
-    background-color:lightskyblue;
-    margin-top:15px;
-}
 .container {
     display: flex;
     width: 100%;
@@ -257,4 +248,19 @@ body.no-scroll {
 }
 input[type=text]{
     box-sizing: border-box;
+}
+.priceButton{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    overflow: hidden;
+    width: 100%;
+    background-color: #218838;
+    border: none;
+    color: white;
+    padding: 5px;
+} 
+a{
+    text-decoration: none;
 }
