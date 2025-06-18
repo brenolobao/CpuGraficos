@@ -1,37 +1,45 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <title>Comparador de CPUs AMD/Intel (2017-2025)</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-    body {
-        font-family: Arial, sans-serif;
-        margin: 20px;
-    }
-    .cpu-section {
-        margin-bottom: 10px;
-    }
-    input[type="text"], input[type="number"] {
-        margin-right: 10px;
-        padding: 5px;
-    }
-    input[list] {
-        max-width: 300px;
-        width: 100%;
-    }
-    button {
-        padding: 10px 20px;
-        margin-top: 20px;
-    }
-    #chart-container {
-        width: 100%;
-        max-width: 800px;
-        margin-top: 40px;
-    }
-</style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        .cpu-section {
+            margin-bottom: 10px;
+        }
+
+        input[type="text"],
+        input[type="number"] {
+            margin-right: 10px;
+            padding: 5px;
+        }
+
+        input[list] {
+            max-width: 300px;
+            width: 100%;
+        }
+
+        button {
+            padding: 10px 20px;
+            margin-top: 20px;
+        }
+
+        #chart-container {
+            width: 100%;
+            max-width: 800px;
+            margin-top: 40px;
+        }
+    </style>
 
 </head>
+
 <body>
     <h2>Comparador de Custo-Benefício de CPUs (Multi-core / Preço)</h2>
 
@@ -44,6 +52,7 @@
     <div id="chart-container">
         <canvas id="grafico"></canvas>
     </div>
+    <div id="comentarios" style="margin-top: 20px;"></div>
 
     <script>
         let cpus = [];
@@ -87,6 +96,8 @@
         function comparar() {
             const nomesSelecionados = [];
             const beneficios = [];
+            const precos = [];
+            const multicoreScores = [];
 
             for (let i = 0; i < 5; i++) {
                 const nomeCPU = document.getElementById(`cpu-${i}`).value.trim();
@@ -98,7 +109,9 @@
                         const multiCore = cpuData.desempenho.multi_core || 0;
                         const custoBeneficio = multiCore / preco;
                         nomesSelecionados.push(cpuData.nome);
+                        multicoreScores.push(multiCore);
                         beneficios.push(custoBeneficio);
+                        precos.push(preco);
                     } else {
                         alert(`CPU "${nomeCPU}" não encontrado no arquivo JSON.`);
                         return;
@@ -139,7 +152,47 @@
                     }
                 }
             });
+
+            // Gerar Comentários de Comparação
+            const comentariosDiv = document.getElementById('comentarios');
+            comentariosDiv.innerHTML = '';
+
+            // Encontrar o melhor custo-benefício
+            let melhorIndice = 0;
+            for (let i = 1; i < beneficios.length; i++) {
+                if (beneficios[i] > beneficios[melhorIndice]) {
+                    melhorIndice = i;
+                }
+            }
+
+            const melhorCPU = nomesSelecionados[melhorIndice];
+            const melhorPreco = precos[melhorIndice];
+            const melhorDesempenho = multicoreScores[melhorIndice];
+
+            const listaComentarios = document.createElement('ul');
+
+            // Frase inicial
+            const resumo = document.createElement('p');
+            resumo.innerHTML = `<strong>${melhorCPU}</strong> foi o processador com melhor custo-benefício (Multi-core / Preço).`;
+            comentariosDiv.appendChild(resumo);
+
+            for (let i = 0; i < beneficios.length; i++) {
+                if (i !== melhorIndice) {
+                    // Comparação de desempenho
+                    const diferencaDesempenho = (((multicoreScores[i] / melhorDesempenho) - 1) * 100).toFixed(2);
+
+                    // Comparação de preço
+                    const diferencaPreco = (((precos[i] / melhorPreco) - 1) * 100).toFixed(2);
+
+                    const li = document.createElement('li');
+                    li.innerHTML = `<strong>${nomesSelecionados[i]}</strong>: desempenho é <strong>${Math.abs(diferencaDesempenho)}%</strong> ${diferencaDesempenho >= 0 ? 'maior' : 'menor'} que o do <strong>${melhorCPU}</strong>, e o preço é <strong>${Math.abs(diferencaPreco)}%</strong> ${diferencaPreco >= 0 ? 'mais caro' : 'mais barato'}.`;
+                    listaComentarios.appendChild(li);
+                }
+            }
+
+            comentariosDiv.appendChild(listaComentarios);
         }
     </script>
 </body>
+
 </html>
