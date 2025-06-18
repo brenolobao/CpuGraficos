@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Comparador de CPUs AMD/Intel (2017-2025)</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+    }
+    .cpu-section {
+        margin-bottom: 10px;
+    }
+    input[type="text"], input[type="number"] {
+        margin-right: 10px;
+        padding: 5px;
+    }
+    input[list] {
+        max-width: 300px;
+        width: 100%;
+    }
+    button {
+        padding: 10px 20px;
+        margin-top: 20px;
+    }
+    #chart-container {
+        width: 100%;
+        max-width: 800px;
+        margin-top: 40px;
+    }
+</style>
+
+</head>
+<body>
+    <h2>Comparador de Custo-Benefício de CPUs (Multi-core / Preço)</h2>
+
+    <div id="cpuInputs">
+        <!-- Inputs serão gerados aqui -->
+    </div>
+
+    <button onclick="comparar()">Comparar</button>
+
+    <div id="chart-container">
+        <canvas id="grafico"></canvas>
+    </div>
+
+    <script>
+        let cpus = [];
+
+        // Carregar JSON local
+        fetch('cpusAmd-Intel-2017-2025.json')
+            .then(response => response.json())
+            .then(data => {
+                cpus = data.processadores;
+                gerarInputs();
+            })
+            .catch(error => console.error('Erro ao carregar o JSON:', error));
+
+        function gerarInputs() {
+            const container = document.getElementById('cpuInputs');
+
+            // Criar datalist global com todos os nomes de CPUs
+            const dataList = document.createElement('datalist');
+            dataList.id = 'listaCPUs';
+            cpus.forEach(cpu => {
+                const option = document.createElement('option');
+                option.value = cpu.nome;
+                dataList.appendChild(option);
+            });
+            document.body.appendChild(dataList);
+
+            // Criar 5 blocos de inputs
+            for (let i = 0; i < 5; i++) {
+                const div = document.createElement('div');
+                div.className = 'cpu-section';
+                div.innerHTML = `
+                    <input list="listaCPUs" type="text" placeholder="Digite o nome do CPU..." id="cpu-${i}">
+                    <input type="number" placeholder="Preço (R$)" id="preco-${i}" min="1">
+                `;
+                container.appendChild(div);
+            }
+        }
+
+        let chart;
+
+        function comparar() {
+            const nomesSelecionados = [];
+            const beneficios = [];
+
+            for (let i = 0; i < 5; i++) {
+                const nomeCPU = document.getElementById(`cpu-${i}`).value.trim();
+                const preco = parseFloat(document.getElementById(`preco-${i}`).value);
+
+                if (nomeCPU && preco > 0) {
+                    const cpuData = cpus.find(cpu => cpu.nome.toLowerCase() === nomeCPU.toLowerCase());
+                    if (cpuData) {
+                        const multiCore = cpuData.desempenho.multi_core || 0;
+                        const custoBeneficio = multiCore / preco;
+                        nomesSelecionados.push(cpuData.nome);
+                        beneficios.push(custoBeneficio);
+                    } else {
+                        alert(`CPU "${nomeCPU}" não encontrado no arquivo JSON.`);
+                        return;
+                    }
+                }
+            }
+
+            if (nomesSelecionados.length === 0) {
+                alert('Selecione pelo menos um CPU com preço válido.');
+                return;
+            }
+
+            if (chart) chart.destroy();
+
+            const ctx = document.getElementById('grafico').getContext('2d');
+            chart = new Chart(ctx, {
+                type: 'bar',
+                data: {
+                    labels: nomesSelecionados,
+                    datasets: [{
+                        label: 'Custo-Benefício (Multi-core / Preço)',
+                        data: beneficios,
+                        backgroundColor: 'rgba(75, 192, 192, 0.7)',
+                        borderColor: 'rgba(75, 192, 192, 1)',
+                        borderWidth: 1
+                    }]
+                },
+                options: {
+                    indexAxis: 'y',
+                    scales: {
+                        x: {
+                            beginAtZero: true,
+                            title: {
+                                display: true,
+                                text: 'Pontuação / R$'
+                            }
+                        }
+                    }
+                }
+            });
+        }
+    </script>
+</body>
+</html>
