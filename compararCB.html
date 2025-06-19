@@ -6,9 +6,15 @@
     <title>Comparador de CPUs AMD/Intel (2017-2025)</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 20px;
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
         }
 
         .cpu-section {
@@ -17,42 +23,81 @@
 
         input[type="text"],
         input[type="number"] {
-            margin-right: 10px;
-            padding: 5px;
+            width: 100%;
+            margin-bottom: 15px;
+            padding: 7.5px;
+            border-radius: 5px;
+            border: none;
         }
 
-        input[list] {
-            max-width: 300px;
-            width: 100%;
+        .inputs {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 25%;
+            height: 100vh;
+            background-color: lightslategray;
+            padding: 25px;
+        }
+
+        .chart {
+            width: 75%;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 25px;
         }
 
         button {
-            padding: 10px 20px;
+            padding: 10px;
             margin-top: 20px;
+            border: none;
+            border-radius: 5px;
+            width: 100%;
+            background-color: lightskyblue;
+        }
+        button:hover{
+            transform: scale(1.03);
         }
 
         #chart-container {
             width: 100%;
-            max-width: 800px;
-            margin-top: 40px;
+        }
+
+        .chart-comment-box {
+            background-color: #f0f8ff;
+            border: 1px solid #cceeff;
+            border-radius: 8px;
+            padding: 15px;
+            margin-top: 20px;
+            text-align: left;
+            color: #333;
+            font-size: 0.95em;
+            line-height: 1.5;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
         }
     </style>
 
 </head>
 
 <body>
-    <h2>Comparador de Custo-Benefício de CPUs (Multi-core / Preço)</h2>
+    <div class="container">
+        <div class="inputs">
+            <div id="cpuInputs">
+                <!-- Inputs serão gerados aqui -->
+            </div>
 
-    <div id="cpuInputs">
-        <!-- Inputs serão gerados aqui -->
+            <button onclick="comparar()">Comparar</button>
+        </div>
+        <div class="chart">
+            <div id="chart-container">
+                <canvas id="grafico"></canvas>
+            </div>
+            <div id="comentarios" class="chart-comment-box" style="margin-top: 20px;"></div>
+        </div>
     </div>
-
-    <button onclick="comparar()">Comparar</button>
-
-    <div id="chart-container">
-        <canvas id="grafico"></canvas>
-    </div>
-    <div id="comentarios" style="margin-top: 20px;"></div>
 
     <script>
         let cpus = [];
@@ -84,8 +129,9 @@
                 const div = document.createElement('div');
                 div.className = 'cpu-section';
                 div.innerHTML = `
-                    <input list="listaCPUs" type="text" placeholder="Digite o nome do CPU..." id="cpu-${i}">
+                    <input list="listaCPUs" type="text" placeholder="Digite o nome do CPU ${i+1}..." id="cpu-${i}">
                     <input type="number" placeholder="Preço (R$)" id="preco-${i}" min="1">
+                    <hr>
                 `;
                 container.appendChild(div);
             }
