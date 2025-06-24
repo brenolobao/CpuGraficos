@@ -3,6 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comparador de CPUs AMD/Intel (2017-2025)</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
@@ -13,56 +14,104 @@
             overflow: hidden;
         }
 
+        body {
+            height: 100vh;
+        }
+
         .container {
+            height: 100%;
+            width: 100%;
+            position: relative;
+        }
+
+        .sideMenu {
+            position: absolute;
+            left: 0;
+            height: 100vh;
+            width: 25%;
             display: flex;
+            flex-direction: column;
+            padding: 20px;
+            align-items: center;
+            z-index: 2;
+            background: lightslategray;
+        }
+
+        #closeMenu {
+            position: absolute;
+            right: 0;
+            top: 10px;
+            margin-right: 10px;
+        }
+
+        #openMenu {
+            position: absolute;
+            left: 0%;
+            margin: 10px;
+        }
+
+        #openMenu,
+        #closeMenu {
+            border: none;
+            border-radius: 25px;
+            background-color: lightseagreen;
+            padding: 10px;
+        }
+
+        .opened {
+            display: initial;
+        }
+
+        .closed {
+            display: none;
         }
 
         .cpu-section {
-            margin-bottom: 10px;
-        }
-
-        input[type="text"],
-        input[type="number"] {
-            width: 100%;
-            margin-bottom: 15px;
-            padding: 7.5px;
-            border-radius: 5px;
-            border: none;
-        }
-
-        .inputs {
             display: flex;
             flex-direction: column;
             align-items: center;
-            width: 25%;
-            height: 100vh;
-            background-color: lightslategray;
-            padding: 25px;
+            padding: 5px;
+            justify-content: center;
+            border-bottom: 1px solid white;
+        }
+
+        input[type="number"],
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: none;
+            margin: 5px;
+            width: 100%;
+        }
+
+        #cpuInputs {
+            margin-top: 40px;
+        }
+
+        #compareButton {
+            border: none;
+            padding: 10px;
+            width: 100%;
+            background-color: lightskyblue;
+            border: 5px;
+            margin-top: 10px;
         }
 
         .chart {
+            position: absolute;
+            right: 0;
+            display: grid;
+            place-items: center;
+            padding: 20px;
             width: 75%;
             height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 25px;
         }
-
-        button {
-            padding: 10px;
-            margin-top: 20px;
-            border: none;
-            border-radius: 5px;
+        .chart canvas{
             width: 100%;
-            background-color: lightskyblue;
+            height: 75%;
         }
-        button:hover{
-            transform: scale(1.03);
-        }
-
-        #chart-container {
+        .chart-container{
+            height: 75%;
             width: 100%;
         }
 
@@ -78,18 +127,26 @@
             line-height: 1.5;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
         }
+
+        @media (max-width: 640px) {
+            .sideMenu {
+                width: 100%;
+            }
+        }
     </style>
 
 </head>
 
 <body>
     <div class="container">
-        <div class="inputs">
+        <button id="openMenu" onclick="openMenu()">Menu</button>
+        <div id="sideMenu" class="sideMenu closed">
+            <button id="closeMenu" onclick="closeMenu()">Close</button>
             <div id="cpuInputs">
                 <!-- Inputs serão gerados aqui -->
             </div>
 
-            <button onclick="comparar()">Comparar</button>
+            <button id="compareButton" onclick="comparar(), closeMenu()">Comparar</button>
         </div>
         <div class="chart">
             <div id="chart-container">
@@ -100,6 +157,48 @@
     </div>
 
     <script>
+        const sideMenu = document.getElementById('sideMenu')
+        const openMenuButton = document.getElementById('openMenu')
+        const closeMenuButton = document.getElementById('closeMenu')
+
+        function closeMenu() {
+            sideMenu.classList.add('closed')
+            sideMenu.classList.remove('opened')
+            openMenuButton.style.left = "0%"
+        }
+        function openMenu() {
+            sideMenu.classList.remove('closed')
+            sideMenu.classList.add('opened')
+
+            openMenuButton.style.left = "25%"
+
+        }
+        function myFunction(x) {
+            if (x.matches) { // If media query matches
+                sideMenu.classList.add('closed')
+                sideMenu.classList.remove('opened')
+
+                openMenuButton.style.display = "initial"
+                closeMenuButton.style.display = "initial"
+            } else {
+                sideMenu.classList.add('opened')
+                sideMenu.classList.remove('closed')
+                openMenuButton.style.display = "none"
+                closeMenuButton.style.display = "none"
+            }
+        }
+
+        // Create a MediaQueryList object
+        var x = window.matchMedia("(max-width: 640px)")
+
+        // Call listener function at run time
+        myFunction(x);
+
+        // Attach listener function on state changes
+        x.addEventListener("change", function () {
+            myFunction(x);
+        });
+
         let cpus = [];
 
         // Carregar JSON local
@@ -129,7 +228,7 @@
                 const div = document.createElement('div');
                 div.className = 'cpu-section';
                 div.innerHTML = `
-                    <input list="listaCPUs" type="text" placeholder="Digite o nome do CPU ${i+1}..." id="cpu-${i}">
+                    <input list="listaCPUs" type="text" placeholder="Digite o nome do CPU ${i + 1}..." id="cpu-${i}">
                     <input type="number" placeholder="Preço (R$)" id="preco-${i}" min="1">
                     <hr>
                 `;
